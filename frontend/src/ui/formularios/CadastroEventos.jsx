@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 
+
+const localRecursos = 'http://localhost:4000/evento'
+ 
 export default function CadastroEventos(props){
     const [evento,setEvento] = useState(props.evento);
     const [formValidado, setFormValidado] = useState(false);
@@ -75,7 +78,7 @@ export default function CadastroEventos(props){
                         <Col xs={12} md={3}>
                             <Form.Label>Código:</Form.Label>
                         </Col>
-                        <Col xs={12} md={4}>
+                        <Col xs={12} md={3}>
                             <Form.Control 
                             type="text" 
                             id="id" 
@@ -85,6 +88,23 @@ export default function CadastroEventos(props){
                             onBlur={verificaCodigo} disabled/>
                             <Form.Control.Feedback type="invalid">
                                 Código inválido.
+                            </Form.Control.Feedback>
+                        </Col>
+                        <Col xs={12} md={2}>
+                            <Form.Label>Responsável:</Form.Label>
+                        </Col>
+                        <Col xs={12} md={3}>
+                            <Form.Control 
+                            type="text" 
+                            id="respevento" 
+                            name="respevento" 
+                            placeholder="Nome do Responsável"
+                            value={evento.respevento}
+                            onChange={manipularMudanca}
+                            onBlur={verificaNome}
+                            />
+                            <Form.Control.Feedback type="invalid">
+                                O nome do responsável deve ter pelo menos 4 caracteres.
                             </Form.Control.Feedback>
                         </Col>
                     </Row>
@@ -97,7 +117,7 @@ export default function CadastroEventos(props){
                             type="text" 
                             id="nomeEvent" 
                             name="nomeEvent" 
-                            placeholder="Digite o nome do Evento"
+                            placeholder="Digite o Nome do Evento"
                             value={evento.nomeEvent}
                             onChange={manipularMudanca}
                             onBlur={verificaNome}
@@ -114,7 +134,7 @@ export default function CadastroEventos(props){
                             type="date" 
                             id="data" 
                             name="data" 
-                            placeholder="Digite a data do Evento"
+                            placeholder="Digite a Data do Evento"
                             value={evento.data}
                             onChange={manipularMudanca}
                             onBlur={verificaNome}
@@ -130,10 +150,10 @@ export default function CadastroEventos(props){
                             type="text" 
                             id="descricao" 
                             name="descricao" 
-                            placeholder="Digite a descrição do Evento"
+                            placeholder="Digite a Descrição do Evento"
                             value={evento.descricao}
                             onChange={manipularMudanca}
-                            onBlur={verificaDescricao}
+                            
                             />
                             <Form.Control.Feedback type="invalid">
                                 A descrição do evento deve ter pelo menos 6 caracteres.
@@ -144,13 +164,13 @@ export default function CadastroEventos(props){
                         <Col xs={12} md={3}>
                             <Form.Label>Rua do Evento:</Form.Label>
                         </Col>
-                        <Col xs={12} md={3}>
+                        <Col xs={12} md={4}>
                             <Form.Control 
                             type="text" 
-                            id="endereco" 
-                            name="endereco" 
-                            placeholder="Digite a endereço do Evento"
-                            value={evento.endereco}
+                            id="rua" 
+                            name="rua" 
+                            placeholder="Digite a Rua do Evento"
+                            value={evento.rua}
                             onChange={manipularMudanca}
                             onBlur={verificaDescricao}
                             />
@@ -158,25 +178,46 @@ export default function CadastroEventos(props){
                                 O endereço do evento deve ter pelo menos 6 caracteres.
                             </Form.Control.Feedback>
                         </Col>
+                     
+                        <Col xs={12} md={2}>
+                            <Form.Label>Bairro do Evento:</Form.Label>
+                        </Col>
+                        <Col xs={12} md={2}>
+                            <Form.Control 
+                            type="text" 
+                            id="bairro" 
+                            name="bairro" 
+                            placeholder="Bairro"
+                            value={evento.bairro}
+                            onChange={manipularMudanca}
+                            onBlur={verificaDescricao}
+                            />
+                            <Form.Control.Feedback type="invalid">
+                                O Bairro do evento deve ter pelo menos 6 caracteres.
+                            </Form.Control.Feedback>
+                        </Col>
+                        </Row>
+                        <Row className="m-3"> 
                         <Col xs={12} md={3}>
                             <Form.Label>Cidade do Evento:</Form.Label>
                         </Col>
-                        <Col xs={12} md={3}>
+                        <Col xs={12} md={4}>
                             <Form.Control 
                             type="text" 
-                            id="cid" 
-                            name="cid" 
+                            id="cidade" 
+                            name="cidade" 
                             placeholder="Digite a Cidade do Evento"
-                            value={evento.endereco}
+                            value={evento.cidade}
                             onChange={manipularMudanca}
                             onBlur={verificaDescricao}
                             />
                             <Form.Control.Feedback type="invalid">
-                                O endereço do evento deve ter pelo menos 6 caracteres.
+                                A cidade do evento deve ter pelo menos 6 caracteres.
                             </Form.Control.Feedback>
                         </Col>
-                        <Row className="m-2">
-                        <Col xs={12} md={3}>
+
+                        
+                        <Col xs={12} md={2}>
                             <Form.Label>N° do endereço:</Form.Label>
                         </Col>
                         <Col xs={12} md={3}>
@@ -184,16 +225,15 @@ export default function CadastroEventos(props){
                             type="number" 
                             id="num" 
                             name="num" 
-                            placeholder="Digite a Número do Evento"
+                            placeholder="Número do Endereço"
                             value={evento.num}
                             onChange={manipularMudanca}
-                            onBlur={verificaDescricao}
                             />
                             <Form.Control.Feedback type="invalid">   
                             </Form.Control.Feedback>
                         </Col>
-                    </Row>
-                    </Row>
+                    
+                        </Row>
                     <Row className="m-3">
                         <Col xs={12} md={{offset:5}}>
                             <Button variant="success" type="submit">Cadastrar</Button>

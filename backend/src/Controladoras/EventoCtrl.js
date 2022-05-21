@@ -16,15 +16,17 @@ module.exports = {
         let lista = []
         let novo = new Evento(null,null,null,null,null,null,null,null,null)
         lista = await novo.listar(db)
-        console.log(lista)
+        
         return response.json(lista)
     },
 
     async gravarEvento(request, response) {
         const evento =  {...request.body}
         const con = await db.conecta()
-        let novo = new Evento(null,evento.nomeEvent,evento.descricao,evento.rua,evento.bairro,evento.cidade,evento.num,evento.data,evento.respevento)
-        await novo.gravar(db)        
+        let novo = new Evento(null,evento.nomeEvent,evento.descricao,evento.rua,evento.bairro,evento.cidade,evento.num,evento.data,evento.respevento)   
+        await novo.gravar(db)    
+        console.log("deu certo esse caralho")  
+        console.log(response.json(novo))    
         return response.json(novo)
     },
 
@@ -37,7 +39,7 @@ module.exports = {
     },
 
     async excluirEvento(request, response) {
-        const evento =  {...request.body}
+        const evento =  {...request.params}
         const con = await db.conecta()
         let novo = new Evento(evento.id,null,null,null,null,null,null,null,null)
         await novo.excluir(db)   

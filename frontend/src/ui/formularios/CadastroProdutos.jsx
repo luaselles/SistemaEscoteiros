@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 
+
+const localRecursos = 'http://localhost:4000/eventos';
+
 export default function CadastroProdutos(props){
     const [produto,setProduto] = useState(props.produto);
     const [formValidado, setFormValidado] = useState(false);

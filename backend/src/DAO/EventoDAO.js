@@ -1,7 +1,7 @@
 module.exports = class EventoDAO{
 
     async gravar(evento, db) {
-        let sql = "INSERT INTO evento (nomeevento, descricao, rua, bairro, cidade, data, resevento) " +
+        let sql = "INSERT INTO evento (nomeevento, descricao, rua, bairro, cidade, num, data, resevento) " +
             "VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
         const valores = [evento.getnomeEvent(), evento.getdescricao(), evento.getrua(), evento.getbairro(), evento.getcidade(), evento.getnum(), evento.getdata(), evento.getrespevento()]
         const result = await db.manipula(sql, valores)
@@ -9,17 +9,18 @@ module.exports = class EventoDAO{
     }
 
     async alterar(evento, db) {
-        let sql = "UPDATE evento SET nomeevento = ?, descricao = ?, rua = ?, bairro = ?, cidade = ?, data = ?, resevento = ? WHERE id = ?"
+        let sql = "UPDATE evento SET nomeevento = ?, descricao = ?, rua = ?, bairro = ?, cidade = ?, num = ?, data = ?, resevento = ? WHERE id = ?"
         const valores = [evento.getnomeEvent(), evento.getdescricao(), evento.getrua(), evento.getbairro(), evento.getcidade(), evento.getnum(), evento.getdata(), evento.getrespevento(), evento.getid()]
         const result = await db.manipula(sql, valores);
         return result
     }
 
     async excluir(evento, db) {
-        let sql = "DELETE FROM evento WHERE id = ?";
-        const valor = [evento.id()];
-        const result = await db.manipula(sql, valor);
-        return result;
+        let sql = "DELETE FROM evento WHERE id = ?"
+        const valor = [evento.getid()]
+        const result = await db.manipula(sql, valor)
+        console.log(result)
+        return result
     }
 
     async listar(db) {

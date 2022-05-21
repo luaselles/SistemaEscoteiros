@@ -1,6 +1,4 @@
 const EventoDAO = require('../DAO/EventoDAO')
-
-
 class Evento {
 
     constructor(id,nomeEvent,descricao,rua,bairro,cidade,num,data,respevento){
@@ -40,7 +38,6 @@ class Evento {
         this.descricao = desc;
     }
 
-    
     getrua(){
         return this.rua;
     }
@@ -50,7 +47,7 @@ class Evento {
     }
 
      
-    getbairro(){
+    getbairro() {
         return this.bairro;
     }
 
@@ -101,7 +98,7 @@ class Evento {
     }
 
     async excluir(db){
-        await new EventoDAO().deletar(this,db)
+        await new EventoDAO().excluir(this,db)
     }
 
     async buscarId(id,db){
