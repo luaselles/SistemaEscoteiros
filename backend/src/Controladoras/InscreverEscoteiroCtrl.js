@@ -6,7 +6,7 @@ module.exports = {
     async InscreverEscoteiro(request, response){
         const escoteiro = {...request.params}
         const con = await db.conecta()
-        let novo = await new Escoteiro().InscreverEscoteiro(escoteiro.id,db)
+        let novo = await new Escoteiro().InscreverEscoteiro(escoteiro.idescoteiro,db)
         novo.setstatus(1)
         await novo.alterar(db) 
         return response.json(novo)

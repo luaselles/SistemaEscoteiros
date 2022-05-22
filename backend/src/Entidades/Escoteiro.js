@@ -32,6 +32,7 @@ class Escoteiro {
         this.status = status;
     }
 
+
     async alterar(db){
         await new EscoteiroDAO().alterar(this,db)
     }
@@ -51,3 +52,4 @@ class Escoteiro {
         return lista
     }
 }
+module.exports = Escoteiro;
