@@ -1,16 +1,15 @@
-const Evento = require('../Entidades/Escoteiro')
+const Escoteiro = require('../Entidades/Escoteiro')
 const db = require('../Database.js')
 
 module.exports = {
 
-    async listarEventos(request, response) {
+    async InscreverEscoteiro(request, response){
+        const escoteiro = {...request.params}
         const con = await db.conecta()
-        let lista = []
-        let novo = new Evento(null,null,null,null,null,null,null,null,null)
-        lista = await novo.listar(db)
-        
-        return response.json(lista)
+        let novo = await new Escoteiro().InscreverEscoteiro(escoteiro.id,db)
+        novo.setstatus(1)
+        await novo.alterar(db) 
+        return response.json(novo)
     }
 
-    
 }

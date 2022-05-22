@@ -32,6 +32,16 @@ class Escoteiro {
         this.status = status;
     }
 
+    async alterar(db){
+        await new EscoteiroDAO().alterar(this,db)
+    }
+
+    async buscarId(id,db){
+        const result = await new EscoteiroDAO().listarId(id,db)
+        let obj = new Escoteiro(result.data[i].idescoteiro, result.data[0].nomeescoteiro, result.data[0].status)
+        return obj
+    }
+
     async listarnaoinscritos(db){
         const result = await new EscoteiroDAO().listarNaoInscritas(db)
         let lista = []
