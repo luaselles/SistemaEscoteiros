@@ -62,6 +62,7 @@ export default function ControladoraCadastroProdutos(props){
     }
 
     function deletarProduto(produto) {
+        if (window.confirm("Deseja excluir o item?")){
         fetch(localRecursos + "/" + produto.id, {
             method: "DELETE",
             headers: { 'Content-Type': 'application/json' },
@@ -76,6 +77,7 @@ export default function ControladoraCadastroProdutos(props){
                 }
                 setEstaAtualizando(false);
             });
+        }
     }
     function atualizarProduto(produto) {
         setEstaAtualizando(true);
