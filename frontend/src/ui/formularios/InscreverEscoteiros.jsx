@@ -49,7 +49,7 @@ export default function InscreverEscoteiros(props) {
             return (
                 <div>
 
-                    {mostrarTabela ? <TabelaCadastroEventos eventos={eventos} atualizarEvento={atualizarEvento} deletarEvento={deletarEvento} /> :
+                    {mostrarTabela ? <TabeladeCadastrados eventos={eventos} atualizarEvento={atualizarEvento} deletarEvento={deletarEvento} /> :
                         <CadastroEventos onGravar={gravarEvento} evento={atualizandoEvento} />}
 
                     <Button onClick={() => setMostrarTabela(!mostrarTabela)}>
