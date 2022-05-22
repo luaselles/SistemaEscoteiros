@@ -1,7 +1,7 @@
 import { Table, Button } from "react-bootstrap";
 import { IconeEdicao, IconeExclusao } from "../icones/icones";
 
-export default function TabelaCadastroProdutos(props){
+export default function TabelaCadastroEventos(props){
     return(
         <Table striped bordered hover>
             <thead>
