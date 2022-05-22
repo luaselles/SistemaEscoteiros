@@ -2,6 +2,7 @@ const { Router } = require('express');
 const routes = Router();
 
 const EventCtrl = require('./Controladoras/EventoCtrl');
+const ProdutoCtrl = require('./Controladoras/ProdutoCtrl');
 
 const InscrCtrl = require('./Controladoras/InscreverEscoteiroCtrl');
 
@@ -16,6 +17,11 @@ routes.post('/evento', EventCtrl.gravarEvento);
 routes.get('/evento', EventCtrl.listarEventos);
 routes.put('/evento', EventCtrl.alterarEvento);
 routes.delete('/evento/:id', EventCtrl.excluirEvento);
+
+routes.post('/produto', ProdutoCtrl.gravarProduto);
+routes.get('/produto', ProdutoCtrl.listarProdutos);
+routes.put('/produto', ProdutoCtrl.alterarProduto);
+routes.delete('/produto/:id', ProdutoCtrl.excluirProduto);
 
 routes.get('/inscreverescoteiro', InscrCtrl.listarnaoinscritos);
 
