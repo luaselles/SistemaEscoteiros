@@ -10,6 +10,14 @@ module.exports = {
         novo.setstatus(1)
         await novo.alterar(db) 
         return response.json(novo)
+    },
+
+    async listarPorStatus(request, response){
+        const escoteiro = {...request.body}
+        const con = await db.conecta()
+        let novo = new Escoteiro(null,null,escoteiro.status)
+        await novo.listarPorStatus(novo.getstatus(),db)
+        return response.json(novo)
     }
 
 }
