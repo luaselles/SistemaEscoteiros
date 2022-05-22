@@ -25,8 +25,7 @@ module.exports = class EventoDAO{
 
     async listar(db) {
         const sql = "SELECT * FROM evento"
-        const result = await db.consulta(sql, null);
-        
+        const result = await db.consulta(sql, null);   
         return result;
     }
 
@@ -36,4 +35,5 @@ module.exports = class EventoDAO{
         const result = await db.consulta(sql,valores);
         return result;
     }
+
 }
