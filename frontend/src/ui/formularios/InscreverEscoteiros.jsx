@@ -5,13 +5,22 @@ import '../../estilos/tabelacadastrados.css'
 const localRecursos = 'http://localhost:4000/inscreverescoteiro'
  
 export default function InscreverEscoteiros(props){
-    const [escoteiro,setEscoteiros] = useState(props.escoteiro);
-    const [formValidado, setFormValidado] = useState(false);
+
+    idescoteiro: document.getElementById('escoteiro').value
+
 
     return(
         <Container>
         <div class="flex-container">
-            <div><p>CONTEUDO AQUIII</p></div>
+            <form>
+            <div>
+                <form>
+                <SelectCadastrados escoteiros ={lista} />
+                </form> 
+            </div>
+
+            <button>Inscrever</button>
+            </form>
             </div>
             </Container>
         );
