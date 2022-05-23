@@ -1,4 +1,4 @@
-module.exports = class ProdutoDAO{
+module.exports = class ReceberMensalidadeDAO{
 
     //constructor(id,valor,dataPag,dataVen,idEscoteiro)
 
@@ -38,4 +38,10 @@ module.exports = class ProdutoDAO{
         return result;
     }
 
+    async listarContasEscoteiro(idEscoteiro,db){
+        const sql = "SELECT * from mensalidade where idEscoteiro = ?"
+        const valores = [idEscoteiro]
+        const result = await db.consulta(sql,valores);
+        return result;
+    }
 }

@@ -106,7 +106,7 @@ export default function ControladoraCadastroProdutos(props){
                                <CadastroProdutos onGravar={gravarProduto} produto={atualizandoProduto}/>}
            
            <Button onClick={()=>setMostrarTabela(!mostrarTabela)}>
-                   Cadastrar
+                   Voltar
                </Button>
             </div> 
             
