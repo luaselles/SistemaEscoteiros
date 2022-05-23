@@ -9,6 +9,9 @@ export default function Home(props){
                 <br></br>
                 <br></br>
                 <a className="aa" href="/Produtos">Tabela de Produtos</a>
+                <br></br>
+                <br></br>
+                <a className="aa" href="/inscreverescoteiro">Inscrever Escoteiros</a>
         </div>
     </div>
     );

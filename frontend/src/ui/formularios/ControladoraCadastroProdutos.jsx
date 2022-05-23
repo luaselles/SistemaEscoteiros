@@ -4,7 +4,7 @@ import CadastroProdutos from "./CadastroProdutos";
 import TabelaCadastroProdutos from "./TabelaCadastroProdutos";
 import { Button, Spinner } from "react-bootstrap";
 
-const localRecursos = 'http://localhost:4000/produtos';
+const localRecursos = 'http://localhost:4000/produto';
 
 export default function ControladoraCadastroProdutos(props){
     const [mostrarTabela, setMostrarTabela] = useState(true);
@@ -61,24 +61,25 @@ export default function ControladoraCadastroProdutos(props){
         }
     }
 
-    function deletarProduto(produto)
-    {
-        fetch(localRecursos,{method:"DELETE",
-                                headers:{'Content-Type':'application/json'},
-                                body:JSON.stringify(produto)
+    function deletarProduto(produto) {
+        if (window.confirm("Deseja excluir o item?")){
+        fetch(localRecursos + "/" + produto.id, {
+            method: "DELETE",
+            headers: { 'Content-Type': 'application/json' },
         })
-        .then(resposta=>resposta.json())
-        .then(retorno => {
-            if (retorno.resultado){
-                alert('Produto Excluido com sucesso!');
-            }
-            else{
-                alert('Não foi possível excluir o produto!');
-            }
-            setEstaAtualizando(false);
-        });
+            .then(resposta => resposta.json())
+            .then(retorno => {
+                if (retorno.resultado) {
+               
+                }
+                else {
+                 
+                }
+                setEstaAtualizando(false);
+            });
+        }
     }
-    function atualizarProduto(produto){
+    function atualizarProduto(produto) {
         setEstaAtualizando(true);
         setAtualizandoProduto(produto);
         setMostrarTabela(false);

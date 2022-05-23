@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 
+
+const localRecursos = 'http://localhost:4000/produto';
+
 export default function CadastroProdutos(props){
     const [produto,setProduto] = useState(props.produto);
     const [formValidado, setFormValidado] = useState(false);
@@ -81,6 +84,7 @@ export default function CadastroProdutos(props){
             <Form noValidate validated={formValidado} onSubmit={manipularSubmissaoDados} method="get" action="#">
                 <fieldset className="border bg-light p-5 m-2">
                     <h3>Cadastro de produtos:</h3>
+                    <p>*Todos os campos são obrigatórios</p>
                     <Row className="m-3">
                         <Col xs={12} md={3}>
                             <Form.Label>Código:</Form.Label>

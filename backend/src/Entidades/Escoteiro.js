@@ -1,57 +1,63 @@
 const EscoteiroDAO = require('../DAO/EscoteiroDAO')
-
-
 class Escoteiro {
 
-    constructor(id, nome, cpf, registro, telefone, secao) {
+    constructor(id, nome, cpf, registro, telefone, secao, status) {
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;
         this.registro = registro;
         this.telefone = telefone;
         this.secao = secao;
+        this.status = status;
     }
 
-    get id() {
+    getId() {
         return this.id;
     }
-    set id(novoId) {
+    setId(novoId) {
         this.id = novoId;
     }
 
-    get nome() {
+    getNome() {
         return this.nome;
     }
-    set nome(novoNome) {
+    setNome(novoNome) {
         this.nome = novoNome;
     }
 
-    get cpf() {
+    getCpf() {
         return this.cpf;
     }
-    set cpf(novoCpf) {
+    setCpf(novoCpf) {
         this.cpf = novoCpf;
     }
 
-    get registro() {
+    getRegistro() {
         return this.registro;
     }
-    set registro(novoRegistro) {
+    setRegistro(novoRegistro) {
         this.registro = novoRegistro;
     }
 
-    get telefone() {
+    getTelefone() {
         return this.telefone;
     }
-    set telefone(novoTelefone) {
+    setTelefone(novoTelefone) {
         this.telefone = novoTelefone;
     }
 
-    get secao() {
+    getSecao() {
         return this.secao;
     }
-    set secao(novaSecao) {
+    setSecao(novaSecao) {
         this.secao = novaSecao;
+    }
+
+    getStatus() {
+        return this.status;
+    }
+    setStatus(novoStatus) {
+        this.status = novoStatus;
     }
 
     async gravar(db) {
@@ -77,7 +83,23 @@ class Escoteiro {
         const result = await new EscoteiroDAO().listar(db)
         let lista = []
         for (let i = 0; i < result.data.length; i++) {
-            lista.push(new Escoteiro(result.data[i].id, result.data[i].nome, result.data[i].cpf, result.data[i].registro, result.data[i].telefone, result.data[i].secao,))
+            lista.push(new Escoteiro(result.data[i].id, result.data[i].nome, result.data[i].cpf, result.data[i].registro, result.data[i].telefone, result.data[i].secao))
+        }
+    }
+
+    async buscarId(id,db){
+        const result = await new EscoteiroDAO().listarId(id,db)
+        console.log(result) 
+        let obj = new Escoteiro(result.data[i].id, result.data[i].nome, result.data[i].cpf, result.data[i].registro, result.data[i].telefone, result.data[i].secao, result.data[0].status)
+        return obj
+       
+    }
+
+    async listarnaoinscritos(db){
+        const result = await new EscoteiroDAO().listarNaoInscritas(db)
+        let lista = []
+        for(let i = 0;i<result.data.length;i++){
+            lista.push(new Escoteiro(result.data[i].id, result.data[i].nome, result.data[i].cpf, result.data[i].registro, result.data[i].telefone, result.data[i].secao, result.data[i].status))
         }
         return lista
     }

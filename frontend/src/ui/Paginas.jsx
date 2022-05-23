@@ -3,6 +3,7 @@ import { Pagina } from "../templates/ui/Pagina";
 import ControladoraCadastroProdutos from "./formularios/ControladoraCadastroProdutos";
 import ControladoraCadastroEventos from "./formularios/ControladoraCadastroEventos";
 import Home from "./formularios/Home";
+import ControladoraInscreverEscoteiros from "./formularios/ControladoraInscreverEscoteiros";
 
 export function PaginaHome(props){
     return(
@@ -34,6 +35,32 @@ export function PaginaEvento(props){
     return(
         <Pagina>
             <ControladoraCadastroEventos/>
+        </Pagina>
+    );
+}
+
+export function PaginaEscoteiro(props){
+
+    function manipulaSubmissaoDados(e){
+        e.preventDefault();
+    }
+
+    return(
+        <Pagina>
+            <ControladoraCadastroEscoteiros/>
+        </Pagina>
+    );
+}
+
+export function PaginaInscreverEscoteiros(props){
+
+    function manipulaSubmissaoDados(e){
+        e.preventDefault();
+    }
+
+    return(
+        <Pagina>
+            <ControladoraInscreverEscoteiros/>
         </Pagina>
     );
 }

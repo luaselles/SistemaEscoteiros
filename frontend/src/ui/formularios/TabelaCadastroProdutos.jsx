@@ -4,6 +4,8 @@ import '../../estilos/tabela.css'
 
 export default function TabelaCadastroProdutos(props){
     return(
+        <div>
+        <h3>Produtos:</h3>
         <Table striped bordered hover>
             <thead>
                 <tr>
@@ -34,5 +36,6 @@ export default function TabelaCadastroProdutos(props){
                 })}
             </tbody>    
         </Table>
+        </div>
     );
 }
