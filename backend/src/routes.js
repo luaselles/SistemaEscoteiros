@@ -24,5 +24,6 @@ routes.put('/produto', ProdutoCtrl.alterarProduto);
 routes.delete('/produto/:id', ProdutoCtrl.excluirProduto);
 
 routes.get('/inscreverescoteiro/:id', InscrCtrl.InscreverEscoteiro);
+routes.put('/inscreverescoteiro', InscrCtrl.listarPorStatus);
 
 module.exports = routes;
