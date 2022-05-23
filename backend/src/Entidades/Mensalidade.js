@@ -79,3 +79,17 @@ class Mensalidade {
     }
 }
 module.exports = Mensalidade;
+
+/*create table mensalidade
+(
+    id int not null,
+    valor decimal(5,2) not null,
+    dataPag date,
+    dataVen date not null,
+    idEscoteiro int not null,
+    CONSTRAINT pk_Mensagem
+    	PRIMARY KEY (id),
+   	CONSTRAINT fk_mensalidadeEscoteiro
+    	FOREIGN KEY (idEscoteiro)
+    	REFERENCES escoteiro (idescoteiro)
+);*/

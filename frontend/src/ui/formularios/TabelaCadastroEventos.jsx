@@ -3,6 +3,8 @@ import { IconeEdicao, IconeExclusao } from "../icones/icones";
 
 export default function TabelaCadastroEventos(props){
     return(
+        <div>
+        <h3>Eventos:</h3>
         <Table striped bordered hover>
             <thead>
                 <tr>
@@ -38,5 +40,6 @@ export default function TabelaCadastroEventos(props){
                 })}
             </tbody>    
         </Table>
+        </div>
     );
 }
