@@ -45,8 +45,8 @@ class Escoteiro {
        
     }
 
-    async listarnaoinscritos(db){
-        const result = await new EscoteiroDAO().listarNaoInscritas(db)
+    async listarnaoinscritos(status,db){
+        const result = await new EscoteiroDAO().listarNaoInscritas(status,db)
         let lista = []
         for(let i = 0;i<result.data.length;i++){
             lista.push(new Escoteiro(result.data[i].idescoteiro, result.data[i].nomeescoteiro, result.data[i].status))

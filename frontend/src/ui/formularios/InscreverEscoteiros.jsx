@@ -17,7 +17,7 @@ export default function InscreverEscoteiros(props){
     }, [])
 
     async function fetchInscreverescoteiros() {
-        await fetch('http://localhost:4000/inscreverescoteiro'+localStorage.getItem("idescoteiro"),{method:"GET"})
+        await fetch('localhost:4000/inscreverescoteiro/status/0',{method:"GET"})
         .then(resposta=>resposta.json())
         .then(dados=>{
             setlista(dados);
@@ -25,11 +25,12 @@ export default function InscreverEscoteiros(props){
         error =>{
             alert(error)
         });
+        console.log(lista)
     }
 
 
     function Inscrever() {
-        setInscricao({idescoteiro: document.getElementById('idescoteiro').value}); 
+        setInscricao({idescoteiro: document.getElementById('escoteiro').value}); 
 }
 
     async function InscreverSubmit(e) {
