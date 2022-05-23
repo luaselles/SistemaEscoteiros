@@ -3,7 +3,7 @@ import { Pagina } from "../templates/ui/Pagina";
 import ControladoraCadastroProdutos from "./formularios/ControladoraCadastroProdutos";
 import ControladoraCadastroEventos from "./formularios/ControladoraCadastroEventos";
 import Home from "./formularios/Home";
-import ControladoraInscreverEscoteiros from "./formularios/ControladoraInscreverEscoteiros";
+import InscreverEscoteiros from "./formularios/InscreverEscoteiros";
 
 export function PaginaHome(props){
     return(
@@ -60,7 +60,7 @@ export function PaginaInscreverEscoteiros(props){
 
     return(
         <Pagina>
-            <ControladoraInscreverEscoteiros/>
+            <InscreverEscoteiros/>
         </Pagina>
     );
 }

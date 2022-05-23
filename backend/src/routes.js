@@ -30,5 +30,6 @@ routes.put('/escoteiro', EscoteiroCtrl.alterarEscoteiro);
 routes.delete('/escoteiro/:id', EscoteiroCtrl.excluirEscoteiro);
 
 routes.get('/inscreverescoteiro/:id', InscrCtrl.InscreverEscoteiro);
+routes.put('/inscreverescoteiro', InscrCtrl.listarPorStatus);
 
 module.exports = routes;
