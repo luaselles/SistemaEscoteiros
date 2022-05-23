@@ -70,6 +70,7 @@ export default function ControladoraCadastroEventos(props) {
     }
 
     function deletarEvento(evento) {
+        if (window.confirm("Deseja excluir o item?")){
         fetch(localRecursos + "/" + evento.id, {
             method: "DELETE",
             headers: { 'Content-Type': 'application/json' },
@@ -84,6 +85,7 @@ export default function ControladoraCadastroEventos(props) {
                 }
                 setEstaAtualizando(false);
             });
+    }
     }
     function atualizarEvento(evento) {
         setEstaAtualizando(true);

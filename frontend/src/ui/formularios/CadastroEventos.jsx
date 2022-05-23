@@ -74,6 +74,7 @@ export default function CadastroEventos(props){
             <Form noValidate validated={formValidado} onSubmit={manipularSubmissaoDados} method="get" action="#">
                 <fieldset className="border bg-light p-5 m-2">
                     <h3>Cadastro de Eventos:</h3>
+                    <p>*Todos os campos são obrigatórios</p>
                     <Row className="m-3">
                         <Col xs={12} md={3}>
                             <Form.Label>Código:</Form.Label>
