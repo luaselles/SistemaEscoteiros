@@ -39,8 +39,10 @@ class Escoteiro {
 
     async buscarId(id,db){
         const result = await new EscoteiroDAO().listarId(id,db)
-        let obj = new Escoteiro(result.data[i].idescoteiro, result.data[0].nomeescoteiro, result.data[0].status)
+        console.log(result) 
+        let obj = new Escoteiro(result.data[0].idescoteiro, result.data[0].nomeescoteiro, result.data[0].status)
         return obj
+       
     }
 
     async listarnaoinscritos(db){
@@ -51,5 +53,6 @@ class Escoteiro {
         }
         return lista
     }
+
 }
 module.exports = Escoteiro;

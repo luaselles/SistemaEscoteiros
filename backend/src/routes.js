@@ -23,6 +23,6 @@ routes.get('/produto', ProdutoCtrl.listarProdutos);
 routes.put('/produto', ProdutoCtrl.alterarProduto);
 routes.delete('/produto/:id', ProdutoCtrl.excluirProduto);
 
-routes.get('/inscreverescoteiro', InscrCtrl.InscreverEscoteiro);
+routes.get('/inscreverescoteiro/:id', InscrCtrl.InscreverEscoteiro);
 
 module.exports = routes;

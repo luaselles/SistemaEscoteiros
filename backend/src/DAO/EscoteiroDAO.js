@@ -10,6 +10,7 @@ module.exports = class EscoteiroDAO{
     async listarId(id,db){
         const sql = "SELECT * from escoteiro where idescoteiro = ?"
         const valores = [id]
+        console.log(valores)
         const result = await db.consulta(sql,valores);
         return result;
     }
