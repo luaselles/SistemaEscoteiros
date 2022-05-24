@@ -28,7 +28,7 @@ class Mensalidade {
         return this.data;
     }
 
-    setdataPag(novadata){
+    setdata(novadata){
         this.data = novadata;
     }
 
