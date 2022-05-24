@@ -6,7 +6,6 @@ class Mensalidade {
         this.valor = valor;
         this.data = data;
         this.status=status;
-        this.idEscoteiro=idEscoteiro;
     }
 
     getid(){
