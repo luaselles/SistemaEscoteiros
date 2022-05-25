@@ -9,7 +9,6 @@ module.exports =
         const con = await db.conecta()
         let novo = await new Mensalidade().buscarId(mensalidade.id,db)
         novo.setdataPag(data)
-        //console.log(novo)
         await novo.alterar(db) 
         return response.json(novo)
     },
