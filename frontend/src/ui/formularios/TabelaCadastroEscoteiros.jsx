@@ -3,6 +3,8 @@ import { IconeEdicao, IconeExclusao } from "../icones/icones";
 
 export default function TabelaCadastroEscoteiros(props){
     return(
+        <div>
+        <h3>Ecoteiros:</h3>
         <Table striped bordered hover>
             <thead>
                 <tr>
@@ -17,8 +19,8 @@ export default function TabelaCadastroEscoteiros(props){
             <tbody>
                 {props.escoteiros.map((escoteiro)=>{
                     return (
-                        <tr key={escoteiro.id}>
-                            <td>{escoteiro.id}</td>
+                        <tr key={escoteiro.idescoteiro}>
+                            <td>{escoteiro.idescoteiro}</td>
                             <td>{escoteiro.nome}</td>
                             <td>{escoteiro.cpf}</td>
                             <td>{escoteiro.registro}</td>
@@ -32,5 +34,6 @@ export default function TabelaCadastroEscoteiros(props){
                 })}
             </tbody>    
         </Table>
+        </div>
     );
 }

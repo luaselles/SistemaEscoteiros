@@ -5,12 +5,9 @@ export default function Home(props){
     return(
         <div className="cabecalho">
         <div className="div">
-                <a className="aa" href="/eventos">Tabela de Eventos</a>
-                <br></br>
-                <br></br>
+                <a className="aa1" href="/eventos">Tabela de Eventos</a>
                 <a className="aa" href="/Produtos">Tabela de Produtos</a>
-                <br></br>
-                <br></br>
+                <a className="aa" href="/escoteiros">Tabela de Escoteiros</a>
                 <a className="aa" href="/inscreverescoteiro">Inscrever Escoteiros</a>
         </div>
     </div>

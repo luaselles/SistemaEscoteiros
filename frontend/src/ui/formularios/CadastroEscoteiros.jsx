@@ -61,7 +61,8 @@ export default function CadastroEscoteiros(props) {
 
     function verificaTelefone(e) {
         const componente = e.target;
-        if (isNaN(Number(componente.value))) {
+        const texto = componente.value;
+        if (texto.length < 11) {
             componente.setCustomValidity("Erro");
             setFormValidado(false);
         } else {
