@@ -75,7 +75,8 @@ class Escoteiro {
 
     async buscarId(id, db) {
         const result = await new EscoteiroDAO().listarId(id, db)
-        let obj = new Escoteiro(result.data[i].id, result.data[0].nome, result.data[0].cpf, result.data[0].registro, result.data[0].telefone, result.data[0].secao)
+        console.log(result)
+        let obj = new Escoteiro(result.data[0].id, result.data[0].nome, result.data[0].cpf, result.data[0].registro, result.data[0].telefone, result.data[0].secao)
         return obj
     }
 
@@ -85,14 +86,6 @@ class Escoteiro {
         for (let i = 0; i < result.data.length; i++) {
             lista.push(new Escoteiro(result.data[i].id, result.data[i].nome, result.data[i].cpf, result.data[i].registro, result.data[i].telefone, result.data[i].secao))
         }
-    }
-
-    async buscarId(id,db){
-        const result = await new EscoteiroDAO().listarId(id,db)
-        console.log(result) 
-        let obj = new Escoteiro(result.data[i].id, result.data[i].nome, result.data[i].cpf, result.data[i].registro, result.data[i].telefone, result.data[i].secao, result.data[0].status)
-        return obj
-       
     }
 
     async listarnaoinscritos(status,db){

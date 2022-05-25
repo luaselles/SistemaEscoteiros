@@ -36,8 +36,16 @@ module.exports = class EscoteiroDAO {
         return result;
     }
 
+    async listarIdInscricao(id,db){
+        const sql = "SELECT * from inscrever where idinscricao = ?"
+        const valores = [id]
+        console.log(valores)
+        const result = await db.consulta(sql,valores);
+        return result;
+    }
+
     async listarNaoInscritas(status,db){
-        const sql = "SELECT * from escoteiro where status = ?"
+        const sql = "SELECT * from inscricao where status = ?"
         const valores = [status]
         const result = await db.consulta(sql,valores);
         return result;

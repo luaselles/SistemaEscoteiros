@@ -5,8 +5,8 @@ const EventCtrl = require('./Controladoras/EventoCtrl');
 const ProdutoCtrl = require('./Controladoras/ProdutoCtrl');
 const EscoteiroCtrl = require('./Controladoras/EscoteiroCtrl');
 
-const InscrCtrl = require('./Controladoras/InscreverEscoteiroCtrl');
-const ReceberMensalidadeCtrl = require('./Controladoras/ReceberMensalidadeCtrl');
+const InscrCtrl = require('./Controladoras/InscreverCtrl');
+//const ReceberMensalidadeCtrl = require('./Controladoras/ReceberMensalidadeCtrl');
 
 routes.all('*', function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
@@ -30,8 +30,9 @@ routes.get('/escoteiro', EscoteiroCtrl.listarEscoteiros);
 routes.put('/escoteiro', EscoteiroCtrl.alterarEscoteiro);
 routes.delete('/escoteiro/:id', EscoteiroCtrl.excluirEscoteiro);
 
-routes.get('/inscreverescoteiro/:id', InscrCtrl.InscreverEscoteiro);
-routes.put('/inscreverescoteiro', InscrCtrl.listarPorStatus);
+routes.post('/inscrever', InscrCtrl.InscreverEscoteiro);
+
+
 /*
 routes.get('/recebermensalidade/:id', ReceberMensalidadeCtrl.ReceberMensalidade);
 routes.put('/recebermensalidade', ReceberMensalidadeCtrl.listarContas);*/
