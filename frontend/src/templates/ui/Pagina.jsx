@@ -12,6 +12,7 @@ export function Pagina(props){
                     <Menu itens={[ {rotulo:"Home",url:"/"},
                                    {rotulo:"Produtos",url:"/produtos"},
                                    {rotulo:"Eventos",url:"/eventos"},
+                                   {rotulo:"Escoteiros",url:"/escoteiros"},
                                    {rotulo:"Inscrever", url:"/inscreverescoteiro"}]} />
                 </aside>
                 <div className="conteudo">

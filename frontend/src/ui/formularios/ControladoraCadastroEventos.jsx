@@ -115,7 +115,7 @@ export default function ControladoraCadastroEventos(props) {
                         <CadastroEventos onGravar={gravarEvento} evento={atualizandoEvento} />}
 
                     <Button onClick={() => setMostrarTabela(!mostrarTabela)}>
-                        Voltar
+                        Cadastrar
                     </Button>
                 </div>
 

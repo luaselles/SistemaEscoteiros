@@ -4,6 +4,19 @@
 }
 
 
+.aa1 {
+    background-color: white;
+    color: black;
+    border: 2px solid #DEB887;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    width: 500px;
+    margin-left:300px;
+    margin-top:100px;
+}
+
 .aa {
     background-color: white;
     color: black;
@@ -14,6 +27,6 @@
     display: inline-block;
     width: 500px;
     margin-left:300px;
-    margin-top:130px;
+    margin-top:30px;
 }
   

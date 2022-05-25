@@ -15,13 +15,12 @@ export default function ControladoraCadastroEscoteiros(props) {
     const [erro, setErro] = useState(null);
     const [estaAtualizando, setEstaAtualizando] = useState(false);
     const [atualizandoEscoteiro, setAtualizandoEscoteiro] = useState({
-        id: 0,
+        idescoteiro: 0,
         nome: "",
         cpf: "",
         registro: "",
         telefone: "",
-        secao: "",
-        status: 0
+        secao: ""
     });
 
     function buscarEscoteiros() {
@@ -65,10 +64,10 @@ export default function ControladoraCadastroEscoteiros(props) {
     }
 
     function deletarEscoteiro(escoteiro) {
-        fetch(localRecursos, {
+        if (window.confirm("Deseja excluir o item?")){
+            fetch(localRecursos + "/" + escoteiro.idescoteiro, {
             method: "DELETE",
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(escoteiro)
         })
             .then(resposta => resposta.json())
             .then(retorno => {
@@ -80,7 +79,9 @@ export default function ControladoraCadastroEscoteiros(props) {
                 }
                 setEstaAtualizando(false);
             });
+        }
     }
+
     function atualizarEscoteiro(escoteiro) {
         setEstaAtualizando(true);
         setAtualizandoEscoteiro(escoteiro);
@@ -91,27 +92,28 @@ export default function ControladoraCadastroEscoteiros(props) {
         buscarEscoteiros();
     }, [escoteiros]);
 
-    if (erro) {
+    if (erro)
         return <div><p>Erro ao buscar escoteiros : {erro.message}</p></div>
-    } else if (!foiCarregado) {
-        return <div>
-            <Spinner animation="border" role="status">
-                <span className="visually-hidden">Carregando Escoteiros'...</span>
-            </Spinner>
-        </div>
-    } else {
-
-        return (
-            <div>
-
-                {mostrarTabela ? <TabelaCadastroEscoteiros escoteiros={escoteiros} atualizarEscoteiro={atualizarEscoteiro} deletarEscoteiro={deletarEscoteiro} /> :
-                    <CadastroEscoteiros onGravar={gravarEscoteiro} escoteiro={atualizandoEscoteiro} />}
-
-                <Button onClick={() => setMostrarTabela(!mostrarTabela)}>
-                    Cadastrar
-                </Button>
+    else 
+        if (!foiCarregado) {
+            return <div>
+                <Spinner animation="border" role="status">
+                    <span className="visually-hidden">Carregando Escoteiros'...</span>
+                </Spinner>
             </div>
+        } else {
 
-        );
-    }
+            return (
+                <div>
+
+                    {mostrarTabela ? <TabelaCadastroEscoteiros escoteiros={escoteiros} atualizarEscoteiro={atualizarEscoteiro} deletarEscoteiro={deletarEscoteiro} /> :
+                        <CadastroEscoteiros onGravar={gravarEscoteiro} escoteiro={atualizandoEscoteiro} />}
+
+                    <Button onClick={() => setMostrarTabela(!mostrarTabela)}>
+                        Cadastrar
+                    </Button>
+                </div>
+
+            );
+        }
 }

@@ -6,15 +6,15 @@ module.exports = {
     async listarId(request, response) {
         const escoteiro = { ...request.body }
         const con = await db.conecta()
-        let novo = new Escoteiro(escoteiro.id, null, null, null, null, null, null)
-        await novo.listarId(novo.getid(), db)
+        let novo = new Escoteiro(escoteiro.idescoteiro, null, null, null, null, null)
+        await novo.listarId(novo.getIdescoteiro(), db)
         return response.json(novo)
     },
 
     async listarEscoteiros(request, response) {
         const con = await db.conecta()
         let lista = []
-        let novo = new Escoteiro(null, null, null, null, null, null, null)
+        let novo = new Escoteiro(null, null, null, null, null, null)
         lista = await novo.listar(db)
 
         return response.json(lista)
@@ -23,7 +23,7 @@ module.exports = {
     async gravarEscoteiro(request, response) {
         const escoteiro = { ...request.body }
         const con = await db.conecta()
-        let novo = new Escoteiro(null, escoteiro.nome, escoteiro.cpf, escoteiro.registro, escoteiro.telefone, escoteiro.secao, escoteiro.status)
+        let novo = new Escoteiro(null, escoteiro.nome, escoteiro.cpf, escoteiro.registro, escoteiro.telefone, escoteiro.secao)
         await novo.gravar(db)
         console.log(response.json(novo))
         return response.json(novo)
@@ -32,7 +32,7 @@ module.exports = {
     async alterarEscoteiro(request, response) {
         const escoteiro = { ...request.body }
         const con = await db.conecta()
-        let novo = new Escoteiro(escoteiro.id, escoteiro.nome, escoteiro.cpf, escoteiro.registro, escoteiro.telefone, escoteiro.secao, escoteiro.status)
+        let novo = new Escoteiro(escoteiro.idescoteiro, escoteiro.nome, escoteiro.cpf, escoteiro.registro, escoteiro.telefone, escoteiro.secao)
         await novo.alterar(db)
         return response.json(novo)
     },
@@ -40,7 +40,7 @@ module.exports = {
     async excluirEscoteiro(request, response) {
         const escoteiro = { ...request.params }
         const con = await db.conecta()
-        let novo = new Escoteiro(escoteiro.id, null, null, null, null, null, null)
+        let novo = new Escoteiro(escoteiro.idescoteiro, null, null, null, null, null)
         await novo.excluir(db)
         return response.json(novo)
     },
