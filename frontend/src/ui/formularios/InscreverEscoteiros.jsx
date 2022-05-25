@@ -5,7 +5,7 @@ import SelectCadastrados from "../formularios/SelectCadastrados";
 import '../../estilos/tabelacadastrados.css'
 
 
-const localRecursos = 'http://localhost:4000/inscreverescoteiro'
+const localRecursos = 'http://localhost:4000/inscrever'
  
 export default function InscreverEscoteiros(props){
     const [inscricao, setInscricao] = useState('');
