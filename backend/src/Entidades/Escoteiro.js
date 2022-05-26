@@ -66,9 +66,9 @@ class Escoteiro {
     }
 
     async buscarIdescoteiro(idescoteiro, db) {
-        const result = await new EscoteiroDAO().listarIdescoteiro(idescoteiro, db)
-        console.log(result)
-        let obj = new Escoteiro(result.data[i].idescoteiro, result.data[0].nome, result.data[0].cpf, result.data[0].registro, result.data[0].telefone, result.data[0].secao)
+        console.log(idescoteiro)
+        const result = await new EscoteiroDAO().listarId(idescoteiro, db)
+        let obj = new Escoteiro(result.data[0].idescoteiro, result.data[0].nome, result.data[0].cpf, result.data[0].registro, result.data[0].telefone, result.data[0].secao)
         return obj
     }
 

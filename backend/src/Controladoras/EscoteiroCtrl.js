@@ -4,7 +4,8 @@ const db = require('../Database.js')
 module.exports = {
 
     async listarId(request, response) {
-        const escoteiro = { ...request.body }
+        const escoteiro = { ...request.params }
+        console.log(escoteiro)
         const con = await db.conecta()
         let novo = new Escoteiro(escoteiro.idescoteiro, null, null, null, null, null)
         await novo.listarId(novo.getIdescoteiro(), db)
@@ -16,7 +17,6 @@ module.exports = {
         let lista = []
         let novo = new Escoteiro(null, null, null, null, null, null)
         lista = await novo.listar(db)
-
         return response.json(lista)
     },
 
