@@ -14,7 +14,7 @@ export default function App(props){
                         <Route path="/produtos" element={<PaginaProduto/>}/>
                         <Route path="/eventos" element={<PaginaEvento/>}/>
                         <Route path="/escoteiros" element={<PaginaEscoteiro/>}/>
-                        <Route path="/inscreverescoteiro" element={<PaginaInscreverEscoteiros/>}/>
+                        <Route path="/inscrever" element={<PaginaInscreverEscoteiros/>}/>
                         <Route path="/recebermensalidade" element={<PaginaMensalidades/>}/>
                         <Route component={Pagina404}/>
                     </Routes>

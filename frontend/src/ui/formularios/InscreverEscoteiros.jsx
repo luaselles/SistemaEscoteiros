@@ -17,7 +17,7 @@ export default function InscreverEscoteiros(props){
     }, [])
 
     async function fetchInscreverescoteiros() {
-        await fetch('localhost:4000/inscreverescoteiro/status/0',{method:"GET"})
+        await fetch('localhost:4000/escoteiro/status',{method:"GET"})
         .then(resposta=>resposta.json())
         .then(dados=>{
             setlista(dados);

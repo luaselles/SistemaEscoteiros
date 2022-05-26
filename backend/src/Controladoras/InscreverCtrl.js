@@ -24,5 +24,16 @@ module.exports = {
         let novo = new Inscrever(inscrever.idinscricao, null, null, null, null)
         await novo.buscarIdinscricao(novo.getIdInscricao(), db)
         return response.json(novo)
+    },
+
+    async listarPorStatus(request, response){
+        console.log("papi")
+        const inscrever = {...request.params}
+        const con = await db.conecta()
+        let lista = []
+        let novo = new Inscrever(null,null,null,null,inscrever.status)
+        lista = await novo.listarnaoinscritos(novo.getStatus(),db)
+        console.log(lista)
+        return response.json(lista)
     }
 }

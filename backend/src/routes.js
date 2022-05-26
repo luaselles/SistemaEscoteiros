@@ -33,10 +33,11 @@ routes.put('/escoteiro', EscoteiroCtrl.alterarEscoteiro);
 routes.delete('/escoteiro/:id', EscoteiroCtrl.excluirEscoteiro);
 
 routes.post('/inscrever', InscrCtrl.InscreverEscoteiro);
+routes.get('/inscrever/status/:status', InscrCtrl.listarPorStatus);
 
 routes.post('/abrirCaixa', AbrirCaixaCtrl.AbrirCaixa);
 
-routes.get('/recebermensalidade', ReceberMensalidadeCtrl.listarContas);3
+routes.get('/recebermensalidade', ReceberMensalidadeCtrl.listarContas);
 routes.post('/recebermensalidade', ReceberMensalidadeCtrl.gravarMensalidade);
 routes.put('/recebermensalidade/:id', ReceberMensalidadeCtrl.ReceberMensalidade);
 
