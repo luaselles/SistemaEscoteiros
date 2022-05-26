@@ -13,7 +13,9 @@ export function Pagina(props){
                                    {rotulo:"Produtos",url:"/produtos"},
                                    {rotulo:"Eventos",url:"/eventos"},
                                    {rotulo:"Escoteiros",url:"/escoteiros"},
+
                                    {rotulo:"Inscrever", url:"/inscrever"}]} />
+
                 </aside>
                 <div className="conteudo">
                           {props.children}
