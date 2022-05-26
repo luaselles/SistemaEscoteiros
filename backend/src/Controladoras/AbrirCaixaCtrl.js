@@ -5,7 +5,8 @@ module.exports =
 {
     async AbrirCaixa(request, response){
         const caixa = {...request.params}
-        const data = date.getDate();
+        const timeElapsed = Date.now();
+        const data = new Date(timeElapsed);
         const con = await db.conecta()
         let novo = await new Caixa()//.buscarId(caixa.id,db)
         novo.setdata(data)
@@ -14,5 +15,4 @@ module.exports =
         await novo.gravar(db) 
         return response.json(novo)
     }
-
 }

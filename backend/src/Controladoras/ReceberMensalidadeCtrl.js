@@ -5,7 +5,8 @@ module.exports =
 {
     async ReceberMensalidade(request, response){
         const mensalidade = {...request.params}
-        const data = date.getDate();
+        const timeElapsed = Date.now();
+        const data = new Date(timeElapsed);
         const con = await db.conecta()
         let novo = await new Mensalidade().buscarId(mensalidade.id,db)
         novo.setdataPag(data)
