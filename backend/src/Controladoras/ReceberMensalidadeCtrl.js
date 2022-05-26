@@ -11,6 +11,7 @@ module.exports =
         let novo = await new Mensalidade().buscarId(mensalidade.id,db)
         novo.setdataPag(data)
         await novo.alterar(db) 
+        console.log(novo)
         return response.json(novo)
     },
 
@@ -22,22 +23,21 @@ module.exports =
         return response.json(novo)
     },
 
-    async listarContas(request, response){
+    async listarContas(request, response) {
         const con = await db.conecta()
         let lista = []
-        let novo = new Mensalidade(null, null,null,null,null,null)
-        console.log(novo)
+        let novo = new Mensalidade(null,null,null,null,null,null)
         lista = await novo.listar(db)
-        return response.json(novo)
-    }, 
+
+        return response.json(lista)
+    },
 
     async gravarMensalidade(request, response) {
         const mensalidade =  {...request.body}
         const con = await db.conecta()
-        let novo = new Mensalidade(null,mensalidade.valor,mensalidade.dataPag, mensalidade.dataVen, mensalidade.idEscoteiro,mensalidade.idinscricao)   
+        let novo = new Mensalidade(null,mensalidade.valor,null,mensalidade.dataVen,mensalidade.idEscoteiro,mensalidade.idinscricao)   
         await novo.gravar(db)    
-        console.log("deu certo esse caralho")  
-        console.log(response.json(novo))    
+        console.log(novo)    
         return response.json(novo)
-    },
+    }
 }
