@@ -1,5 +1,5 @@
 const CaixaDAO = require('../DAO/CaixaDAO')
-class Mensalidade {
+class Caixa {
 
     constructor(id,valor,data,status){
         this.id = id;

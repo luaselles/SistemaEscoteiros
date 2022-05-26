@@ -4,7 +4,7 @@ module.exports = class MensalidadeDAO{
 
     async gravar(mensalidade, db) {
         let sql = "INSERT INTO mensalidade (valor, dataPag, dataVen, idEscoteiro, idinscricao) " +
-            "VALUES (?, ?, ?, ?)"
+            "VALUES (?, ?, ?, ?, ?)"
         const valores = [mensalidade.getvalor(), mensalidade.getdataPag(), mensalidade.getdataVen(), mensalidade.getidEscoteiro(), mensalidade.getidInscricao()]
         const result = await db.manipula(sql, valores)
         return result

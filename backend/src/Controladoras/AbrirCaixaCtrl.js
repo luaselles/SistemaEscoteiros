@@ -12,6 +12,7 @@ module.exports =
         novo.setdata(data)
         novo.setvalor(0)
         novo.setstatus(1)
+        console.log(novo)
         await novo.gravar(db) 
         return response.json(novo)
     }
