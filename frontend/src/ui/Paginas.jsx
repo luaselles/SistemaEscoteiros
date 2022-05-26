@@ -80,6 +80,28 @@ export function PaginaMensalidades(props){
     );
 }
 
+export function PaginaCaixa(props){
+
+    function manipulaSubmissaoDados(e){
+        e.preventDefault();
+    }
+
+    async function fetchAbrirCaixa() {
+        await fetch('localhost:4000/abrirCaixa',{method:"POST"})
+        .then(resposta=>resposta.json())
+        .catch(error =>{
+            alert(error)
+        });
+        alert("Caixa aberto")
+    }
+
+    return(
+        <Pagina onload="fetchAbrirCaixa()">
+            <cadMensalidade/>
+        </Pagina>
+    );
+}
+
 export function Pagina404(props){
     return(
         <Pagina>

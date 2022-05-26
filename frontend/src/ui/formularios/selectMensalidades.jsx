@@ -1,7 +1,7 @@
 import {FormSelect} from 'react-bootstrap'
 import React from 'react';
 
-const selectMensalidades = (props)=>{
+const SelectMensalidades = (props)=>{
     return(
     <FormSelect id='mensalidade'>
         <option>Selecione</option>
@@ -14,4 +14,4 @@ const selectMensalidades = (props)=>{
 )
 }
 
-export default selectMensalidades
+export default SelectMensalidades
