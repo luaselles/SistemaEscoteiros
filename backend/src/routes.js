@@ -8,6 +8,7 @@ const EscoteiroCtrl = require('./Controladoras/EscoteiroCtrl');
 const InscrCtrl = require('./Controladoras/InscreverCtrl');
 const ReceberMensalidadeCtrl = require('./Controladoras/ReceberMensalidadeCtrl');
 const AbrirCaixaCtrl = require('./Controladoras/AbrirCaixaCtrl');
+const GerarMensalidadeCtrl = require('./Controladoras/GerarMensalidadesCtrl')
 
 routes.all('*', function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
@@ -38,5 +39,7 @@ routes.post('/abrirCaixa', AbrirCaixaCtrl.AbrirCaixa);
 routes.get('/recebermensalidade', ReceberMensalidadeCtrl.listarContas);3
 routes.post('/recebermensalidade', ReceberMensalidadeCtrl.gravarMensalidade);
 routes.put('/recebermensalidade/:id', ReceberMensalidadeCtrl.ReceberMensalidade);
+
+routes.post('/gerarmensalidade', GerarMensalidadeCtrl.GerarMensalidade);
 
 module.exports = routes;
