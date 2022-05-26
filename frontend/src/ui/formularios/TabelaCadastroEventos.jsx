@@ -17,6 +17,7 @@ export default function TabelaCadastroEventos(props){
                     <th>Cidade</th>
                     <th>n°</th>
                     <th>Data</th>
+                    <th>Ações</th>
                 </tr>
             </thead>
             <tbody>
