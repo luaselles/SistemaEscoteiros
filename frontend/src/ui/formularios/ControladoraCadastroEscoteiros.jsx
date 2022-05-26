@@ -87,6 +87,11 @@ export default function ControladoraCadastroEscoteiros(props) {
         setAtualizandoEscoteiro(escoteiro);
         setMostrarTabela(false);
     }
+    
+    function GerarMensalidade(id)
+    {
+
+    }
 
     useEffect(() => {
         buscarEscoteiros();
@@ -106,7 +111,7 @@ export default function ControladoraCadastroEscoteiros(props) {
             return (
                 <div>
 
-                    {mostrarTabela ? <TabelaCadastroEscoteiros escoteiros={escoteiros} atualizarEscoteiro={atualizarEscoteiro} deletarEscoteiro={deletarEscoteiro} /> :
+                    {mostrarTabela ? <TabelaCadastroEscoteiros escoteiros={escoteiros} atualizarEscoteiro={atualizarEscoteiro} deletarEscoteiro={deletarEscoteiro} GerarMensalidade={GerarMensalidade}/> :
                         <CadastroEscoteiros onGravar={gravarEscoteiro} escoteiro={atualizandoEscoteiro} />}
 
                     <Button onClick={() => setMostrarTabela(!mostrarTabela)}>

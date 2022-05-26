@@ -8,8 +8,9 @@ module.exports =
     async GerarMensalidade(request, response){
         const mensalidade = {...request.params}
         let valor
-        let ins = await new Inscrever().buscarIdinscricao(mensalidade.idinscricao,db)
+        
         let esc = await new Escoteiro().buscarIdescoteiro(mensalidade.idEscoteiro,db)
+        let ins = await new Inscrever().buscarIdinscricao(mensalidade.idinscricao,db)
         if(ins.getQtdeirmaos() === 1)
         {
             valor = 30;

@@ -17,7 +17,8 @@ export default function InscreverEscoteiros(props){
     }, [])
 
     async function fetchInscreverescoteiros() {
-        await fetch('localhost:4000/escoteiro/status',{method:"GET"})
+        alert("MERDAA PARAA")
+        await fetch('http://localhost:4000/inscrever/status/0',{method:"GET"})
         .then(resposta=>resposta.json())
         .then(dados=>{
             setlista(dados);
@@ -59,7 +60,7 @@ export default function InscreverEscoteiros(props){
             <form onSubmit={InscreverSubmit}>
             <div>
                 <form>
-                <SelectCadastrados escoteiros ={lista} />
+                <SelectCadastrados inscricoes ={lista} />
                 </form> 
             </div>
 

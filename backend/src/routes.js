@@ -41,6 +41,6 @@ routes.get('/recebermensalidade', ReceberMensalidadeCtrl.listarContas);
 routes.post('/recebermensalidade', ReceberMensalidadeCtrl.gravarMensalidade);
 routes.put('/recebermensalidade/:id', ReceberMensalidadeCtrl.ReceberMensalidade);
 
-routes.post('/gerarmensalidade', GerarMensalidadeCtrl.GerarMensalidade);
+routes.post('/gerarmensalidade/:idescoteiro', GerarMensalidadeCtrl.GerarMensalidade);
 
 module.exports = routes;

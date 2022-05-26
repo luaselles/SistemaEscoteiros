@@ -6,8 +6,9 @@ const SelectCadastrados = (props)=>{
     <FormSelect id='escoteiro'>
         <option>Selecione o Escoteiro</option>
         {
-        props.escoteiros.map(escoteiro => (
-            <option value={escoteiro.idescoteiro}>{escoteiro.nomeEscoteiro}</option>
+        props.inscricoes.map(inscricao => (
+            <option value={inscricao.Escoteiro.data[0].idescoteiro}>{inscricao.Escoteiro.data[0].nome }</option>
+            
         ))}
 
     </FormSelect>
