@@ -49,5 +49,12 @@ class Inscrever {
         this.idinscricao = resp.lastId;
     }
 
+    async buscarIdinscricao(idinscricao, db) {
+        console.log(idinscricao)
+        const result = await new InscreverDAO().buscarId(idinscricao, db)
+        let obj = new Inscrever(result.data[0].idinscricao, result.data[0].Escoteiro, result.data[0].qtdeirmaos, result.data[0].dataatual, result.data[0].status)
+        return obj
+    }
+
 }
 module.exports = Inscrever;

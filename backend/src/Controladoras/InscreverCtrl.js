@@ -15,5 +15,14 @@ module.exports = {
         let novoInsc = new Inscrever(null,novoEsco,inscrever.qtdeirmaos,dataatual,0)
         await novoInsc.inserir(db)
         return response.json(novoInsc)
+    },
+
+    async buscarId(request, response) {
+        const inscrever = { ...request.params }
+        console.log(inscrever)
+        const con = await db.conecta()
+        let novo = new Inscrever(inscrever.idinscricao, null, null, null, null)
+        await novo.buscarIdinscricao(novo.getIdInscricao(), db)
+        return response.json(novo)
     }
 }

@@ -5,4 +5,11 @@ module.exports = class InscreverDAO {
         const result = await db.manipula(sql, valores)
         return result
     }
+
+    async buscarId(id, db) {
+        const sql = "SELECT * from inscrever where idinscricao = ?"
+        const valores = [id]
+        const result = await db.consulta(sql, valores);
+        return result;
+    }
 }
