@@ -29,6 +29,7 @@ export default function TabelaCadastroEscoteiros(props){
                             <td>
                                 <Button variant="outline-primary" onClick={()=>{props.atualizarEscoteiro(escoteiro)}}><IconeEdicao/></Button>{' '}
                                 <Button variant="outline-danger" onClick={()=>{props.deletarEscoteiro(escoteiro)}}><IconeExclusao/></Button>
+                                <Button variant="outline-primary" onClick={()=>{props.ReceberMensalidade(escoteiro.idescoteiro)}}>Gerar mensalidade</Button>
                             </td>
                         </tr>)
                 })}

@@ -74,7 +74,7 @@ class Mensalidade {
 
     async buscarId(id,db){
         const result = await new MensalidadeDAO().listarId(id,db)
-        let obj = new Mensalidade(result.data[i].id, result.data[0].valor, result.data[0].dataPag, result.data[0].dataVen, result.data[0].idEscoteiro, result.data[0].idinscricao)
+        let obj = new Mensalidade(result.data[0].id, result.data[0].valor, result.data[0].dataPag, result.data[0].dataVen, result.data[0].idEscoteiro, result.data[0].idinscricao)
         return obj
     }
 

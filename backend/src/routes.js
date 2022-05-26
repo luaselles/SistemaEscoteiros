@@ -35,8 +35,8 @@ routes.post('/inscrever', InscrCtrl.InscreverEscoteiro);
 
 routes.post('/abrirCaixa', AbrirCaixaCtrl.AbrirCaixa);
 
-routes.get('/recebermensalidade', ReceberMensalidadeCtrl.listarContas); //funciona
+routes.get('/recebermensalidade', ReceberMensalidadeCtrl.listarContas);3
 routes.post('/recebermensalidade', ReceberMensalidadeCtrl.gravarMensalidade);
-routes.put('/recebermensalidade', ReceberMensalidadeCtrl.ReceberMensalidade);
+routes.put('/recebermensalidade/:id', ReceberMensalidadeCtrl.ReceberMensalidade);
 
 module.exports = routes;
