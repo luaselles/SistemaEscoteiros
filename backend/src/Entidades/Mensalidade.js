@@ -1,12 +1,13 @@
 const MensalidadeDAO = require('../DAO/MensalidadeDAO')
 class Mensalidade {
 
-    constructor(id,valor,dataPag,dataVen,idEscoteiro){
+    constructor(id,valor,dataPag,dataVen,idEscoteiro,idinscricao){
         this.id = id;
         this.valor = valor;
         this.dataPag = dataPag;
         this.dataVen=dataVen;
         this.idEscoteiro=idEscoteiro;
+        this.idinscricao=idinscricao;
     }
 
     getid(){
@@ -50,6 +51,14 @@ class Mensalidade {
         this.idEscoteiro = novoidEscoteiro;
     }
 
+    getidInscricao() {
+        return this.idinscricao;
+    }
+
+    setidInscricao(novoidInsc){
+        this.idinscricao = novoidInsc;
+    }
+
     async gravar(db){
         const resp=await new MensalidadeDAO().gravar(this,db);
         this.id=resp.lastId; 
@@ -65,31 +74,17 @@ class Mensalidade {
 
     async buscarId(id,db){
         const result = await new MensalidadeDAO().listarId(id,db)
-        let obj = new Mensalidade(result.data[i].id, result.data[0].valor, result.data[0].dataPag, result.data[0].dataVen, result.data[0].idEscoteiro)
+        let obj = new Mensalidade(result.data[i].id, result.data[0].valor, result.data[0].dataPag, result.data[0].dataVen, result.data[0].idEscoteiro, result.data[0].idinscricao)
         return obj
     }
 
     async listar(db){
-        const result = await new EventoDAO().listar(db)
+        const result = await new MensalidadeDAO().listar(db)
         let lista = []
         for(let i = 0;i<result.data.length;i++){
-            lista.push(new Mensalidade(result.data[i].id, result.data[i].valor, result.data[i].dataPag, result.data[i].dataVen, result.data[i].idEscoteiro))
+            lista.push(new Mensalidade(result.data[i].id, result.data[i].valor, result.data[i].dataPag, result.data[i].dataVen, result.data[i].idEscoteiro, result.data[i].idinscricao))
         }
         return lista
     }
 }
 module.exports = Mensalidade;
-
-/*create table mensalidade
-(
-    id int not null,
-    valor decimal(5,2) not null,
-    dataPag date,
-    dataVen date not null,
-    idEscoteiro int not null,
-    CONSTRAINT pk_Mensagem
-    	PRIMARY KEY (id),
-   	CONSTRAINT fk_mensalidadeEscoteiro
-    	FOREIGN KEY (idEscoteiro)
-    	REFERENCES escoteiro (idescoteiro)
-);*/

@@ -16,7 +16,7 @@ module.exports =
     async listarContasEscoteiro(request, response){
         const mensalidade = {...request.body}
         const con = await db.conecta()
-        let novo = new Mensalidade(null,null,null, mensalidade.idEscoteiro)
+        let novo = new Mensalidade(null,null,null, mensalidade.idEscoteiro,null)
         await novo.listarContasEscoteiro(novo.getidEscoteiro(),db)
         return response.json(novo)
     },
@@ -24,7 +24,7 @@ module.exports =
     async listarContas(request, response){
         const mensalidade = {...request.body}
         const con = await db.conecta()
-        let novo = new Mensalidade(mensalidade.id, null,null,null)
+        let novo = new Mensalidade(mensalidade.id, null,null,null,null)
         await novo.listarContas(novo.getid(),db)
         return response.json(novo)
     }

@@ -32,7 +32,6 @@ routes.delete('/escoteiro/:id', EscoteiroCtrl.excluirEscoteiro);
 
 routes.post('/inscrever', InscrCtrl.InscreverEscoteiro);
 
-
 /*
 routes.get('/recebermensalidade/:id', ReceberMensalidadeCtrl.ReceberMensalidade);
 routes.put('/recebermensalidade', ReceberMensalidadeCtrl.listarContas);*/

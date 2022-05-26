@@ -4,7 +4,7 @@ import { IconeEdicao, IconeExclusao } from "../icones/icones";
 export default function TabelaCadastroEscoteiros(props){
     return(
         <div>
-        <h3>Ecoteiros:</h3>
+        <h3>Escoteiros:</h3>
         <Table striped bordered hover>
             <thead>
                 <tr>

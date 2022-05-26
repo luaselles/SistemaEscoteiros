@@ -1,18 +1,18 @@
-module.exports = class ReceberMensalidadeDAO{
+module.exports = class MensalidadeDAO{
 
     //constructor(id,valor,dataPag,dataVen,idEscoteiro)
 
     async gravar(mensalidade, db) {
-        let sql = "INSERT INTO mensalidade (valor, dataPag, dataVen, idEscoteiro) " +
+        let sql = "INSERT INTO mensalidade (valor, dataPag, dataVen, idEscoteiro, idinscricao) " +
             "VALUES (?, ?, ?, ?)"
-        const valores = [mensalidade.getvalor(), mensalidade.getdataPag(), mensalidade.getdataVen(), mensalidade.getidEscoteiro()]
+        const valores = [mensalidade.getvalor(), mensalidade.getdataPag(), mensalidade.getdataVen(), mensalidade.getidEscoteiro(), mensalidade.getidInscricao()]
         const result = await db.manipula(sql, valores)
         return result
     }
 
     async alterar(mensalidade, db) {
-        let sql = "UPDATE mensalidade SET valor = ?, dataPag = ?, dataVen = ?, idEscoteiro = ? WHERE id = ?"
-        const valores = [mensalidade.getvalor(), mensalidade.getdataPag(), mensalidade.getdataVen(), mensalidade.getidEscoteiro(), mensalidade.getid()]
+        let sql = "UPDATE mensalidade SET valor = ?, dataPag = ?, dataVen = ?, idEscoteiro = ?, idinscricao = ? WHERE id = ?"
+        const valores = [mensalidade.getvalor(), mensalidade.getdataPag(), mensalidade.getdataVen(), mensalidade.getidEscoteiro(), mensalidade.getidInscricao(), mensalidade.getid()]
         const result = await db.manipula(sql, valores);
         return result
     }
