@@ -23,10 +23,21 @@ module.exports =
     },
 
     async listarContas(request, response){
-        const mensalidade = {...request.body}
         const con = await db.conecta()
-        let novo = new Mensalidade(mensalidade.id, null,null,null,null)
-        await novo.listarContas(novo.getid(),db)
+        let lista = []
+        let novo = new Mensalidade(null, null,null,null,null,null)
+        console.log(novo)
+        lista = await novo.listar(db)
         return response.json(novo)
-    }
+    }, 
+
+    async gravarMensalidade(request, response) {
+        const mensalidade =  {...request.body}
+        const con = await db.conecta()
+        let novo = new Mensalidade(null,mensalidade.valor,mensalidade.dataPag, mensalidade.dataVen, mensalidade.idEscoteiro,mensalidade.idinscricao)   
+        await novo.gravar(db)    
+        console.log("deu certo esse caralho")  
+        console.log(response.json(novo))    
+        return response.json(novo)
+    },
 }

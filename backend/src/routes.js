@@ -6,7 +6,7 @@ const ProdutoCtrl = require('./Controladoras/ProdutoCtrl');
 const EscoteiroCtrl = require('./Controladoras/EscoteiroCtrl');
 
 const InscrCtrl = require('./Controladoras/InscreverCtrl');
-//const ReceberMensalidadeCtrl = require('./Controladoras/ReceberMensalidadeCtrl');
+const ReceberMensalidadeCtrl = require('./Controladoras/ReceberMensalidadeCtrl');
 
 routes.all('*', function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
@@ -32,7 +32,9 @@ routes.delete('/escoteiro/:id', EscoteiroCtrl.excluirEscoteiro);
 
 routes.post('/inscrever', InscrCtrl.InscreverEscoteiro);
 
-/*
+
 routes.get('/recebermensalidade/:id', ReceberMensalidadeCtrl.ReceberMensalidade);
-routes.put('/recebermensalidade', ReceberMensalidadeCtrl.listarContas);*/
+routes.get('/recebermensalidade', ReceberMensalidadeCtrl.listarContas);
+routes.post('/recebermensalidade', ReceberMensalidadeCtrl.gravarMensalidade);
+
 module.exports = routes;
