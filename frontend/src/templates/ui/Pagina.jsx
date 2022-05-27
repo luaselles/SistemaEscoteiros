@@ -13,7 +13,6 @@ export function Pagina(props){
                                    {rotulo:"Produtos",url:"/produtos"},
                                    {rotulo:"Eventos",url:"/eventos"},
                                    {rotulo:"Escoteiros",url:"/escoteiros"},
-                                   {rotulo:"Abrir caixa",url:"/abrirCaixa"},
                                    {rotulo:"Listar Inscrever",url:"/listarinscrever"},
                                    {rotulo:"Gerar Mensalidade", url:"/gerarmensalidade"},
                                    {rotulo:"Receber Mensalidade", url:"/recebermensalidade"}]} />
