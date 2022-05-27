@@ -15,5 +15,14 @@ module.exports =
         console.log(novo)
         await novo.gravar(db) 
         return response.json(novo)
-    }
+    },
+
+    async listarCaixa(request, response) {
+        const con = await db.conecta()
+        let lista = []
+        let novo = new Caixa(null,null,null,null,null,null)
+        lista = await novo.listar(db)
+        
+        return response.json(lista)
+    },
 }

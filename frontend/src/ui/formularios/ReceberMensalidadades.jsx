@@ -1,23 +1,23 @@
 import { useState,useEffect } from "react";
 import { Button, Col, Container, form, Row } from "react-bootstrap";
 
-import SelectMensalidades from "../formularios/selectMensalidades";
+import SelectMensalidades from "./SelectMensalidades";
 import '../../estilos/tabelacadastrados.css'
 
-
-const localRecursos = 'http://localhost:4000/mensalidade'
+const localRecursos = 'http://localhost:4000/recebermensalidade'
  
-export default function CadMensalidade(props){
-    const [mens, setMens] = useState('');
+export default function ReceberMensalidades(props){
+    const [mensalidade, setMensalidade] = useState('');
     const [lista, setlista] = useState([])
 
     useEffect(() => {
-        fetchMensalidade()
+        fetchReceberMensalidades()
 
     }, [])
 
-    async function fetchMensalidade() {
-        await fetch('localhost:4000/recebermensalidade/'+mens.id,{method:"PUT"})
+    async function fetchReceberMensalidades() {
+        
+        await fetch('http://localhost:4000/recebermensalidade/'+mensalidade.id,{method:"PUT"})
         .then(resposta=>resposta.json())
         .then(dados=>{
             setlista(dados);
@@ -25,20 +25,19 @@ export default function CadMensalidade(props){
         error =>{
             alert(error)
         });
-        console.log(lista)
     }
 
 
-    function Inscrever() {
-        setMens({id: document.getElementById('mensalidade').value}); 
+    function ReceberMensalidades() {
+        setMensalidade({id: document.getElementById('mensalidade').value}); 
 }
 
     async function InscreverSubmit(e) {
         e.preventDefault();
-        if(mens.id != "Selecione"){
+        if(mensalidade.id != "Selecione"){
             await fetch(localRecursos,{method:"PUT",
                                 headers:{'Content-Type':'application/json'},
-                                body:JSON.stringify(mens)
+                                body:JSON.stringify(mensalidade)
             })
             .then(resposta=>resposta.json())
         
@@ -49,7 +48,7 @@ export default function CadMensalidade(props){
     else{
         //swal("Não é possivel prosseguir!", "Por favor, selecione uma campanha e um beneficiario", "alert")
     }
-    setMens('');
+    setMensalidade('');
 }
     
 
@@ -59,11 +58,11 @@ export default function CadMensalidade(props){
             <form onSubmit={InscreverSubmit}>
             <div>
                 <form>
-                <selectMensalidades mensalidades ={lista} />
+                <SelectMensalidades mensalidades ={lista} />
                 </form> 
             </div>
 
-            <Button onClick={Inscrever}>Inscrever</Button>
+            <Button onClick={ReceberMensalidades}>Inscrever</Button>
             </form>
             </div>
             </Container>

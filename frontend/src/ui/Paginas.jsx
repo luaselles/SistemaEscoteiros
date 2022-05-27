@@ -5,14 +5,20 @@ import ControladoraCadastroEventos from "./formularios/ControladoraCadastroEvent
 import ControladoraCadastroCaixaeventos from "./formularios/ControladoraCadastroCaixaeventos";
 import ControladoraCadastroEscoteiros from "./formularios/ControladoraCadastroEscoteiros";
 import Home from "./formularios/Home";
-import InscreverEscoteiros from "./formularios/InscreverEscoteiros";
+import GerarMensalidade from "./formularios/GerarMensalidade";
+import ListaInscrever from "./formularios/ListaInscrever";
+import ReceberMensalidades from "./formularios/ReceberMensalidadades"
 import TabelaCadastroMensalidades from "./formularios/TabelaCadastroMensalidades";
-
+import TabelaMensalidades from "./formularios/TabelaMensalidades";
+import { Button, Spinner, Modal, Form } from "react-bootstrap";
+ 
 export function PaginaHome(props){
+    
     return(
         <Pagina>
            <Home/>
         </Pagina>
+                   
     );
 }
 
@@ -68,7 +74,7 @@ export function PaginaEscoteiro(props){
     );
 }
 
-export function PaginaInscreverEscoteiros(props){
+export function PaginaGerarMensalidade(props){
 
     function manipulaSubmissaoDados(e){
         e.preventDefault();
@@ -76,12 +82,12 @@ export function PaginaInscreverEscoteiros(props){
 
     return(
         <Pagina>
-            <InscreverEscoteiros/>
+            <GerarMensalidade/>
         </Pagina>
     );
 }
 
-export function PaginaMensalidades(props){
+export function PaginaListaInscrever(props){
 
     function manipulaSubmissaoDados(e){
         e.preventDefault();
@@ -89,10 +95,24 @@ export function PaginaMensalidades(props){
 
     return(
         <Pagina>
-            <cadMensalidade/>
+            <ListaInscrever/>
         </Pagina>
     );
 }
+
+export function PaginaReceberMensalidades(props){
+
+    function manipulaSubmissaoDados(e){
+        e.preventDefault();
+    }
+
+    return(
+        <Pagina>
+            <TabelaMensalidades/>
+        </Pagina>
+    );
+}
+
 
 export function PaginaCaixa(props){
 
@@ -101,18 +121,21 @@ export function PaginaCaixa(props){
     }
 
     async function fetchAbrirCaixa() {
-        await fetch('localhost:4000/abrirCaixa',{method:"POST"})
+        //const localRecursos = 'http://localhost:4000/caixa';
+        if (window.confirm("Deseja abrir o caixa?")){
+        await fetch('http://localhost:4000/abrirCaixa',{method:"POST"})
         .then(resposta=>resposta.json())
         .catch(error =>{
             alert(error)
         });
         alert("Caixa aberto")
+        }
     }
 
     return(
-        <Pagina onload="fetchAbrirCaixa()">
-            <cadMensalidade/>
-        </Pagina>
+        <Button onClick={() => fetchAbrirCaixa()}>
+           Abrir caixa
+        </Button>
     );
 }
 

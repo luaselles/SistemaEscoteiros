@@ -35,5 +35,14 @@ module.exports = {
         lista = await novo.listarnaoinscritos(novo.getStatus(),db)
         console.log(lista)
         return response.json(lista)
+    },
+
+    async listarn(request,response){
+        const con = await db.conecta()
+        let lista = []
+        let novo = new Inscrever(null,null,null,null,null)
+        lista = await novo.listarnaoinscritos(novo.getStatus(),db)
+        console.log(lista)
+        return response.json(lista)
     }
 }

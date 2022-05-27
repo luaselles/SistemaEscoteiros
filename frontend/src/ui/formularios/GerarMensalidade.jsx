@@ -1,14 +1,14 @@
 import { useState,useEffect } from "react";
 import { Button, Col, Container, form, Row } from "react-bootstrap";
 
-import SelectCadastrados from "../formularios/SelectCadastrados";
-import TabelaInscritos from "../formularios/TabelaInscritos";
+import SelectCadastrados from "./SelectCadastrados";
+import TabelaInscritos from "./TabelaInscritos";
 import '../../estilos/tabelacadastrados.css'
 
 
 const localRecursos = 'http://localhost:4000/inscrever'
  
-export default function InscreverEscoteiros(props){
+export default function GerarMensalidade(props){
     const [inscricao, setInscricao] = useState('');
     const [lista, setlista] = useState([])
     const [listasec, setlistasec] = useState([])
@@ -44,16 +44,15 @@ export default function InscreverEscoteiros(props){
         console.log(listasec)
     }
 
-    function Inscrever() {
+    function GerarMensalidade() {
         setInscricao({idescoteiro: document.getElementById('escoteiro').value}); 
 }
 
-    async function InscreverSubmit(e) {
+    async function GerarMensalidadeSubmit(e) {
         e.preventDefault();
         if(inscricao.idescoteiro != "Selecione o Inscrever"){
-            await fetch(localRecursos,{method:"PUT",
+            await fetch("http://localhost/4000/gerarmensalidade/"+inscricao.idescoteiro,{method:"POST",
                                 headers:{'Content-Type':'application/json'},
-                                body:JSON.stringify(inscricao)
             })
             .then(resposta=>resposta.json())
         
@@ -70,7 +69,7 @@ export default function InscreverEscoteiros(props){
     return(
         <Container>
         <div class="flex-container">
-            <form onSubmit={InscreverSubmit}>
+            <form onSubmit={GerarMensalidadeSubmit}>
             <div>
                 <form>
                 <SelectCadastrados inscricoes ={lista} />
@@ -79,7 +78,7 @@ export default function InscreverEscoteiros(props){
                
             </div>
 
-            <Button onClick={Inscrever}>Inscrever</Button>
+            <Button onClick={GerarMensalidade}>Gerar Mensalidade</Button>
             </form>
             </div>
 

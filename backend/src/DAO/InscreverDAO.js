@@ -20,11 +20,27 @@ module.exports = class InscreverDAO {
         return result;
     }
 
+    
     async listarIdInscricao(id,db){
         const sql = "SELECT * from inscrever where idinscricao = ?"
         const valores = [id]
         console.log(valores)
         const result = await db.consulta(sql,valores);
         return result;
+    }
+
+    async listarcorreto(id,db){
+        const sql = "SELECT * from inscrever where idescoteiro = ?"
+        const valores = [id]
+        console.log(valores)
+        const result = await db.consulta(sql,valores);
+        return result;
+    }
+
+    async listarn(db){
+        const sql = "SELECT * FROM escoteiro  e WHERE NOT EXISTS (SELECT * FROM inscrever i WHERE e.idescoteiro = i.idescoteiro)"
+        const valores = null
+        const result = await db.consulta(sql,valores)
+        return result
     }
 }
