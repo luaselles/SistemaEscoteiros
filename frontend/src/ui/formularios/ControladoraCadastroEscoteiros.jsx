@@ -90,7 +90,16 @@ export default function ControladoraCadastroEscoteiros(props) {
     
     function GerarMensalidade(id)
     {
-
+        fetch("http://localhost/4000/gerarmensalidade/"+ id, { method: "POST" })
+            .then(resposta => resposta.json())
+            .then(dados => {
+                setFoiCarregado(true);
+                setEscoteiros(dados);
+            },
+            error => {
+                setFoiCarregado(true);
+                setErro(error);
+            });
     }
 
     useEffect(() => {

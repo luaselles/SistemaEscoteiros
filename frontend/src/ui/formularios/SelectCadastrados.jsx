@@ -10,9 +10,13 @@ const SelectCadastrados = (props)=>{
             <option value={inscricao.Escoteiro.data[0].idescoteiro}>{inscricao.Escoteiro.data[0].nome }</option>
             
         ))}
+        
+        
 
     </FormSelect>
-)
+     
+    
+);
 }
 
 export default SelectCadastrados
