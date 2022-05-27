@@ -9,8 +9,8 @@ module.exports =
         const {idescoteiro} = {...request.params}
         let valor
         console.log("escoteiro",idescoteiro)
-        let esc = await new Escoteiro().buscarIdescoteiro(mensalidade.idEscoteiro,db)
-        let ins = await new Inscrever().buscarIdinscricao(mensalidade.idinscricao,db)
+        let esc = await new Escoteiro().buscarIdescoteiro(idescoteiro,db)
+        let ins = await new Inscrever().listarcorreto(idescoteiro,db)
         if(ins.getQtdeirmaos() === 1)
         {
             valor = 30;

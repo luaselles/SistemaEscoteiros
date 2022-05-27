@@ -5,6 +5,7 @@ import ControladoraCadastroEventos from "./formularios/ControladoraCadastroEvent
 import ControladoraCadastroEscoteiros from "./formularios/ControladoraCadastroEscoteiros";
 import Home from "./formularios/Home";
 import GerarMensalidade from "./formularios/GerarMensalidade";
+import ListaInscrever from "./formularios/ListaInscrever";
 import ReceberMensalidades from "./formularios/ReceberMensalidadades"
 import TabelaCadastroMensalidades from "./formularios/TabelaCadastroMensalidades";
 
@@ -64,6 +65,19 @@ export function PaginaGerarMensalidade(props){
     return(
         <Pagina>
             <GerarMensalidade/>
+        </Pagina>
+    );
+}
+
+export function PaginaListaInscrever(props){
+
+    function manipulaSubmissaoDados(e){
+        e.preventDefault();
+    }
+
+    return(
+        <Pagina>
+            <ListaInscrever/>
         </Pagina>
     );
 }

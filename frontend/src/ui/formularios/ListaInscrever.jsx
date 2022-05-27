@@ -1,9 +1,8 @@
 import { Table, Button } from "react-bootstrap";
-import { IconeEdicao, IconeExclusao } from "../icones/icones";
 import { useState,useEffect } from "react";
-import { Button, Col, Container, form, Row } from "react-bootstrap";
+import {  Col, Container, form, Row } from "react-bootstrap";
 
-export default function TabelaCadastroEscoteiros(props){
+export default function ListaInscrever(props){
     const [lista, setlista] = useState([])
     useEffect(() => {
         fetchInscreverescoteiros()
