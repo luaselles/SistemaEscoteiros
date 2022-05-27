@@ -5,6 +5,7 @@ import ControladoraCadastroEventos from "./formularios/ControladoraCadastroEvent
 import ControladoraCadastroEscoteiros from "./formularios/ControladoraCadastroEscoteiros";
 import Home from "./formularios/Home";
 import InscreverEscoteiros from "./formularios/InscreverEscoteiros";
+import ReceberMensalidades from "./formularios/ReceberMensalidadades"
 import TabelaCadastroMensalidades from "./formularios/TabelaCadastroMensalidades";
 
 export function PaginaHome(props){
@@ -67,7 +68,7 @@ export function PaginaInscreverEscoteiros(props){
     );
 }
 
-export function PaginaMensalidades(props){
+export function PaginaReceberMensalidades(props){
 
     function manipulaSubmissaoDados(e){
         e.preventDefault();
@@ -75,7 +76,7 @@ export function PaginaMensalidades(props){
 
     return(
         <Pagina>
-            <cadMensalidade/>
+            <ReceberMensalidades/>
         </Pagina>
     );
 }
@@ -97,7 +98,7 @@ export function PaginaCaixa(props){
 
     return(
         <Pagina onload="fetchAbrirCaixa()">
-            <cadMensalidade/>
+            <PaginaCaixa/>
         </Pagina>
     );
 }
