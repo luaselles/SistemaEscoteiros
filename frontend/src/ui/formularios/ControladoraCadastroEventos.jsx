@@ -8,7 +8,6 @@ const localRecursos = 'http://localhost:4000/evento'
 
 
 export default function ControladoraCadastroEventos(props) {
-    const [show, setShow] = useState(false);
     const [mostrarTabela, setMostrarTabela] = useState(true);
     const [eventos, setEventos] = useState([]);
 
@@ -94,39 +93,6 @@ export default function ControladoraCadastroEventos(props) {
         setMostrarTabela(false);
     }
 
-    function atualizarValor(evento) {
-        setShow(true)
-        return (<div><Modal show={show} onHide={() => setShow(false)}>
-            <Modal.Header closeButton>
-              <Modal.Title>Insira o valor à ser Debitado ou Creditado.</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <Form>
-                <Form.Group className="mb-3">
-                  <Form.Label>Valor</Form.Label>
-                  <Form.Control
-                    id="input"
-                    type="text"
-                    placeholder="Valor"
-                    autoFocus
-                  />
-                </Form.Group>
-              </Form>
-            </Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={() => setShow(false)}>
-                Fechar
-              </Button>
-              <Button variant="danger" onClick={() => {var quantia = document.getElementById("input").value; evento.valor = (evento.valor - quantia); setShow(false)}}>
-                Debitar
-              </Button>
-              <Button variant="primary" onClick={() => {var quantia = document.getElementById("input").value; evento.valor = (evento.valor + quantia); setShow(false)}}>
-                Creditar
-              </Button>
-            </Modal.Footer>
-          </Modal></div>);
-    }
-
     useEffect(() => {
         buscarEventos();
     }, [eventos]);
@@ -145,11 +111,14 @@ export default function ControladoraCadastroEventos(props) {
             return (
                 <div>
 
-                    {mostrarTabela ? <TabelaCadastroEventos eventos={eventos} atualizarValor={atualizarValor} atualizarEvento={atualizarEvento} deletarEvento={deletarEvento} /> :
+                    {mostrarTabela ? <TabelaCadastroEventos eventos={eventos} atualizarEvento={atualizarEvento} deletarEvento={deletarEvento} /> :
                         <CadastroEventos onGravar={gravarEvento} evento={atualizandoEvento} />}
 
                     <Button onClick={() => setMostrarTabela(!mostrarTabela)}>
                         Cadastrar
+                    </Button>
+                    <Button href="/caixaeventos">
+                        Caixas Eventos
                     </Button>
                 </div>
 

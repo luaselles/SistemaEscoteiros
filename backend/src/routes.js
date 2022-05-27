@@ -4,7 +4,7 @@ const routes = Router();
 const EventCtrl = require('./Controladoras/EventoCtrl');
 const ProdutoCtrl = require('./Controladoras/ProdutoCtrl');
 const EscoteiroCtrl = require('./Controladoras/EscoteiroCtrl');
-
+const CaixaeventoCtrl = require('./Controladoras/CaixaeventoCtrl');
 const InscrCtrl = require('./Controladoras/InscreverCtrl');
 const ReceberMensalidadeCtrl = require('./Controladoras/ReceberMensalidadeCtrl');
 const AbrirCaixaCtrl = require('./Controladoras/AbrirCaixaCtrl');
@@ -21,6 +21,10 @@ routes.post('/evento', EventCtrl.gravarEvento);
 routes.get('/evento', EventCtrl.listarEventos);
 routes.put('/evento', EventCtrl.alterarEvento);
 routes.delete('/evento/:id', EventCtrl.excluirEvento);
+
+routes.post('/caixaevento', CaixaeventoCtrl.gravarCaixaevento);
+routes.get('/caixaevento', CaixaeventoCtrl.listarCaixaevento);
+routes.put('/caixaevento', CaixaeventoCtrl.alterarCaixaevento);
 
 routes.post('/produto', ProdutoCtrl.gravarProduto);
 routes.get('/produto', ProdutoCtrl.listarProdutos);
