@@ -37,6 +37,7 @@ routes.get('/inscrever/status/:status', InscrCtrl.listarPorStatus);
 routes.get('./inscrevern',InscrCtrl.listarn)
 
 routes.post('/abrirCaixa', AbrirCaixaCtrl.AbrirCaixa);
+routes.get('/abrirCaixa', AbrirCaixaCtrl.listarCaixa);
 
 routes.get('/recebermensalidade', ReceberMensalidadeCtrl.listarContas);
 routes.post('/recebermensalidade', ReceberMensalidadeCtrl.gravarMensalidade);

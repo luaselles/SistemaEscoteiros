@@ -8,7 +8,9 @@ import GerarMensalidade from "./formularios/GerarMensalidade";
 import ListaInscrever from "./formularios/ListaInscrever";
 import ReceberMensalidades from "./formularios/ReceberMensalidadades"
 import TabelaCadastroMensalidades from "./formularios/TabelaCadastroMensalidades";
-
+import TabelaMensalidades from "./formularios/TabelaMensalidades";
+import { Button, Spinner, Modal, Form } from "react-bootstrap";
+ 
 export function PaginaHome(props){
     return(
         <Pagina>
@@ -90,10 +92,11 @@ export function PaginaReceberMensalidades(props){
 
     return(
         <Pagina>
-            <ReceberMensalidades/>
+            <TabelaMensalidades/>
         </Pagina>
     );
 }
+
 
 export function PaginaCaixa(props){
 
@@ -102,7 +105,8 @@ export function PaginaCaixa(props){
     }
 
     async function fetchAbrirCaixa() {
-        await fetch('localhost:4000/abrirCaixa',{method:"POST"})
+        const localRecursos = 'http://localhost:4000/caixa';
+        await fetch('http://localhost:4000/abrirCaixa',{method:"POST"})
         .then(resposta=>resposta.json())
         .catch(error =>{
             alert(error)
@@ -111,9 +115,9 @@ export function PaginaCaixa(props){
     }
 
     return(
-        <Pagina onload="fetchAbrirCaixa()">
-            <PaginaCaixa/>
-        </Pagina>
+        <Button onClick={() => fetchAbrirCaixa()}>
+           Abrir caixa
+        </Button>
     );
 }
 
