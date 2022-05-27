@@ -6,9 +6,9 @@ const db = require('../Database.js')
 module.exports = 
 {
     async GerarMensalidade(request, response){
-        const mensalidade = {...request.params}
+        const {idescoteiro} = {...request.params}
         let valor
-        
+        console.log("escoteiro",idescoteiro)
         let esc = await new Escoteiro().buscarIdescoteiro(mensalidade.idEscoteiro,db)
         let ins = await new Inscrever().buscarIdinscricao(mensalidade.idinscricao,db)
         if(ins.getQtdeirmaos() === 1)

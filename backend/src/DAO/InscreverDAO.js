@@ -27,4 +27,11 @@ module.exports = class InscreverDAO {
         const result = await db.consulta(sql,valores);
         return result;
     }
+
+    async listarn(db){
+        const sql = "Selecy * from inscrever as i inner join escoteiro where i.idescoteiro != e.idescoteiro"
+        const valores = null
+        const result = await db.consulta(sql,valores)
+        return result
+    }
 }

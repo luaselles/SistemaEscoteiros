@@ -34,6 +34,7 @@ routes.delete('/escoteiro/:id', EscoteiroCtrl.excluirEscoteiro);
 
 routes.post('/inscrever', InscrCtrl.InscreverEscoteiro);
 routes.get('/inscrever/status/:status', InscrCtrl.listarPorStatus);
+routes.get('./inscrevern',InscrCtrl.listarn)
 
 routes.post('/abrirCaixa', AbrirCaixaCtrl.AbrirCaixa);
 
