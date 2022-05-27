@@ -77,14 +77,14 @@ class Inscrever {
         return lista
     }
 
-    async listarcorreto(db){
-        const result = await new InscreverDAO().listarcorreto(db)
-        let lista = []
-        console.log(result)
-        for (let i = 0; i < result.data.length; i++) {
-            lista.push(new Inscrever(result.data[i].idinscricao, await new EscoteiroDAO().listarId(result.data[i].idescoteiro,db) , result.data[i].qtdeirmaos, result.data[i].dataatual, result.data[i].status))
-        }
-        return lista
+    async alterar(db){
+        await new InscreverDAO().alterar(this, db)
+    }
+
+    async listarIdEscoteiro(id,db){
+        const result = await new InscreverDAO().listarIdEscoteiro(id, db)
+        let obj = new Inscrever(result.data[0].idinscricao, result.data[0].Escoteiro, result.data[0].qtdeirmaos, result.data[0].dataatual, result.data[0].status)
+        return obj
     }
 }
 module.exports = Inscrever;

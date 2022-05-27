@@ -13,6 +13,17 @@ export default function Home(props){
         }
     }
 
+    async function fetchFecharCaixa() {
+        if (window.confirm("Deseja fechar o caixa?")){
+            await fetch('http://localhost:4000/fecharCaixa',{method:"POST"})
+            .then(resposta=>resposta.json())
+            .catch(error =>{
+                alert(error)
+            });
+            alert("Caixa fechado")
+        }
+    }
+
     return(
         <div className="cabecalho">
         <div className="div">
@@ -23,6 +34,9 @@ export default function Home(props){
                 <button className="aa" onClick={() => fetchAbrirCaixa()}>
                     Abrir caixa
                 </button>
+                {/* <button className="aa" onClick={() => ()}>
+                    Fechar caixa
+                </button> */}
         </div>
     </div>
     );

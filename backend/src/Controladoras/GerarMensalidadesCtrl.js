@@ -10,7 +10,7 @@ module.exports =
         let valor
         console.log("escoteiro",idescoteiro)
         let esc = await new Escoteiro().buscarIdescoteiro(idescoteiro,db)
-        let ins = await new Inscrever().listarcorreto(idescoteiro,db)
+        let ins = await new Inscrever().listarIdEscoteiro(idescoteiro,db)
         if(ins.getQtdeirmaos() === 1)
         {
             valor = 30;
@@ -35,7 +35,8 @@ module.exports =
         }
         let aleatorio = new Date(2022 +"-"+ "0"+dataatual.getMonth() +"-"+  "11")
         console.log(aleatorio)
-
+        ins.setStatus(1)
+        ins.alterar(db)
         let novo = new Mensalidade(null,valor, null, aleatorio, esc,ins)
         const con = await db.conecta()
         //let novo = await new Mensalidade().buscarId(mensalidade.id,db)

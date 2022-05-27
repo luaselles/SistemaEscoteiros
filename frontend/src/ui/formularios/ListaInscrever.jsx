@@ -2,6 +2,8 @@ import { Table, Button } from "react-bootstrap";
 import { useState,useEffect } from "react";
 import {  Col, Container, form, Row } from "react-bootstrap";
 
+
+
 export default function ListaInscrever(props){
     const [lista, setlista] = useState([])
     useEffect(() => {
@@ -32,7 +34,6 @@ export default function ListaInscrever(props){
     return(
         <div>
         <h3>Escoteiros:</h3>
-        <Container>
         <Table striped bordered hover>
             <thead>
                 <tr>
@@ -61,7 +62,6 @@ export default function ListaInscrever(props){
                 })}
             </tbody>    
         </Table>
-        </Container>
         </div>
     );
 }

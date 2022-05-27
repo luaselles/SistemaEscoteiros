@@ -1,7 +1,7 @@
 import { useState,useEffect } from "react";
 import { Button, Col, Container, form, Row } from "react-bootstrap";
 
-import SelectMensalidades from "./SelectMensalidades";
+import SelectMensalidades from "./selectMensalidades";
 import '../../estilos/tabelacadastrados.css'
 
 const localRecursos = 'http://localhost:4000/recebermensalidade'
