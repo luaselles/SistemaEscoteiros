@@ -12,10 +12,12 @@ import TabelaMensalidades from "./formularios/TabelaMensalidades";
 import { Button, Spinner, Modal, Form } from "react-bootstrap";
  
 export function PaginaHome(props){
+    
     return(
         <Pagina>
            <Home/>
         </Pagina>
+                   
     );
 }
 
@@ -105,13 +107,15 @@ export function PaginaCaixa(props){
     }
 
     async function fetchAbrirCaixa() {
-        const localRecursos = 'http://localhost:4000/caixa';
+        //const localRecursos = 'http://localhost:4000/caixa';
+        if (window.confirm("Deseja abrir o caixa?")){
         await fetch('http://localhost:4000/abrirCaixa',{method:"POST"})
         .then(resposta=>resposta.json())
         .catch(error =>{
             alert(error)
         });
         alert("Caixa aberto")
+        }
     }
 
     return(
