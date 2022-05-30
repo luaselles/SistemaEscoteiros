@@ -17,6 +17,15 @@ module.exports = {
         return response.json(novoInsc)
     },
 
+    async cancelarInscricao(request, response) 
+    {
+        const inscrever = { ...request.params };
+        const atual = buscarEscoteiroIdInscricao(inscrever.idescoteiro, db);
+        atual.setStatus(0);
+        await atual.alterar(db)
+        return response.json(atual)
+    },
+
     async buscarId(request, response) {
         const inscrever = { ...request.params }
         console.log(inscrever)

@@ -57,6 +57,12 @@ class Inscrever {
         return obj
     }
 
+    async buscarEscoteiroIdInscricao(idEscoteiro, db) {
+        const result = await new InscreverDAO().buscarIdEscoteiro(idEscoteiro, db)
+        let obj = new Inscrever(result.data[0].idinscricao, result.data[0].Escoteiro, result.data[0].qtdeirmaos, result.data[0].dataatual, result.data[0].status)
+        return obj
+    }
+
     async listarnaoinscritos(status,db) {
         const result = await new InscreverDAO().listarNaoInscritas(status,db)
         let lista = []

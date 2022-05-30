@@ -1,10 +1,11 @@
 const CaixaDAO = require('../DAO/CaixaDAO')
 class Caixa {
 
-    constructor(id,valor,data,status){
+    constructor(id,valor,data, dataFechamento,status){
         this.id = id;
         this.valor = valor;
         this.data = data;
+        this.dataFechamento = dataFechamento;
         this.status=status;
     }
 
@@ -32,6 +33,15 @@ class Caixa {
         this.data = novadata;
     }
 
+    getdataFechamento()
+    {
+        return this.dataFechamento;
+    }
+    setdataFechamento(novadataFechamento)
+    {
+        this.dataFechamento = novadataFechamento;
+    }
+
     getstatus(){
         return this.status;
     }
@@ -56,7 +66,7 @@ class Caixa {
 
     async buscarId(id,db){
         const result = await new CaixaDAO().listarId(id,db)
-        let obj = new Caixa(result.data[i].id, result.data[0].valor, result.data[0].data, result.data[0].status)
+        let obj = new Caixa(result.data[i].id, result.data[0].valor, result.data[0].data, result.data[0].dataFechamento, result.data[0].status)
         return obj
     }
 
@@ -64,7 +74,7 @@ class Caixa {
         const result = await new CaixaDAO().listar(db)
         let lista = []
         for(let i = 0;i<result.data.length;i++){
-            lista.push(new Caixa(result.data[i].id, result.data[i].valor, result.data[i].data, result.data[i].status))
+            lista.push(new Caixa(result.data[i].id, result.data[i].valor, result.data[i].data, result.data[i].dataFechamento, result.data[i].status))
         }
         return lista
     }

@@ -8,7 +8,8 @@ const CaixaeventoCtrl = require('./Controladoras/CaixaeventoCtrl');
 const InscrCtrl = require('./Controladoras/InscreverCtrl');
 const ReceberMensalidadeCtrl = require('./Controladoras/ReceberMensalidadeCtrl');
 const AbrirCaixaCtrl = require('./Controladoras/AbrirCaixaCtrl');
-const GerarMensalidadeCtrl = require('./Controladoras/GerarMensalidadesCtrl')
+const GerarMensalidadeCtrl = require('./Controladoras/GerarMensalidadesCtrl');
+const InscreverCtrl = require('./Controladoras/InscreverCtrl');
 
 routes.all('*', function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
@@ -39,9 +40,12 @@ routes.delete('/escoteiro/:id', EscoteiroCtrl.excluirEscoteiro);
 routes.post('/inscrever', InscrCtrl.InscreverEscoteiro);
 routes.get('/inscrever/status/:status', InscrCtrl.listarPorStatus);
 routes.get('./inscrevern',InscrCtrl.listarn)
+routes.put('./cancelarinscricao/:id', InscrCtrl.cancelarInscricao);
 
 routes.post('/abrirCaixa', AbrirCaixaCtrl.AbrirCaixa);
 routes.get('/abrirCaixa', AbrirCaixaCtrl.listarCaixa);
+routes.put('/fecharCaixa/:id', AbrirCaixaCtrl.FecharCaixa);
+//routes.get('/abrirCaixa', AbrirCaixaCtrl.listarCaixa);
 
 routes.get('/recebermensalidade', ReceberMensalidadeCtrl.listarContas);
 routes.post('/recebermensalidade', ReceberMensalidadeCtrl.gravarMensalidade);

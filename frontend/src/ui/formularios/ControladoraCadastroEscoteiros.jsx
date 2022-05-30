@@ -102,6 +102,23 @@ export default function ControladoraCadastroEscoteiros(props) {
             });
     }
 
+    function CancelarInscricao(id)
+    {
+        fetch("http://localhost/4000/cancelarInscricao/"+id, { method: "PUT" })
+        .then(resposta => resposta.json())
+        .then(retorno => {
+            if (retorno.resultado) 
+            {
+                alert('Inscrição atualizado com sucesso!');
+            }
+            else 
+            {
+                alert('Não foi possível atualizar o Escoteiro!');
+            }
+            setEstaAtualizando(false);
+        });
+    }
+
     useEffect(() => {
         buscarEscoteiros();
     }, [escoteiros]);
@@ -120,7 +137,7 @@ export default function ControladoraCadastroEscoteiros(props) {
             return (
                 <div>
 
-                    {mostrarTabela ? <TabelaCadastroEscoteiros escoteiros={escoteiros} atualizarEscoteiro={atualizarEscoteiro} deletarEscoteiro={deletarEscoteiro} GerarMensalidade={GerarMensalidade}/> :
+                    {mostrarTabela ? <TabelaCadastroEscoteiros escoteiros={escoteiros} atualizarEscoteiro={atualizarEscoteiro} deletarEscoteiro={deletarEscoteiro} GerarMensalidade={GerarMensalidade} CancelarInscricao={CancelarInscricao}/> :
                         <CadastroEscoteiros onGravar={gravarEscoteiro} escoteiro={atualizandoEscoteiro} />}
 
                     <Button onClick={() => setMostrarTabela(!mostrarTabela)}>

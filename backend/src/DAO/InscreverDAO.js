@@ -13,6 +13,13 @@ module.exports = class InscreverDAO {
         return result;
     }
 
+    async buscarIdEscoteiro(id, db) {
+        const sql = "SELECT * from inscrever where escoteiro = ?"
+        const valores = [id]
+        const result = await db.consulta(sql, valores);
+        return result;
+    }
+
     async listarNaoInscritas(status,db){
         const sql = "SELECT * from inscrever where status = ?"
         const valores = [status]

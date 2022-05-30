@@ -1,5 +1,5 @@
-const Caixa = require('../Entidades/Caixa')
-const db = require('../Database.js')
+const Caixa = require('../Entidades/Caixa.js')
+const db = require('../Database.js');
 
 module.exports = 
 {
@@ -15,6 +15,17 @@ module.exports =
         console.log(novo)
         await novo.gravar(db) 
         return response.json(novo)
+    },
+
+    async FecharCaixa(request, response)
+    {
+        const caixa = {...request.params};
+        const atual = buscarId(caixa.getid(), db);
+        const dataFechamento = new Date(Date.now());
+        atual.setdataFechamento(dataFechamento);
+        atual.setstatus(0);
+        await atual.alterar(db) 
+        return response.json(atual)
     },
 
     async listarCaixa(request, response) {
