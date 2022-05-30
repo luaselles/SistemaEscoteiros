@@ -14,7 +14,7 @@ module.exports = class InscreverDAO {
     }
 
     async buscarIdEscoteiro(id, db) {
-        const sql = "SELECT * from inscrever where escoteiro = ?"
+        const sql = "SELECT * from inscrever where idescoteiro = ?"
         const valores = [id]
         const result = await db.consulta(sql, valores);
         return result;
