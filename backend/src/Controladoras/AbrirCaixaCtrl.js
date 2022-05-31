@@ -8,7 +8,7 @@ module.exports =
         const timeElapsed = Date.now();
         const data = new Date(timeElapsed);
         const con = await db.conecta()
-        let novo = await new Caixa()//.buscarId(caixa.id,db)
+        let novo = await new Caixa()
         novo.setdata(data)
         novo.setvalor(0)
         novo.setstatus(1)
