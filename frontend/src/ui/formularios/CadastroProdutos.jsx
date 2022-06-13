@@ -123,25 +123,6 @@ export default function CadastroProdutos(props){
                     </Row>
                     <Row className="m-3">
                         <Col xs={12} md={3}>
-                            <Form.Label>Descrição:</Form.Label>
-                        </Col>
-                        <Col xs={12} md={4}>
-                            <Form.Control 
-                            type="text" 
-                            id="descricao" 
-                            name="descricao" 
-                            placeholder="Digite a descrição do produto"
-                            value={produto.descricao}
-                            onChange={manipularMudanca}
-                            onBlur={verificaDescricao}
-                            />
-                            <Form.Control.Feedback type="invalid">
-                                A descrição do produto deve ter pelo menos 6 caracteres.
-                            </Form.Control.Feedback>
-                        </Col>
-                    </Row>
-                    <Row className="m-3">
-                        <Col xs={12} md={3}>
                             <Form.Label>Preço de custo:</Form.Label>
                         </Col>
                         <Col xs={12} md={4}>

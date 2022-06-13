@@ -13,6 +13,20 @@ module.exports =
         novo.setvalor(0)
         novo.setstatus(1)
         console.log(novo)
+        await novo.alterar(db) 
+        return response.json(novo)
+    },
+
+    async AlterarCaixa(request, response){
+        const caixa = {...request.params}
+        const timeElapsed = Date.now();
+        const data = new Date(timeElapsed);
+        const con = await db.conecta()
+        let novo = await new Caixa()
+        novo.setdata(data)
+        novo.setvalor(0)
+        novo.setstatus(1)
+        console.log(novo)
         await novo.gravar(db) 
         return response.json(novo)
     },

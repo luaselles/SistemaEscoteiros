@@ -4,6 +4,7 @@ import ControladoraCadastroProdutos from "./formularios/ControladoraCadastroProd
 import ControladoraCadastroEventos from "./formularios/ControladoraCadastroEventos";
 import ControladoraCadastroCaixaeventos from "./formularios/ControladoraCadastroCaixaeventos";
 import ControladoraCadastroEscoteiros from "./formularios/ControladoraCadastroEscoteiros";
+import ControladoraMensalidades from "./formularios/ControladoraMensalidades";
 import Home from "./formularios/Home";
 import RealizarInscricao from "./formularios/RealizarInscricao";
 import GerarMensalidade from "./formularios/GerarMensalidade";
@@ -105,9 +106,10 @@ export function PaginaRealizarInscricao(props){
 export function PaginaReceberMensalidades(props){
 
     return(
+        
         <Pagina>
-            <h1>teste</h1>
-            <TabelaMensalidades/>
+            <h3>teste</h3>
+            <ControladoraMensalidades/>
         </Pagina>
     );
 }
