@@ -3,9 +3,13 @@ import {useNavigate} from "react-router-dom"
 import { useLocation } from "react-router-dom";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 
+const localRecursos = 'http://localhost:4000/inscrever';
+
 export default function RealizarInscricao(props) {
     const location = useLocation();
     const navigate = useNavigate();
+
+    let escoteiro = {idescoteiro: location.state.id, nome: location.state.nome, cpf: location.state.cpf, qtdeirmaos: 0, secao: location.state.secao} 
 
     function cancelar(e)
     {
@@ -13,9 +17,28 @@ export default function RealizarInscricao(props) {
        
     }
 
+    function mudanca(e)
+    {
+        const componente = e.target;
+        const valor = componente.value;
+        escoteiro.qtdeirmaos=valor;
+    }
+
+    function Inscrever()
+    {
+        
+        fetch(localRecursos, {
+            method: "POST",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(escoteiro)
+        })
+            .then(resposta => resposta.json())
+                
+    }
+
     return(
         <Container>
-        <Form  method="get"  action="#">
+        <Form  onSubmit={Inscrever}>
             <fieldset className="border bg-light p-5 m-2">
                 <h3>Inscrição de Escoteiros:</h3>
                 <Row className="m-3">
@@ -66,17 +89,26 @@ export default function RealizarInscricao(props) {
                             value={location.state.secao}  disabled/>
                     </Col>
                 </Row>
+                <Row className="m-3">
+                    <Col xs={12} md={3}>
+                        <Form.Label>Qtde de Irmãos:</Form.Label>
+                    </Col>
+                    <Col xs={12} md={4}>
+                        <Form.Control
+                            type="number"
+                            id="qtde"
+                            name="qtde"  
+                            defaultValue={0}
+                            min="0"
+                            max="15"/>
+                    </Col>
+                </Row>
                     
                     <Row className="m-3">
                         <Col xs={12} md={{ offset: 3 }}>
-                            <Button variant="success" type="submit">Inscrever</Button> 
-                            &nbsp; <Button onClick={cancelar} variant="danger" type="submit" >Cancelar</Button>
+                            <Button onClick={mudanca} variant="success" type="button">Inscrever</Button> 
+                            &nbsp; <Button onClick={cancelar} variant="danger" type="button">Cancelar</Button>
                         </Col>
-                        
-                    </Row>
-
-                    <Row className="m-3">
-                   
                         
                     </Row>
                 </fieldset>

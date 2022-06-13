@@ -7,8 +7,9 @@ module.exports = {
 //1 ativo (com mensalidade)
     async InscreverEscoteiro(request, response){
         const inscrever = {...request.body}
-        console.log(inscrever)
+        console.log('ok') 
         const con = await db.conecta()
+        console.log(inscrever)
         let novoEsco = await new Escoteiro().buscarIdescoteiro(inscrever.idescoteiro,db)
         const timeElapsed = Date.now();
         const dataatual = new Date(timeElapsed);
