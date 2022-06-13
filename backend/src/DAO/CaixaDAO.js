@@ -9,15 +9,15 @@ module.exports = class CaixaDAO{
     }
 
     async alterar(caixa, db) {
-        let sql = "UPDATE caixa SET valor = ?, data = ? status = ? WHERE id = ?"
-        const valores = [caixa.getvalor(), caixa.getdata(), caixa.getstatus(), caixa.getid()]
+        let sql = "UPDATE caixa SET valor = ?, status = ? WHERE data = ?"
+        const valores = [caixa.getvalor(), caixa.getstatus(), caixa.getdata()]
         const result = await db.manipula(sql, valores);
         return result
     }
 
     async excluir(caixa, db) {
-        let sql = "DELETE FROM caixa WHERE id = ?"
-        const valor = [caixa.getid()]
+        let sql = "DELETE FROM caixa WHERE data = ?"
+        const valor = [caixa.getdata()]
         const result = await db.manipula(sql, valor)
         console.log(result)
         return result
@@ -29,9 +29,9 @@ module.exports = class CaixaDAO{
         return result;
     }
 
-    async listarId(id,db){
-        const sql = "SELECT * from caixa where id = ?"
-        const valores = [id]
+    async listarId(data,db){
+        const sql = "SELECT * from caixa where data = ?"
+        const valores = [data]
         const result = await db.consulta(sql,valores);
         return result;
     }
