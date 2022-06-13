@@ -9,9 +9,9 @@ module.exports = new
         async conecta() {
             const config = {
                 host: "sql10.freesqldatabase.com",
-                user: "sql10497713",
-                password: "f32C12umtE",
-                database: "sql10497713",
+                user: "sql10499465",
+                password: "xW1DhnyF9F",
+                database: "sql10499465",
                 port: 3306
     
             }

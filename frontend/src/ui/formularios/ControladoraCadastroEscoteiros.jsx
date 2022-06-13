@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import {createBrowserHistory} from "history"
 import CadastroEscoteiros from "./CadastroEscoteiros";
 import TabelaCadastroEscoteiros from "./TabelaCadastroEscoteiros";
 import { Button, Spinner } from "react-bootstrap";
@@ -7,6 +7,11 @@ import { Button, Spinner } from "react-bootstrap";
 const localRecursos = 'http://localhost:4000/escoteiro';
 
 export default function ControladoraCadastroEscoteiros(props) {
+    const history = createBrowserHistory ({
+        basename: "/"
+    })
+    window.redirect = history.push
+
     const [mostrarTabela, setMostrarTabela] = useState(true);
     const [escoteiros, setEscoteiros] = useState([]);
 
@@ -63,6 +68,9 @@ export default function ControladoraCadastroEscoteiros(props) {
         }
     }
 
+
+
+
     function deletarEscoteiro(escoteiro) {
         if (window.confirm("Deseja excluir o item?")){
             fetch(localRecursos + "/" + escoteiro.idescoteiro, {
@@ -88,6 +96,19 @@ export default function ControladoraCadastroEscoteiros(props) {
         setMostrarTabela(false);
     }
     
+    function RealizarInscricao(escoteiro) {
+       
+       history.push({
+           
+           pathname: '/realizarinscricao',
+           state: {escoteiro},
+
+       })
+
+       window.redirect("/realizarinscricao")
+    }
+
+
     function GerarMensalidade(id)
     {
         fetch("http://localhost/4000/gerarmensalidade/"+ id, { method: "POST" })
@@ -137,7 +158,7 @@ export default function ControladoraCadastroEscoteiros(props) {
             return (
                 <div>
 
-                    {mostrarTabela ? <TabelaCadastroEscoteiros escoteiros={escoteiros} atualizarEscoteiro={atualizarEscoteiro} deletarEscoteiro={deletarEscoteiro} GerarMensalidade={GerarMensalidade} CancelarInscricao={CancelarInscricao}/> :
+                    {mostrarTabela ? <TabelaCadastroEscoteiros escoteiros={escoteiros} atualizarEscoteiro={atualizarEscoteiro} deletarEscoteiro={deletarEscoteiro} GerarMensalidade={GerarMensalidade} CancelarInscricao={CancelarInscricao} RealizarInscricao={RealizarInscricao}/> :
                         <CadastroEscoteiros onGravar={gravarEscoteiro} escoteiro={atualizandoEscoteiro} />}
 
                     <Button onClick={() => setMostrarTabela(!mostrarTabela)}>
