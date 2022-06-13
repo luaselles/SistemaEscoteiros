@@ -1,16 +1,16 @@
 module.exports = class CaixaDAO{
 
     async gravar(caixa, db) {
-        let sql = "INSERT INTO caixa (valor, data, datafechamento, status) " +
-                  "VALUES (?, ?, ?, ?)"
-        const valores = [caixa.getvalor(), caixa.getdata(), caixa.getdataFechamento(), caixa.getstatus()]
+        let sql = "INSERT INTO caixa (valor, data, status) " +
+                  "VALUES (?, ?, ?)"
+        const valores = [caixa.getvalor(), caixa.getdata(), caixa.getstatus()]
         const result = await db.manipula(sql, valores)
         return result
     }
 
     async alterar(caixa, db) {
-        let sql = "UPDATE caixa SET valor = ?, data = ?, datafechamento = ?, status = ? WHERE id = ?"
-        const valores = [caixa.getvalor(), caixa.getdata(), caixa.getdataFechamento(), caixa.getstatus(), caixa.getid()]
+        let sql = "UPDATE caixa SET valor = ?, data = ? status = ? WHERE id = ?"
+        const valores = [caixa.getvalor(), caixa.getdata(), caixa.getstatus(), caixa.getid()]
         const result = await db.manipula(sql, valores);
         return result
     }

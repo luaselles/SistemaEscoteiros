@@ -44,7 +44,6 @@ routes.put('./cancelarinscricao/:id', InscrCtrl.cancelarInscricao);
 
 routes.post('/abrirCaixa', AbrirCaixaCtrl.AbrirCaixa);
 routes.get('/abrirCaixa', AbrirCaixaCtrl.listarCaixa);
-routes.put('/fecharCaixa/:id', AbrirCaixaCtrl.FecharCaixa);
 //routes.get('/abrirCaixa', AbrirCaixaCtrl.listarCaixa);
 
 routes.get('/recebermensalidade', ReceberMensalidadeCtrl.listarContas);

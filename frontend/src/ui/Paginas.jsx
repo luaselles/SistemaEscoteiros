@@ -104,12 +104,9 @@ export function PaginaRealizarInscricao(props){
 
 export function PaginaReceberMensalidades(props){
 
-    function manipulaSubmissaoDados(e){
-        e.preventDefault();
-    }
-
     return(
         <Pagina>
+            <h1>teste</h1>
             <TabelaMensalidades/>
         </Pagina>
     );
