@@ -13,7 +13,7 @@ module.exports = new
                 password: "vcKjRlfR3Z",
                 database: "sql10499493",
                 port: 3306
-    
+
             }
             try {
                 this.connection = await new mysql.createConnection(config);
