@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import {createBrowserHistory} from "history"
+import {useNavigate} from "react-router-dom"
 import CadastroEscoteiros from "./CadastroEscoteiros";
 import TabelaCadastroEscoteiros from "./TabelaCadastroEscoteiros";
 import { Button, Spinner } from "react-bootstrap";
@@ -7,10 +7,8 @@ import { Button, Spinner } from "react-bootstrap";
 const localRecursos = 'http://localhost:4000/escoteiro';
 
 export default function ControladoraCadastroEscoteiros(props) {
-    const history = createBrowserHistory ({
-        basename: "/"
-    })
-    window.redirect = history.push
+    const navigate = useNavigate();
+    
 
     const [mostrarTabela, setMostrarTabela] = useState(true);
     const [escoteiros, setEscoteiros] = useState([]);
@@ -97,15 +95,8 @@ export default function ControladoraCadastroEscoteiros(props) {
     }
     
     function RealizarInscricao(escoteiro) {
-       
-       history.push({
-           
-           pathname: '/realizarinscricao',
-           state: {escoteiro},
-
-       })
-
-       window.redirect("/realizarinscricao")
+     
+       navigate('/realizarinscricao', {state:{id: escoteiro.idescoteiro, nome: escoteiro.nome, cpf: escoteiro.cpf, secao: escoteiro.secao}})
     }
 
 

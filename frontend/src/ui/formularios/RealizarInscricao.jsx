@@ -1,16 +1,21 @@
 import { useState } from "react";
+import {useNavigate} from "react-router-dom"
+import { useLocation } from "react-router-dom";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 
 export default function RealizarInscricao(props) {
-    const [escoteiro, setEscoteiro] = useState(props.escoteiro);
-    function carregaradados(e)
-    {
+    const location = useLocation();
+    const navigate = useNavigate();
 
+    function cancelar(e)
+    {
+        navigate('/')
+       
     }
 
     return(
         <Container>
-        <Form  method="get" action="#">
+        <Form  method="get"  action="#">
             <fieldset className="border bg-light p-5 m-2">
                 <h3>Inscrição de Escoteiros:</h3>
                 <Row className="m-3">
@@ -22,7 +27,7 @@ export default function RealizarInscricao(props) {
                                 type="text"
                                 id="id"
                                 name="id"
-                              disabled />
+                                value={location.state.id} disabled />
                         </Col>
                 </Row>
                 <Row className="m-3">
@@ -34,8 +39,7 @@ export default function RealizarInscricao(props) {
                             type="text"
                             id="nome"
                             name="nome"
-                            
-                            disabled />
+                            value={location.state.nome} disabled/>  
                     </Col>
                 </Row>
                 <Row className="m-3">
@@ -47,8 +51,7 @@ export default function RealizarInscricao(props) {
                             type="text"
                             id="cpf"
                             name="cpf"
-                            
-                            disabled />
+                            value={location.state.cpf}  disabled />
                     </Col>
                 </Row>
                 <Row className="m-3">
@@ -59,16 +62,15 @@ export default function RealizarInscricao(props) {
                         <Form.Control
                             type="text"
                             id="secao"
-                            name="secao"
-                            
-                            disabled/>
+                            name="secao"  
+                            value={location.state.secao}  disabled/>
                     </Col>
                 </Row>
                     
                     <Row className="m-3">
                         <Col xs={12} md={{ offset: 3 }}>
                             <Button variant="success" type="submit">Inscrever</Button> 
-                            &nbsp; <Button variant="danger" type="submit" >Cancelar</Button>
+                            &nbsp; <Button onClick={cancelar} variant="danger" type="submit" >Cancelar</Button>
                         </Col>
                         
                     </Row>
