@@ -2,7 +2,6 @@
 import { Pagina } from "../templates/ui/Pagina";
 import ControladoraCadastroProdutos from "./formularios/ControladoraCadastroProdutos";
 import ControladoraCadastroEventos from "./formularios/ControladoraCadastroEventos";
-import ControladoraCadastroCaixaeventos from "./formularios/ControladoraCadastroCaixaeventos";
 import ControladoraCadastroEscoteiros from "./formularios/ControladoraCadastroEscoteiros";
 import Home from "./formularios/Home";
 import GerarMensalidade from "./formularios/GerarMensalidade";
@@ -44,19 +43,6 @@ export function PaginaEvento(props){
     return(
         <Pagina>
             <ControladoraCadastroEventos/>
-        </Pagina>
-    );
-}
-
-export function PaginaCaixaevento(props){
-
-    function manipulaSubmissaoDados(e){
-        e.preventDefault();
-    }
-
-    return(
-        <Pagina>
-            <ControladoraCadastroCaixaeventos/>
         </Pagina>
     );
 }

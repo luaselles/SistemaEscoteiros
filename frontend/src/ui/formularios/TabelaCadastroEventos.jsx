@@ -1,5 +1,5 @@
 import { Table, Button } from "react-bootstrap";
-import { IconeEdicao, IconeExclusao } from "../icones/icones";
+import { IconeEdicao, IconeExclusao, IconeDinheiro, IconeLista } from "../icones/icones";
 
 export default function TabelaCadastroEventos(props){
     return(
@@ -34,6 +34,8 @@ export default function TabelaCadastroEventos(props){
                             <td>{evento.num}</td>
                             <td>{evento.data}</td>
                             <td>
+                                <Button variant="outline-success" onClick={()=>{props.atualizarValor(evento)}}><IconeDinheiro/></Button>{' '}
+                                <Button variant="outline-info" onClick={()=>{props.mostrarExtrato(evento)}}><IconeLista/></Button>{' '}
                                 <Button variant="outline-primary" onClick={()=>{props.atualizarEvento(evento)}}><IconeEdicao/></Button>{' '}
                                 <Button variant="outline-danger" onClick={()=>{props.deletarEvento(evento)}}><IconeExclusao/></Button>
                             </td>
