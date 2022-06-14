@@ -11,7 +11,6 @@ export default function TabelaCadastroProdutos(props){
                 <tr>
                     <th>Código</th>
                     <th>Nome</th>
-                    <th>Descrição</th>
                     <th>Preço de Custo</th>
                     <th>Preço de Venda</th>
                     <th>Quantidade em estoque</th>
@@ -24,7 +23,6 @@ export default function TabelaCadastroProdutos(props){
                         <tr key={produto.id}>
                             <td>{produto.id}</td>
                             <td>{produto.nomeProd}</td>
-                            <td>{produto.descricao}</td>
                             <td>{produto.precoCusto}</td>
                             <td>{produto.precoVenda}</td>
                             <td>{produto.qtdEstoque}</td>

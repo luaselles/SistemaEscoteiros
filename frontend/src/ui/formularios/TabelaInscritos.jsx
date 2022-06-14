@@ -12,7 +12,7 @@ export default function TabelaInscritos(props){
                     </tr>
                 </thead>
                 <tbody>
-                    {props.inscricoes.map((inscricao)=>{
+                    {props.inscritos.map((inscricao)=>{
                         return (
                             <tr key={inscricao.Escoteiro.data[0].idescoteiro}>
                                 <td>{inscricao.Escoteiro.data[0].idescoteiro}</td>

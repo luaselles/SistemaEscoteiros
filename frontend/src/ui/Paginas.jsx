@@ -3,12 +3,15 @@ import { Pagina } from "../templates/ui/Pagina";
 import ControladoraCadastroProdutos from "./formularios/ControladoraCadastroProdutos";
 import ControladoraCadastroEventos from "./formularios/ControladoraCadastroEventos";
 import ControladoraCadastroEscoteiros from "./formularios/ControladoraCadastroEscoteiros";
+import ControladoraMensalidades from "./formularios/ControladoraMensalidades";
+import ControladoraInscritos from "./formularios/ControladoraInscritos";
 import Home from "./formularios/Home";
+import RealizarInscricao from "./formularios/RealizarInscricao";
 import GerarMensalidade from "./formularios/GerarMensalidade";
-import ListaInscrever from "./formularios/ListaInscrever";
 import ReceberMensalidades from "./formularios/ReceberMensalidadades"
 import TabelaCadastroMensalidades from "./formularios/TabelaCadastroMensalidades";
 import TabelaMensalidades from "./formularios/TabelaMensalidades";
+
 import { Button, Spinner, Modal, Form } from "react-bootstrap";
  
 export function PaginaHome(props){
@@ -59,7 +62,18 @@ export function PaginaEscoteiro(props){
         </Pagina>
     );
 }
+export function PaginaInscritos(props){
 
+    function manipulaSubmissaoDados(e){
+        e.preventDefault();
+    }
+
+    return(
+        <Pagina>
+            <ControladoraInscritos/>
+        </Pagina>
+    );
+}
 export function PaginaGerarMensalidade(props){
 
     function manipulaSubmissaoDados(e){
@@ -73,7 +87,8 @@ export function PaginaGerarMensalidade(props){
     );
 }
 
-export function PaginaListaInscrever(props){
+
+export function PaginaRealizarInscricao(props){
 
     function manipulaSubmissaoDados(e){
         e.preventDefault();
@@ -81,20 +96,18 @@ export function PaginaListaInscrever(props){
 
     return(
         <Pagina>
-            <ListaInscrever/>
+            <RealizarInscricao/>
         </Pagina>
     );
 }
 
+
 export function PaginaReceberMensalidades(props){
 
-    function manipulaSubmissaoDados(e){
-        e.preventDefault();
-    }
-
     return(
+        
         <Pagina>
-            <TabelaMensalidades/>
+            <ControladoraMensalidades/>
         </Pagina>
     );
 }

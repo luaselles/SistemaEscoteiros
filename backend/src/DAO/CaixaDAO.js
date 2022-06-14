@@ -1,23 +1,23 @@
 module.exports = class CaixaDAO{
 
     async gravar(caixa, db) {
-        let sql = "INSERT INTO caixa (valor, data, datafechamento, status) " +
-                  "VALUES (?, ?, ?, ?)"
-        const valores = [caixa.getvalor(), caixa.getdata(), caixa.getdataFechamento(), caixa.getstatus()]
+        let sql = "INSERT INTO caixa (valor, data, status) " +
+                  "VALUES (?, ?, ?)"
+        const valores = [caixa.getvalor(), caixa.getdata(), caixa.getstatus()]
         const result = await db.manipula(sql, valores)
         return result
     }
 
     async alterar(caixa, db) {
-        let sql = "UPDATE caixa SET valor = ?, data = ?, datafechamento = ?, status = ? WHERE id = ?"
-        const valores = [caixa.getvalor(), caixa.getdata(), caixa.getdataFechamento(), caixa.getstatus(), caixa.getid()]
+        let sql = "UPDATE caixa SET valor = ? WHERE data = ?"
+        const valores = [caixa.getvalor(), caixa.getdata()]
         const result = await db.manipula(sql, valores);
         return result
     }
 
     async excluir(caixa, db) {
-        let sql = "DELETE FROM caixa WHERE id = ?"
-        const valor = [caixa.getid()]
+        let sql = "DELETE FROM caixa WHERE data = ?"
+        const valor = [caixa.getdata()]
         const result = await db.manipula(sql, valor)
         console.log(result)
         return result
@@ -29,9 +29,9 @@ module.exports = class CaixaDAO{
         return result;
     }
 
-    async listarId(id,db){
-        const sql = "SELECT * from caixa where id = ?"
-        const valores = [id]
+    async listarId(data,db){
+        const sql = "SELECT * from caixa where data = ?"
+        const valores = [data]
         const result = await db.consulta(sql,valores);
         return result;
     }

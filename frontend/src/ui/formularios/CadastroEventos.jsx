@@ -103,7 +103,7 @@ export default function CadastroEventos(props){
                             value={evento.respevento}
                             onChange={manipularMudanca}
                             onBlur={verificaNome}
-                            />
+                            required/>
                             <Form.Control.Feedback type="invalid">
                                 O nome do responsável deve ter pelo menos 4 caracteres.
                             </Form.Control.Feedback>
@@ -122,7 +122,7 @@ export default function CadastroEventos(props){
                             value={evento.nomeEvent}
                             onChange={manipularMudanca}
                             onBlur={verificaNome}
-                            />
+                            required/>
                             <Form.Control.Feedback type="invalid">
                                 O nome do evento deve ter pelo menos 4 caracteres.
                             </Form.Control.Feedback>
@@ -139,7 +139,7 @@ export default function CadastroEventos(props){
                             value={evento.data}
                             onChange={manipularMudanca}
                             onBlur={verificaNome}
-                            />   
+                            required/>   
                         </Col>
                     </Row>
                     <Row className="m-3">
@@ -153,9 +153,8 @@ export default function CadastroEventos(props){
                             name="descricao" 
                             placeholder="Digite a Descrição do Evento"
                             value={evento.descricao}
-                            onChange={manipularMudanca}
-                            
-                            />
+                            onChange={manipularMudanca} 
+                            required/>
                             <Form.Control.Feedback type="invalid">
                                 A descrição do evento deve ter pelo menos 6 caracteres.
                             </Form.Control.Feedback>
@@ -174,7 +173,7 @@ export default function CadastroEventos(props){
                             value={evento.rua}
                             onChange={manipularMudanca}
                             onBlur={verificaDescricao}
-                            />
+                            required/>
                             <Form.Control.Feedback type="invalid">
                                 O endereço do evento deve ter pelo menos 6 caracteres.
                             </Form.Control.Feedback>
@@ -192,7 +191,7 @@ export default function CadastroEventos(props){
                             value={evento.bairro}
                             onChange={manipularMudanca}
                             onBlur={verificaDescricao}
-                            />
+                            required/>
                             <Form.Control.Feedback type="invalid">
                                 O Bairro do evento deve ter pelo menos 6 caracteres.
                             </Form.Control.Feedback>
@@ -211,7 +210,7 @@ export default function CadastroEventos(props){
                             value={evento.cidade}
                             onChange={manipularMudanca}
                             onBlur={verificaDescricao}
-                            />
+                            required/>
                             <Form.Control.Feedback type="invalid">
                                 A cidade do evento deve ter pelo menos 6 caracteres.
                             </Form.Control.Feedback>
@@ -229,7 +228,7 @@ export default function CadastroEventos(props){
                             placeholder="Número do Endereço"
                             value={evento.num}
                             onChange={manipularMudanca}
-                            />
+                            required/>
                             <Form.Control.Feedback type="invalid">   
                             </Form.Control.Feedback>
                         </Col>

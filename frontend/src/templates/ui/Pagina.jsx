@@ -13,10 +13,8 @@ export function Pagina(props){
                                    {rotulo:"Produtos",url:"/produtos"},
                                    {rotulo:"Eventos",url:"/eventos"},
                                    {rotulo:"Escoteiros",url:"/escoteiros"},
-                                   {rotulo:"Listar Inscrever",url:"/listarinscrever"},
-                                   {rotulo:"Gerar Mensalidade", url:"/gerarmensalidade"},
+                                   {rotulo:"Inscritos",url:"/inscritos"},
                                    {rotulo:"Receber Mensalidade", url:"/recebermensalidade"}]} />
-
                 </aside>
                 <div className="conteudo">
                           {props.children}

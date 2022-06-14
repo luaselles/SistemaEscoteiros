@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import {useNavigate} from "react-router-dom"
 import CadastroEscoteiros from "./CadastroEscoteiros";
 import TabelaCadastroEscoteiros from "./TabelaCadastroEscoteiros";
 import { Button, Spinner } from "react-bootstrap";
@@ -7,6 +7,9 @@ import { Button, Spinner } from "react-bootstrap";
 const localRecursos = 'http://localhost:4000/escoteiro';
 
 export default function ControladoraCadastroEscoteiros(props) {
+    const navigate = useNavigate();
+    
+
     const [mostrarTabela, setMostrarTabela] = useState(true);
     const [escoteiros, setEscoteiros] = useState([]);
 
@@ -63,6 +66,9 @@ export default function ControladoraCadastroEscoteiros(props) {
         }
     }
 
+
+
+
     function deletarEscoteiro(escoteiro) {
         if (window.confirm("Deseja excluir o item?")){
             fetch(localRecursos + "/" + escoteiro.idescoteiro, {
@@ -88,6 +94,11 @@ export default function ControladoraCadastroEscoteiros(props) {
         setMostrarTabela(false);
     }
     
+    function RealizarInscricao(escoteiro) {
+     
+       navigate('/realizarinscricao', {state:{id: escoteiro.idescoteiro, nome: escoteiro.nome, cpf: escoteiro.cpf, secao: escoteiro.secao}})
+    }
+
     function GerarMensalidade(id)
     {
         fetch("http://localhost/4000/gerarmensalidade/"+ id, { method: "POST" })
@@ -102,20 +113,20 @@ export default function ControladoraCadastroEscoteiros(props) {
             });
     }
 
-    function CancelarInscricao(id)
+    async function CancelarInscricao(id)
     {
-        fetch("http://localhost/4000/cancelarInscricao/"+id, { method: "PUT" })
+        alert(id)
+        await fetch("http://localhost/4000/cancelarInscricao/"+id, { method: "DELETE" })
         .then(resposta => resposta.json())
         .then(retorno => {
             if (retorno.resultado) 
             {
-                alert('Inscrição atualizado com sucesso!');
+                alert('Inscrição cancelada com sucesso!');
             }
             else 
             {
-                alert('Não foi possível atualizar o Escoteiro!');
+                alert('Não foi possível cancelar a inscrição!');
             }
-            setEstaAtualizando(false);
         });
     }
 
@@ -137,7 +148,7 @@ export default function ControladoraCadastroEscoteiros(props) {
             return (
                 <div>
 
-                    {mostrarTabela ? <TabelaCadastroEscoteiros escoteiros={escoteiros} atualizarEscoteiro={atualizarEscoteiro} deletarEscoteiro={deletarEscoteiro} GerarMensalidade={GerarMensalidade} CancelarInscricao={CancelarInscricao}/> :
+                    {mostrarTabela ? <TabelaCadastroEscoteiros escoteiros={escoteiros} atualizarEscoteiro={atualizarEscoteiro} deletarEscoteiro={deletarEscoteiro} GerarMensalidade={GerarMensalidade} CancelarInscricao={CancelarInscricao} RealizarInscricao={RealizarInscricao}/> :
                         <CadastroEscoteiros onGravar={gravarEscoteiro} escoteiro={atualizandoEscoteiro} />}
 
                     <Button onClick={() => setMostrarTabela(!mostrarTabela)}>

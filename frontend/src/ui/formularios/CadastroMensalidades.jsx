@@ -1,11 +1,11 @@
-import { useState } from "react";
+/*import { useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 
 
-const localRecursos = 'http://localhost:4000/produto';
+const localRecursos = 'http://localhost:4000/mensalidade';
 
-export default function CadastroProdutos(props){
-    const [produto,setProduto] = useState(props.produto);
+export default function Cadastromensalidades(props){
+    const [mensalidade,setmensalidade] = useState(props.mensalidade);
     const [formValidado, setFormValidado] = useState(false);
 
     function manipularSubmissaoDados(e){
@@ -15,7 +15,7 @@ export default function CadastroProdutos(props){
             e.preventDefault();
             e.stopPropagation();
         }else{
-            props.onGravar(produto);
+            props.onGravar(mensalidade);
         }
 
         setFormValidado(true);
@@ -27,7 +27,7 @@ export default function CadastroProdutos(props){
         const componente = e.target;
         const valor = componente.value;
         const nome = componente.name;
-        setProduto({...produto,[nome]:valor});
+        setmensalidade({...mensalidade,[nome]:valor});
     }
 
     function verificaNome(e){
@@ -83,7 +83,7 @@ export default function CadastroProdutos(props){
         <Container>
             <Form noValidate validated={formValidado} onSubmit={manipularSubmissaoDados} method="get" action="#">
                 <fieldset className="border bg-light p-5 m-2">
-                    <h3>Cadastro de produtos:</h3>
+                    <h3>Cadastro de mensalidades:</h3>
                     <p>*Todos os campos são obrigatórios</p>
                     <Row className="m-3">
                         <Col xs={12} md={3}>
@@ -94,7 +94,7 @@ export default function CadastroProdutos(props){
                             type="text" 
                             id="id" 
                             name="id"
-                            value={produto.id}
+                            value={mensalidade.id}
                             onChange={manipularMudanca}
                             onBlur={verificaCodigo} disabled/>
                             <Form.Control.Feedback type="invalid">
@@ -111,13 +111,13 @@ export default function CadastroProdutos(props){
                             type="text" 
                             id="nomeProd" 
                             name="nomeProd" 
-                            placeholder="Digite o nome do produto"
-                            value={produto.nomeProd}
+                            placeholder="Digite o nome do mensalidade"
+                            value={mensalidade.nomeProd}
                             onChange={manipularMudanca}
                             onBlur={verificaNome}
-                            required/>
+                            />
                             <Form.Control.Feedback type="invalid">
-                                O nome do produto deve ter pelo menos 4 caracteres.
+                                O nome do mensalidade deve ter pelo menos 4 caracteres.
                             </Form.Control.Feedback>
                         </Col>
                     </Row>
@@ -130,9 +130,9 @@ export default function CadastroProdutos(props){
                             type="number" 
                             id="precoCusto" 
                             name="precoCusto" 
-                            value={produto.precoCusto}
+                            value={mensalidade.precoCusto}
                             onChange={manipularMudanca}
-                            onBlur={verificaNum} required/>
+                            onBlur={verificaNum}/>
                             <Form.Control.Feedback type="invalid">
                                 Valor inválido.
                             </Form.Control.Feedback>
@@ -147,9 +147,9 @@ export default function CadastroProdutos(props){
                             type="number" 
                             id="precoVenda" 
                             name="precoVenda" 
-                            value={produto.precoVenda}
+                            value={mensalidade.precoVenda}
                             onChange={manipularMudanca}
-                            onBlur={verificaNum} required/>
+                            onBlur={verificaNum}/>
                             <Form.Control.Feedback type="invalid">
                                 Valor inválido.
                             </Form.Control.Feedback>
@@ -165,9 +165,9 @@ export default function CadastroProdutos(props){
                             id="qtdEstoque" 
                             name="qtdEstoque" 
                             min={0}
-                            value={produto.qtdEstoque}
+                            value={mensalidade.qtdEstoque}
                             onChange={manipularMudanca}
-                            onBlur={verificaNum} required/>
+                            onBlur={verificaNum}/>
                             <Form.Control.Feedback type="invalid">
                                 Quantidade inválida.
                             </Form.Control.Feedback>
@@ -183,4 +183,4 @@ export default function CadastroProdutos(props){
             </Form>
         </Container>
     );
-}
+}*/

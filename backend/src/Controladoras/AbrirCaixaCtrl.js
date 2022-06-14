@@ -17,21 +17,22 @@ module.exports =
         return response.json(novo)
     },
 
-    async FecharCaixa(request, response)
-    {
-        const caixa = {...request.params};
-        const atual = buscarId(caixa.getid(), db);
-        const dataFechamento = new Date(Date.now());
-        atual.setdataFechamento(dataFechamento);
-        atual.setstatus(0);
-        await atual.alterar(db) 
-        return response.json(atual)
+    async AlterarCaixa(request, response){
+        const caixa = {...request.params}
+        const timeElapsed = Date.now();
+        const data = new Date(timeElapsed);
+        const con = await db.conecta()
+        let novo = await new Caixa().buscarId(data, db)
+        novo.setvalor(caixa.valor)
+        console.log(novo)
+        await novo.alterar(db) 
+        return response.json(novo)
     },
 
     async listarCaixa(request, response) {
         const con = await db.conecta()
         let lista = []
-        let novo = new Caixa(null,null,null,null,null,null)
+        let novo = new Caixa(null,null,null)
         lista = await novo.listar(db)
         
         return response.json(lista)

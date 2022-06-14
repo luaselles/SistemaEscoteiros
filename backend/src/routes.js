@@ -10,10 +10,11 @@ const ReceberMensalidadeCtrl = require('./Controladoras/ReceberMensalidadeCtrl')
 const AbrirCaixaCtrl = require('./Controladoras/AbrirCaixaCtrl');
 const GerarMensalidadeCtrl = require('./Controladoras/GerarMensalidadesCtrl');
 const InscreverCtrl = require('./Controladoras/InscreverCtrl');
+const EstornarMensalidadeCtrl = require('./Controladoras/EstornarMensalidadeCtrl');
 
 routes.all('*', function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+    res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS'); 
     res.header('Access-Control-Allow-Headers', 'Content-Type');
     next();
 });
@@ -39,17 +40,22 @@ routes.delete('/escoteiro/:id', EscoteiroCtrl.excluirEscoteiro);
 routes.post('/inscrever', InscrCtrl.InscreverEscoteiro);
 routes.get('/inscrever/status/:status', InscrCtrl.listarPorStatus);
 routes.get('./inscrevern',InscrCtrl.listarn)
-routes.put('./cancelarinscricao/:id', InscrCtrl.cancelarInscricao);
+routes.get('/inscrever/:id',InscrCtrl.buscarusuario)
+routes.delete('./cancelarinscricao/:id', InscrCtrl.cancelarInscricao);
 
 routes.post('/abrirCaixa', AbrirCaixaCtrl.AbrirCaixa);
 routes.get('/abrirCaixa', AbrirCaixaCtrl.listarCaixa);
-routes.put('/fecharCaixa/:id', AbrirCaixaCtrl.FecharCaixa);
-//routes.get('/abrirCaixa', AbrirCaixaCtrl.listarCaixa);
+//routes.put('/abrirCaixa/:valor', AbrirCaixaCtrl.AlterarCaixa);
 
 routes.get('/recebermensalidade', ReceberMensalidadeCtrl.listarContas);
 routes.post('/recebermensalidade', ReceberMensalidadeCtrl.gravarMensalidade);
 routes.put('/recebermensalidade/:id', ReceberMensalidadeCtrl.ReceberMensalidade);
+routes.put('/estornarmensalidade/:id', EstornarMensalidadeCtrl.EstornarMensalidade);
 
-routes.post('/gerarmensalidade/:idescoteiro', GerarMensalidadeCtrl.GerarMensalidade);
+
+routes.get('/gerarmensalidade', GerarMensalidadeCtrl.GerarMensalidade);
+
+routes.get('/mensalidade', ReceberMensalidadeCtrl.listarContas);
+routes.put('/mensalidade', ReceberMensalidadeCtrl.ReceberMensalidade);
 
 module.exports = routes;
