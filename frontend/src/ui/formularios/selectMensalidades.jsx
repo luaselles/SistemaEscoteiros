@@ -1,4 +1,4 @@
-import {FormSelect} from 'react-bootstrap'
+/*import {FormSelect} from 'react-bootstrap'
 import React from 'react';
 
 const SelectMensalidades = (props)=>{
@@ -14,4 +14,4 @@ const SelectMensalidades = (props)=>{
 )
 }
 
-export default SelectMensalidades
+export default SelectMensalidades*/

@@ -1,4 +1,4 @@
-import { Table, Button } from "react-bootstrap";
+/*import { Table, Button } from "react-bootstrap";
 import { IconeEdicao, IconeExclusao, IconeDinheiro } from "../icones/icones";
 
 const localRecursos = 'http://localhost:4000/mensalidade';
@@ -39,4 +39,4 @@ export default function TabelaCadastroMensalidades(props){
         </Table>
         </div>
     );
-}
+}*/
