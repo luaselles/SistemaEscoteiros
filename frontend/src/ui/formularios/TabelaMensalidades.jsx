@@ -31,7 +31,7 @@ export default function TabelaMensalidades(props){
                             <td>{mensalidade.idEscoteiro}</td>
                             <td>{mensalidade.idinscricao}</td>
                             <td>
-                                <Button variant="outline-primary" onClick={()=>{props.ReceberMensalidade(mensalidade.id)}}>Receber</Button>{' '}
+                                <Button variant="outline-primary" onClick={()=>{props.ReceberMensalidade(mensalidade.id)}}>Receber mensalidade</Button>{' '}
                                 <Button variant="outline-danger" /*onClick={()=>{props.deletarProduto(produto)}}*/>Extornar</Button>
                             </td>
                         </tr>)
