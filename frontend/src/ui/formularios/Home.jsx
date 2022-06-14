@@ -21,7 +21,7 @@ export default function Home(props){
     }
 
 
-    window.setInterval(gerarAutomatico,10000)
+    window.setInterval(gerarAutomatico,180000)
 
     async function gerenciarMensalidades() {
 
