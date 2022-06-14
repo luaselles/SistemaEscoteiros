@@ -45,9 +45,9 @@ class Caixa {
         await new CaixaDAO().excluir(this,db)
     }
 
-    async buscarId(data,db){
-        const result = await new CaixaDAO().listarId(data,db)
-        let obj = new Caixa(result.data[0].valor, result.data[i].data, result.data[0].status)
+    async buscarId(id,db){
+        const result = await new CaixaDAO().listarId(id,db)
+        let obj = new Caixa(result.data[0].valor, result.data[0].data, result.data[0].status)
         return obj
     }
 

@@ -9,8 +9,8 @@ module.exports = class CaixaDAO{
     }
 
     async alterar(caixa, db) {
-        let sql = "UPDATE caixa SET valor = ?, status = ? WHERE data = ?"
-        const valores = [caixa.getvalor(), caixa.getstatus(), caixa.getdata()]
+        let sql = "UPDATE caixa SET valor = ? WHERE data = ?"
+        const valores = [caixa.getvalor(), caixa.getdata()]
         const result = await db.manipula(sql, valores);
         return result
     }
