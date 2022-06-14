@@ -24,15 +24,22 @@ export default function RealizarInscricao(props) {
         escoteiro.qtdeirmaos=valor;
     }
 
-    function Inscrever()
+    function Inscrever(e)
     {
-        
+        e.preventDefault()
         fetch(localRecursos, {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(escoteiro)
         })
             .then(resposta => resposta.json())
+            .then(dados=>{ 
+                alert('Inscrição realizada')
+                navigate('/')
+            }).catch(e=>{
+                alert('Não e possivel inscrever novamente')
+                
+            });
                 
     }
 
@@ -106,7 +113,7 @@ export default function RealizarInscricao(props) {
                     
                     <Row className="m-3">
                         <Col xs={12} md={{ offset: 3 }}>
-                            <Button onClick={mudanca} variant="success" type="button">Inscrever</Button> 
+                            <Button onClick={mudanca} variant="success" type="submit">Inscrever</Button> 
                             &nbsp; <Button onClick={cancelar} variant="danger" type="button">Cancelar</Button>
                         </Col>
                         

@@ -99,7 +99,6 @@ export default function ControladoraCadastroEscoteiros(props) {
        navigate('/realizarinscricao', {state:{id: escoteiro.idescoteiro, nome: escoteiro.nome, cpf: escoteiro.cpf, secao: escoteiro.secao}})
     }
 
-
     function GerarMensalidade(id)
     {
         fetch("http://localhost/4000/gerarmensalidade/"+ id, { method: "POST" })
@@ -114,20 +113,20 @@ export default function ControladoraCadastroEscoteiros(props) {
             });
     }
 
-    function CancelarInscricao(id)
+    async function CancelarInscricao(id)
     {
-        fetch("http://localhost/4000/cancelarInscricao/"+id, { method: "PUT" })
+        alert(id)
+        await fetch("http://localhost/4000/cancelarInscricao/"+id, { method: "DELETE" })
         .then(resposta => resposta.json())
         .then(retorno => {
             if (retorno.resultado) 
             {
-                alert('Inscrição atualizado com sucesso!');
+                alert('Inscrição cancelada com sucesso!');
             }
             else 
             {
-                alert('Não foi possível atualizar o Escoteiro!');
+                alert('Não foi possível cancelar a inscrição!');
             }
-            setEstaAtualizando(false);
         });
     }
 

@@ -1,10 +1,31 @@
+import { useState } from "react";
 import { Table, Button } from "react-bootstrap";
 import { IconeEdicao, IconeExclusao } from "../icones/icones";
 
 export default function TabelaCadastroEscoteiros(props){
+
+   
+    const [isCarry, setCarry] = useState(false);
+   
+
+    async function desabilitarbutton(escoteiro)
+    {
+        await fetch('http://localhost:4000/inscrever/'+escoteiro.idescoteiro,{method:"GET"})
+        .then(resposta=>resposta.json())
+        .then(dados=>{ 
+            console.log(dados)
+            alert('Não e possivel inscrever novamente')
+        }).catch(e=>{
+            props.RealizarInscricao(escoteiro)
+           
+        });
+        
+    } 
+
+    
     return(
         <div>
-        <h3>Escoteiros:</h3>
+        <h3>Escoteiros Cadastrados:</h3>
         <Table striped bordered hover>
             <thead>
                 <tr>
@@ -19,7 +40,7 @@ export default function TabelaCadastroEscoteiros(props){
             <tbody>
                 {props.escoteiros.map((escoteiro)=>{
                     return (
-                        <tr key={escoteiro.idescoteiro}>
+                        <tr  key={escoteiro.idescoteiro}>
                             <td>{escoteiro.idescoteiro}</td>
                             <td>{escoteiro.nome}</td>
                             <td>{escoteiro.cpf}</td>
@@ -29,10 +50,11 @@ export default function TabelaCadastroEscoteiros(props){
                             <td>
                                 <Button variant="outline-primary" onClick={()=>{props.atualizarEscoteiro(escoteiro)}}><IconeEdicao/></Button>{' '}
                                 <Button variant="outline-danger" onClick={()=>{props.deletarEscoteiro(escoteiro)}}><IconeExclusao/></Button>
-                                <Button variant="outline-primary" onClick={()=>{props.RealizarInscricao(escoteiro)}}>Inscrever Escoteiro</Button>
+                                <Button variant="outline-primary" onClick={()=>{ desabilitarbutton(escoteiro)}} >Inscrever Escoteiro</Button>
                                 <Button variant="outline-primary" onClick={()=>{props.CancelarInscricao(escoteiro.idescoteiro)}}>Cancelar Inscrição</Button>
                             </td>
-                        </tr>)
+                        </tr>
+                        )
                 })}
             </tbody>    
         </Table>

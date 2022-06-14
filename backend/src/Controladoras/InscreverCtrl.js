@@ -20,11 +20,13 @@ module.exports = {
 
     async cancelarInscricao(request, response) 
     {
-        const inscrever = { ...request.params };
-        const atual = buscarEscoteiroIdInscricao(inscrever.idescoteiro, db);
-        atual.setStatus(0);
-        await atual.alterar(db)
-        return response.json(atual)
+        const inscrever = { ...request.params }
+        console.log(inscrever)
+        console.log("tá cancelando?")
+        const con = await db.conecta()
+        let novo = new Inscrever(null, inscrever.id, null, null, null)
+        await novo.excluir(novo.getIdInscricao(),db)
+        return response.json(novo)
     },
 
     async buscarId(request, response) {
@@ -43,7 +45,6 @@ module.exports = {
         let lista = []
         let novo = new Inscrever(null,null,null,null,inscrever.status)
         lista = await novo.listarnaoinscritos(novo.getStatus(),db)
-        console.log(lista)
         return response.json(lista)
     },
 
@@ -54,5 +55,15 @@ module.exports = {
         lista = await novo.listarnaoinscritos(novo.getStatus(),db)
         console.log(lista)
         return response.json(lista)
-    }
+    },
+
+    async buscarusuario(request, response) {
+        const inscrever = { ...request.params }
+        console.log(inscrever)
+        const con = await db.conecta()
+        let novo = new Inscrever(null, inscrever.id, null, null, null)
+        console.log(novo)
+        let resposta = await novo.listarIdEscoteiro(novo.getEscoteiro(), db)
+        return response.json(resposta)
+    },
 }
