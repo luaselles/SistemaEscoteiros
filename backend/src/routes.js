@@ -13,7 +13,7 @@ const InscreverCtrl = require('./Controladoras/InscreverCtrl');
 
 routes.all('*', function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+    res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS'); 
     res.header('Access-Control-Allow-Headers', 'Content-Type');
     next();
 });
@@ -40,6 +40,7 @@ routes.delete('/escoteiro/:id', EscoteiroCtrl.excluirEscoteiro);
 routes.post('/inscrever', InscrCtrl.InscreverEscoteiro);
 routes.get('/inscrever/status/:status', InscrCtrl.listarPorStatus);
 routes.get('./inscrevern',InscrCtrl.listarn)
+routes.get('/inscrever/:id',InscrCtrl.buscarusuario)
 routes.put('./cancelarinscricao/:id', InscrCtrl.cancelarInscricao);
 
 routes.post('/abrirCaixa', AbrirCaixaCtrl.AbrirCaixa);

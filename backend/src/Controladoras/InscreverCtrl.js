@@ -54,5 +54,15 @@ module.exports = {
         lista = await novo.listarnaoinscritos(novo.getStatus(),db)
         console.log(lista)
         return response.json(lista)
-    }
+    },
+
+    async buscarusuario(request, response) {
+        const inscrever = { ...request.params }
+        console.log(inscrever)
+        const con = await db.conecta()
+        let novo = new Inscrever(null, inscrever.id, null, null, null)
+        console.log(novo)
+        let resposta = await novo.listarIdEscoteiro(novo.getEscoteiro(), db)
+        return response.json(resposta)
+    },
 }

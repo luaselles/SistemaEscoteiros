@@ -88,8 +88,14 @@ class Inscrever {
     }
 
     async listarIdEscoteiro(id,db){
+        console.log("Entro aqui \n\n\n")
         const result = await new InscreverDAO().listarIdEscoteiro(id, db)
-        let obj = new Inscrever(result.data[0].idinscricao, result.data[0].Escoteiro, result.data[0].qtdeirmaos, result.data[0].dataatual, result.data[0].status)
+        let obj
+        if(result.data.length >=1)
+        {
+            obj = new Inscrever(result.data[0].idinscricao,await new EscoteiroDAO().listarId(result.data[0].idescoteiro,db), result.data[0].qtdeirmaos, result.data[0].dataatual, result.data[0].status)
+        }
+        console.log(obj)
         return obj
     }
 }

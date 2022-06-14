@@ -26,7 +26,7 @@ export default function RealizarInscricao(props) {
 
     function Inscrever()
     {
-        
+        alert('AAAAAAAAAAAAAAAAAA')
         fetch(localRecursos, {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
@@ -106,7 +106,7 @@ export default function RealizarInscricao(props) {
                     
                     <Row className="m-3">
                         <Col xs={12} md={{ offset: 3 }}>
-                            <Button onClick={mudanca} variant="success" type="button">Inscrever</Button> 
+                            <Button onClick={mudanca} variant="success" type="submit">Inscrever</Button> 
                             &nbsp; <Button onClick={cancelar} variant="danger" type="button">Cancelar</Button>
                         </Col>
                         
