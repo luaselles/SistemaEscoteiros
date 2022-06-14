@@ -121,7 +121,6 @@ export function PaginaReceberMensalidades(props){
     return(
         
         <Pagina>
-            <h3>teste</h3>
             <ControladoraMensalidades/>
         </Pagina>
     );

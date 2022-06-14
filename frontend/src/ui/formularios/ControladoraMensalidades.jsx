@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 
-import Cadastromensalidades from "./CadastroMensalidades";
 import TabelaMensalidades from "./TabelaMensalidades";
 import { Button, Spinner } from "react-bootstrap";
 
