@@ -3,6 +3,22 @@ import { IconeEdicao, IconeExclusao } from "../icones/icones";
 import '../../estilos/tabela.css'
 
 export default function TabelaMensalidades(props){
+
+    async function fetchReceberMensalidade(mensalidade) {
+        
+        if (window.confirm("Receber mensalidade?")){
+        await fetch('http://localhost:4000/recebermensalidade/'+mensalidade.id,{method:"PUT"})
+        .then(resposta=>resposta.json())
+        .catch(error =>{
+            alert(error)
+        });
+            alert("Teste 123")
+        }
+    }
+/*<Button variant="outline-primary" onClick={()=>{props.ReceberMensalidadee(mensalidade.id)}}>Receber</Button>{' '}
+*/
+
+
     return(
         <div>
         <h3>Mensalidades:</h3>
@@ -31,8 +47,8 @@ export default function TabelaMensalidades(props){
                             <td>{mensalidade.idEscoteiro}</td>
                             <td>{mensalidade.idinscricao}</td>
                             <td>
-                                <Button variant="outline-primary" onClick={()=>{props.ReceberMensalidade(mensalidade.id)}}>Receber mensalidade</Button>{' '}
-                                <Button variant="outline-danger" /*onClick={()=>{props.deletarProduto(produto)}}*/>Extornar</Button>
+                                <Button variant="outline-primary"  onClick={() => fetchReceberMensalidade(mensalidade)}>Receber</Button>{' '}
+                                <Button variant="outline-danger" /*onClick={()=>{props.deletarProduto(produto)}}*/>Estornar</Button>
                             </td>
                         </tr>)
                 })}
