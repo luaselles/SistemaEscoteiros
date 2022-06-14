@@ -26,6 +26,7 @@ export default function TabelaMensalidades(props){
                             <td>{mensalidade.id}</td>
                             <td>{mensalidade.valor}</td>
                             <td>{mensalidade.dataPag}</td>
+                            <td>{mensalidade.dataVen}</td>
                             <td>{mensalidade.idEscoteiro}</td>
                             <td>{mensalidade.idEscoteiro}</td>
                             <td>{mensalidade.idinscricao}</td>

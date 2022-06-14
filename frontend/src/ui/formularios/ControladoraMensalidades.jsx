@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 
-//import Cadastromensalidades from "./Cadastromensalidades";
+import Cadastromensalidades from "./CadastroMensalidades";
 import TabelaMensalidades from "./TabelaMensalidades";
 import { Button, Spinner } from "react-bootstrap";
 
 const localRecursos = 'http://localhost:4000/mensalidade';
 
-export default function ConstroladoraMensalidades(props){
+export default function ControladoraMensalidades(props){
     const [mostrarTabela, setMostrarTabela] = useState(true);
     const [mensalidades, setmensalidades] = useState([]);
 
@@ -15,12 +15,12 @@ export default function ConstroladoraMensalidades(props){
     const [erro, setErro] = useState(null);
     const [estaAtualizando, setEstaAtualizando] = useState(false);
     const [atualizandomensalidade,setAtualizandomensalidade] = useState({
-        id: 0,
+        id:0,
         valor: 0,
-        dataPag: "",
-        dataVen: "",
-        idEscoteiro: 0,
-        idinscricao: 0,
+        dataPag:"",
+        dataVen:"",
+        idEscoteiro:0,
+        idinscricao:0,
     });
 
     function buscarmensalidades(){
@@ -101,8 +101,7 @@ export default function ConstroladoraMensalidades(props){
 
         return (
             <div>
-               
-               <TabelaMensalidades mensalidades={mensalidades} atualizarmensalidade={atualizarmensalidade} deletarmensalidade={deletarmensalidade} />
+                <TabelaMensalidades mensalidades={mensalidades} atualizarmensalidade={atualizarmensalidade} deletarmensalidade={deletarmensalidade} />
             </div> 
             
                               
