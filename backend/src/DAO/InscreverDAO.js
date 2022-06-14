@@ -56,4 +56,11 @@ module.exports = class InscreverDAO {
         const result = await db.consulta(sql,valores);
         return result;
     }
+
+    async excluir(id,db){
+        let sql = "DELETE FROM inscrever WHERE idinscricao = ?"
+        const valor = [id]
+        const result = await db.manipula(sql, valor)
+        return result
+    }
 }

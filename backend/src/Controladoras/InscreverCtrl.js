@@ -20,11 +20,13 @@ module.exports = {
 
     async cancelarInscricao(request, response) 
     {
-        const inscrever = { ...request.params };
-        const atual = buscarEscoteiroIdInscricao(inscrever.idescoteiro, db);
-        atual.setStatus(0);
-        await atual.alterar(db)
-        return response.json(atual)
+        const inscrever = { ...request.params }
+        console.log(inscrever)
+        console.log("tá cancelando?")
+        const con = await db.conecta()
+        let novo = new Inscrever(null, inscrever.id, null, null, null)
+        await novo.excluir(novo.getIdInscricao(),db)
+        return response.json(novo)
     },
 
     async buscarId(request, response) {

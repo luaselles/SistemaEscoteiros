@@ -87,6 +87,10 @@ class Inscrever {
         await new InscreverDAO().alterar(this, db)
     }
 
+    async excluir(db){
+        await new InscreverDAO().excluir(this,db)
+    }
+
     async listarIdEscoteiro(id,db){
         console.log("Entro aqui \n\n\n")
         const result = await new InscreverDAO().listarIdEscoteiro(id, db)

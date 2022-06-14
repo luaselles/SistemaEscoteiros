@@ -42,7 +42,7 @@ routes.post('/inscrever', InscrCtrl.InscreverEscoteiro);
 routes.get('/inscrever/status/:status', InscrCtrl.listarPorStatus);
 routes.get('./inscrevern',InscrCtrl.listarn)
 routes.get('/inscrever/:id',InscrCtrl.buscarusuario)
-routes.put('./cancelarinscricao/:id', InscrCtrl.cancelarInscricao);
+routes.delete('./cancelarinscricao/:id', InscrCtrl.cancelarInscricao);
 
 routes.post('/abrirCaixa', AbrirCaixaCtrl.AbrirCaixa);
 routes.get('/abrirCaixa', AbrirCaixaCtrl.listarCaixa);

@@ -24,15 +24,22 @@ export default function RealizarInscricao(props) {
         escoteiro.qtdeirmaos=valor;
     }
 
-    function Inscrever()
+    function Inscrever(e)
     {
-        alert('AAAAAAAAAAAAAAAAAA')
+        e.preventDefault()
         fetch(localRecursos, {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(escoteiro)
         })
             .then(resposta => resposta.json())
+            .then(dados=>{ 
+                alert('Inscrição realizada')
+                navigate('/')
+            }).catch(e=>{
+                alert('Não e possivel inscrever novamente')
+                
+            });
                 
     }
 
