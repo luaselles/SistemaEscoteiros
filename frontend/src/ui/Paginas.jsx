@@ -5,12 +5,14 @@ import ControladoraCadastroEventos from "./formularios/ControladoraCadastroEvent
 import ControladoraCadastroCaixaeventos from "./formularios/ControladoraCadastroCaixaeventos";
 import ControladoraCadastroEscoteiros from "./formularios/ControladoraCadastroEscoteiros";
 import ControladoraMensalidades from "./formularios/ControladoraMensalidades";
+import ControladoraInscritos from "./formularios/ControladoraInscritos";
 import Home from "./formularios/Home";
 import RealizarInscricao from "./formularios/RealizarInscricao";
 import GerarMensalidade from "./formularios/GerarMensalidade";
 import ReceberMensalidades from "./formularios/ReceberMensalidadades"
 import TabelaCadastroMensalidades from "./formularios/TabelaCadastroMensalidades";
 import TabelaMensalidades from "./formularios/TabelaMensalidades";
+
 import { Button, Spinner, Modal, Form } from "react-bootstrap";
  
 export function PaginaHome(props){
@@ -74,7 +76,18 @@ export function PaginaEscoteiro(props){
         </Pagina>
     );
 }
+export function PaginaInscritos(props){
 
+    function manipulaSubmissaoDados(e){
+        e.preventDefault();
+    }
+
+    return(
+        <Pagina>
+            <ControladoraInscritos/>
+        </Pagina>
+    );
+}
 export function PaginaGerarMensalidade(props){
 
     function manipulaSubmissaoDados(e){
