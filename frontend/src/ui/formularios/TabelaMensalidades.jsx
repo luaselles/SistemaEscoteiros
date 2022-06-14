@@ -1,23 +1,45 @@
 import { Table, Button } from "react-bootstrap";
-import { IconeEdicao, IconeExclusao } from "../icones/icones";
 import '../../estilos/tabela.css'
 
 export default function TabelaMensalidades(props){
 
     async function fetchReceberMensalidade(mensalidade) {
         
-        if (window.confirm("Receber mensalidade?")){
-        await fetch('http://localhost:4000/recebermensalidade/'+mensalidade.id,{method:"PUT"})
-        .then(resposta=>resposta.json())
-        .catch(error =>{
-            alert(error)
-        });
-            alert("Teste 123")
+        const timeElapsed = Date.now();
+        const data = new Date(timeElapsed);
+
+        if(data <= mensalidade.dataVen)
+        {
+            if (window.confirm("Receber mensalidade de escoteiro com id " + mensalidade.id + "?")){
+            await fetch('http://localhost:4000/recebermensalidade/'+mensalidade.id,{method:"PUT"})
+            .then(resposta=>resposta.json())
+            .catch(error =>{
+                alert(error)
+            });
+                alert("Mensalidade recebida!")
+            }
         }
+        else
+            alert("Não é possível pagar mensalidade vencida!")
     }
 /*<Button variant="outline-primary" onClick={()=>{props.ReceberMensalidadee(mensalidade.id)}}>Receber</Button>{' '}
 */
-
+    async function fetchEstornarMensalidade(mensalidade) {
+            
+        if(mensalidade.dataPag != null)
+        {
+            if (window.confirm("Estornar mensalidade de escoteiro com id " + mensalidade.id + "?")){
+            await fetch('http://localhost:4000/estornarmensalidade/'+mensalidade.id,{method:"PUT"})
+            .then(resposta=>resposta.json())
+            .catch(error =>{
+                alert(error)
+            });
+                alert("Mensalidade estornada!")
+            }
+        }
+        else
+            alert("Não é possível estornar mensalidade não paga!")
+    }
 
     return(
         <div>
@@ -47,8 +69,8 @@ export default function TabelaMensalidades(props){
                             <td>{mensalidade.idEscoteiro}</td>
                             <td>{mensalidade.idinscricao}</td>
                             <td>
-                                <Button variant="outline-primary"  onClick={() => fetchReceberMensalidade(mensalidade)}>Receber</Button>{' '}
-                                <Button variant="outline-danger" /*onClick={()=>{props.deletarProduto(produto)}}*/>Estornar</Button>
+                                <Button id="botaoR" variant="outline-primary"  onClick={() => fetchReceberMensalidade(mensalidade)}>Receber</Button>{' '}
+                                <Button id="botaoE" variant="outline-danger" onClick={() => fetchEstornarMensalidade(mensalidade)}>Estornar</Button>
                             </td>
                         </tr>)
                 })}

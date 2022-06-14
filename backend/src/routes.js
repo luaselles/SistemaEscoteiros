@@ -10,6 +10,7 @@ const ReceberMensalidadeCtrl = require('./Controladoras/ReceberMensalidadeCtrl')
 const AbrirCaixaCtrl = require('./Controladoras/AbrirCaixaCtrl');
 const GerarMensalidadeCtrl = require('./Controladoras/GerarMensalidadesCtrl');
 const InscreverCtrl = require('./Controladoras/InscreverCtrl');
+const EstornarMensalidadeCtrl = require('./Controladoras/EstornarMensalidadeCtrl');
 
 routes.all('*', function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
@@ -49,6 +50,8 @@ routes.get('/abrirCaixa', AbrirCaixaCtrl.listarCaixa);
 routes.get('/recebermensalidade', ReceberMensalidadeCtrl.listarContas);
 routes.post('/recebermensalidade', ReceberMensalidadeCtrl.gravarMensalidade);
 routes.put('/recebermensalidade/:id', ReceberMensalidadeCtrl.ReceberMensalidade);
+routes.put('/estornarmensalidade/:id', EstornarMensalidadeCtrl.EstornarMensalidade);
+
 
 routes.post('/gerarmensalidade/:idescoteiro', GerarMensalidadeCtrl.GerarMensalidade);
 
