@@ -1,5 +1,6 @@
 const Mensalidade = require('../Entidades/Mensalidade')
 const db = require('../Database.js')
+const Caixa = require('../Entidades/Caixa')
 
 module.exports = 
 {

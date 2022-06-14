@@ -17,6 +17,18 @@ module.exports =
         return response.json(novo)
     },
 
+    async AlterarCaixa(request, response){
+        const caixa = {...request.params}
+        const timeElapsed = Date.now();
+        const data = new Date(timeElapsed);
+        const con = await db.conecta()
+        let novo = await new Caixa().buscarId(data, db)
+        novo.setvalor(caixa.valor)
+        console.log(novo)
+        await novo.alterar(db) 
+        return response.json(novo)
+    },
+
     async listarCaixa(request, response) {
         const con = await db.conecta()
         let lista = []

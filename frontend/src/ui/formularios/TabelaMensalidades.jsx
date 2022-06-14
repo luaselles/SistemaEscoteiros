@@ -2,33 +2,38 @@ import { Table, Button } from "react-bootstrap";
 import '../../estilos/tabela.css'
 
 export default function TabelaMensalidades(props){
-
+    
     async function fetchReceberMensalidade(mensalidade) {
         
         const timeElapsed = Date.now();
         const data = new Date(timeElapsed);
+        console.log(data.getDate)
 
-        if(data <= mensalidade.dataVen)
+        if(data.toISOString() <= mensalidade.dataVen)
         {
-            if (window.confirm("Receber mensalidade de escoteiro com id " + mensalidade.id + "?")){
-            await fetch('http://localhost:4000/recebermensalidade/'+mensalidade.id,{method:"PUT"})
-            .then(resposta=>resposta.json())
-            .catch(error =>{
-                alert(error)
-            });
-                alert("Mensalidade recebida!")
+            if(mensalidade.dataPag === null)
+            {
+                if (window.confirm("Receber mensalidade de id " + mensalidade.id + "?")){
+                await fetch('http://localhost:4000/recebermensalidade/'+mensalidade.id,{method:"PUT"})
+                .then(resposta=>resposta.json())
+                .catch(error =>{
+                    alert(error)
+                });
+                    alert("Mensalidade recebida!")
+                }
             }
+            else
+                alert("Mensalidade já foi paga!")
         }
         else
-            alert("Não é possível pagar mensalidade vencida!")
+            alert("Impossível receber mensalidade vencida!")
     }
-/*<Button variant="outline-primary" onClick={()=>{props.ReceberMensalidadee(mensalidade.id)}}>Receber</Button>{' '}
-*/
+
     async function fetchEstornarMensalidade(mensalidade) {
             
-        if(mensalidade.dataPag != null)
+        if(mensalidade.dataPag !== null)
         {
-            if (window.confirm("Estornar mensalidade de escoteiro com id " + mensalidade.id + "?")){
+            if (window.confirm("Estornar mensalidade de id " + mensalidade.id + "?")){
             await fetch('http://localhost:4000/estornarmensalidade/'+mensalidade.id,{method:"PUT"})
             .then(resposta=>resposta.json())
             .catch(error =>{
