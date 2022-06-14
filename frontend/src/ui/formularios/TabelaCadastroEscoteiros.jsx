@@ -23,7 +23,6 @@ export default function TabelaCadastroEscoteiros(props){
     } 
 
     
-
     return(
         <div>
         <h3>Escoteiros Cadastrados:</h3>

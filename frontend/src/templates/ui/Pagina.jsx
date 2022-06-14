@@ -14,9 +14,7 @@ export function Pagina(props){
                                    {rotulo:"Eventos",url:"/eventos"},
                                    {rotulo:"Escoteiros",url:"/escoteiros"},
                                    {rotulo:"Inscritos",url:"/inscritos"},
-                                   {rotulo:"Gerar Mensalidade", url:"/gerarmensalidade"},
                                    {rotulo:"Receber Mensalidade", url:"/recebermensalidade"}]} />
-
                 </aside>
                 <div className="conteudo">
                           {props.children}

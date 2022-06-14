@@ -1,6 +1,6 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 
-import { PaginaHome, PaginaProduto, PaginaEvento, PaginaCaixaevento, PaginaEscoteiro, PaginaGerarMensalidade,PaginaRealizarInscricao,PaginaInscritos, PaginaReceberMensalidades, PaginaCaixa, Pagina404 } from './ui/Paginas'
+import { PaginaHome, PaginaProduto, PaginaEvento, PaginaCaixaevento, PaginaEscoteiro,PaginaRealizarInscricao,PaginaInscritos, PaginaReceberMensalidades, PaginaCaixa, Pagina404 } from './ui/Paginas'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import TabelaCadastroMensalidades from './ui/formularios/TabelaCadastroMensalidades';
@@ -15,7 +15,6 @@ export default function App(props){
                         <Route path="/eventos" element={<PaginaEvento/>}/>
                         <Route path="/caixaeventos" element={<PaginaCaixaevento/>}/>
                         <Route path="/escoteiros" element={<PaginaEscoteiro/>}/>
-                        <Route path="/gerarmensalidade" element={<PaginaGerarMensalidade/>}/>
                         <Route path="/realizarinscricao" element={<PaginaRealizarInscricao/>}/>
                         <Route path="/inscritos" element={<PaginaInscritos/>}/>  
                         <Route path="/recebermensalidade" element={<PaginaReceberMensalidades/>}/>

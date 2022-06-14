@@ -115,7 +115,7 @@ export default function CadastroProdutos(props){
                             value={produto.nomeProd}
                             onChange={manipularMudanca}
                             onBlur={verificaNome}
-                            />
+                            required/>
                             <Form.Control.Feedback type="invalid">
                                 O nome do produto deve ter pelo menos 4 caracteres.
                             </Form.Control.Feedback>
@@ -132,7 +132,7 @@ export default function CadastroProdutos(props){
                             name="precoCusto" 
                             value={produto.precoCusto}
                             onChange={manipularMudanca}
-                            onBlur={verificaNum}/>
+                            onBlur={verificaNum} required/>
                             <Form.Control.Feedback type="invalid">
                                 Valor inválido.
                             </Form.Control.Feedback>
@@ -149,7 +149,7 @@ export default function CadastroProdutos(props){
                             name="precoVenda" 
                             value={produto.precoVenda}
                             onChange={manipularMudanca}
-                            onBlur={verificaNum}/>
+                            onBlur={verificaNum} required/>
                             <Form.Control.Feedback type="invalid">
                                 Valor inválido.
                             </Form.Control.Feedback>
@@ -167,7 +167,7 @@ export default function CadastroProdutos(props){
                             min={0}
                             value={produto.qtdEstoque}
                             onChange={manipularMudanca}
-                            onBlur={verificaNum}/>
+                            onBlur={verificaNum} required/>
                             <Form.Control.Feedback type="invalid">
                                 Quantidade inválida.
                             </Form.Control.Feedback>
