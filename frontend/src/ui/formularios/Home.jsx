@@ -20,6 +20,9 @@ export default function Home(props){
         }
     }
 
+
+    window.setInterval(gerarAutomatico,10000)
+
     async function gerenciarMensalidades() {
 
         const timeElapsed = Date.now();
@@ -39,10 +42,10 @@ export default function Home(props){
         document.getElementById("botao").disabled = false;
     }
     async function gerarAutomatico() {
-        window.setInterval(teste,10000)
+        
         const timeElapsed = Date.now();
         const data = new Date(timeElapsed);
-        if(data.getDay() === 14 && data.getMonth() === 6 && data.getHours() === 20 && data.getMinutes() === 2){
+        
             await fetch('http://localhost:4000/gerarmensalidade', { method: "GET" })
                 .then(resposta => resposta.json())
                 .catch(error => {
@@ -50,7 +53,7 @@ export default function Home(props){
                 });
             alert("Mensalidades Geradas (" + data + ") estabelecida")
             document.getElementById("botao1").disabled = true;
-        }
+     
         /*if (window.confirm("Deseja Gerar Mensalidades aos Inscritos?")) {
             await fetch('http://localhost:4000/gerarmensalidade', { method: "GET" })
                 .then(resposta => resposta.json())
@@ -65,7 +68,7 @@ export default function Home(props){
 
     return(
         <div className="cabecalho">
-            <div className="div" onLoad={gerarAutomatico()}>
+            <div className="div">
                     <a className="aa1" href="/eventos">Tabela de Eventos</a>
                     <a className="aa" href="/Produtos">Tabela de Produtos</a>
                     <a className="aa" href="/escoteiros">Tabela de Escoteiros</a>
