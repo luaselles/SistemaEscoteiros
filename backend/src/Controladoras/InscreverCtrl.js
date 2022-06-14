@@ -45,7 +45,6 @@ module.exports = {
         let lista = []
         let novo = new Inscrever(null,null,null,null,inscrever.status)
         lista = await novo.listarnaoinscritos(novo.getStatus(),db)
-        console.log(lista)
         return response.json(lista)
     },
 

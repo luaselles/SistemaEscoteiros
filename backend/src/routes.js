@@ -54,8 +54,7 @@ routes.put('/recebermensalidade/:id', ReceberMensalidadeCtrl.ReceberMensalidade)
 routes.put('/estornarmensalidade/:id', EstornarMensalidadeCtrl.EstornarMensalidade);
 
 
-routes.post('/gerarmensalidade/:idescoteiro', GerarMensalidadeCtrl.GerarMensalidade);
-
+routes.get('/gerarmensalidade', GerarMensalidadeCtrl.GerarMensalidade);
 
 routes.get('/mensalidade', ReceberMensalidadeCtrl.listarContas);
 routes.put('/mensalidade', ReceberMensalidadeCtrl.ReceberMensalidade);

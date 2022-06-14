@@ -44,8 +44,9 @@ module.exports = class InscreverDAO {
 
     async alterar(inscricao,db){
         const sql = "UPDATE inscrever SET idescoteiro = ?, qtdeirmaos = ?, dataatual = ?, status = ? where idinscricao = ? "
-        const valores = [inscricao.getEscoteiro().getIdescoteiro(), inscricao.getQtdeirmaos(), inscricao.getData(), inscricao.getStatus(), inscricao.getIdInscricao()]
+        const valores = [inscricao.Escoteiro[0].idescoteiro, inscricao.getQtdeirmaos(), inscricao.getData(), inscricao.getStatus(), inscricao.getIdInscricao()]
         const result = await db.manipula(sql, valores)
+        
         return result
     }
 

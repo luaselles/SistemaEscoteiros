@@ -60,6 +60,7 @@ class Mensalidade {
     }
 
     async gravar(db){
+        console.log(this)
         const resp=await new MensalidadeDAO().gravar(this,db);
         this.id=resp.lastId; 
     }

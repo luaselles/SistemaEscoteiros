@@ -64,9 +64,8 @@ class Inscrever {
     }
 
     async listarnaoinscritos(status,db) {
-        const result = await new InscreverDAO().listarNaoInscritas(status,db)
+        const result = await new InscreverDAO().listarNaoInscritas(status,db) 
         let lista = []
-        console.log(result)
         for (let i = 0; i < result.data.length; i++) {
             lista.push(new Inscrever(result.data[i].idinscricao, await new EscoteiroDAO().listarId(result.data[i].idescoteiro,db) , result.data[i].qtdeirmaos, result.data[i].dataatual, result.data[i].status))
         }
