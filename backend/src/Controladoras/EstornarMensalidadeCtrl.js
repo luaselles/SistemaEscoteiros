@@ -1,5 +1,6 @@
 const Mensalidade = require('../Entidades/Mensalidade')
 const db = require('../Database.js')
+const Caixa = require('../Entidades/Caixa')
 
 module.exports = 
 {
@@ -7,7 +8,13 @@ module.exports =
     async EstornarMensalidade(request, response){
         const mensalidade = {...request.params}
         const con = await db.conecta()
+        const timeElapsed = Date.now();
+        const data = new Date(timeElapsed);
         let novo = await new Mensalidade().buscarId(mensalidade.id,db)
+        let novoc = await new Caixa().buscarId(data,db)
+        novoc.setvalor(novoc.valor - novo.valor)
+        await novoc.alterar(db)
+        console.log(novoc)
         novo.setdataPag("NULL")
         await novo.alterar(db) 
         console.log(novo)

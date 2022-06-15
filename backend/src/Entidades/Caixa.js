@@ -46,6 +46,7 @@ class Caixa {
     }
 
     async buscarId(id,db){
+        console.log(id.setHours(0,0,0,0))
         const result = await new CaixaDAO().listarId(id,db)
         let obj = new Caixa(result.data[0].valor, result.data[0].data, result.data[0].status)
         return obj
