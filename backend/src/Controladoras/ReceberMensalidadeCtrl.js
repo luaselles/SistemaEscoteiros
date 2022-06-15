@@ -10,6 +10,8 @@ module.exports =
         const data = new Date(timeElapsed);
         const con = await db.conecta()
         let novo = await new Mensalidade().buscarId(mensalidade.id,db)
+        //let novoc = await new Caixa().buscarId(data,db)
+        //console.log(novoc)
         novo.setdataPag(data)
         await novo.alterar(db) 
         console.log(novo)

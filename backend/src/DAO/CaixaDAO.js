@@ -29,9 +29,9 @@ module.exports = class CaixaDAO{
         return result;
     }
 
-    async listarId(data,db){
+    async listarId(id,db){
         const sql = "SELECT * from caixa where data = ?"
-        const valores = [data]
+        const valores = [id]
         const result = await db.consulta(sql,valores);
         return result;
     }
