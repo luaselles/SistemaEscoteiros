@@ -2,10 +2,13 @@ const CaixaeventoDAO = require('../DAO/CaixaeventoDAO')
 
 class Caixaevento {
 
-    constructor(id, idevento, valor) {
+    constructor(id, idevento, valor, descricao, data, operacao) {
         this.id = id;
         this.idevento = idevento;
         this.valor = valor;
+        this.descricao = descricao;
+        this.data = data;
+        this.operacao = operacao;
     }
 
     getId() {
@@ -32,30 +35,39 @@ class Caixaevento {
         this.valor = novoValor;
     }
 
+    getDescricao() {
+        return this.descricao;
+    }
+
+    setDescricao(novaDescricao) {
+        this.descricao = novaDescricao;
+    }
+
+    getData() {
+        return this.data;
+    }
+
+    setData(novaData) {
+        this.data = novaData;
+    }
+
+    getOperacao() {
+        return this.operacao;
+    }
+
+    setOperacao(novaOperacao) {
+        this.operacao = novaOperacao;
+    }
+
     async gravar(db) {
         const resp = await new CaixaeventoDAO().gravar(this, db);
-        this.id = resp.lastId;
     }
-
-    async alterar(db) {
-        await new CaixaeventoDAO().alterar(this, db)
-    }
-
-    async excluir(db) {
-        await new CaixaeventoDAO().excluir(this, db)
-    }
-
-    async buscarId(id, db) {
-        const result = await new CaixaeventoDAO().listarId(id, db)
-        let obj = new Caixaevento(result.data[0].id, result.data[0].idevento, result.data[0].valor)
-        return obj
-    }
-
-    async listar(db) {
-        const result = await new CaixaeventoDAO().listar(db)
+    
+    async listarIdevento(id, db) {
+        const result = await new CaixaeventoDAO().listarIdevento(id, db)
         let lista = []
         for (let i = 0; i < result.data.length; i++) {
-            lista.push(new Caixaevento(result.data[i].id, result.data[i].idevento, result.data[i].valor))
+            lista.push(new Caixaevento(result.data[i].id, result.data[i].idevento, result.data[i].valor, result.data[i].descricao, result.data[i].data, result.data[i].operacao))
         }
         return lista
     }

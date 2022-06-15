@@ -25,8 +25,7 @@ routes.put('/evento', EventCtrl.alterarEvento);
 routes.delete('/evento/:id', EventCtrl.excluirEvento);
 
 routes.post('/caixaevento', CaixaeventoCtrl.gravarCaixaevento);
-routes.get('/caixaevento', CaixaeventoCtrl.listarCaixaevento);
-routes.put('/caixaevento', CaixaeventoCtrl.alterarCaixaevento);
+routes.get('/caixaevento/:id', CaixaeventoCtrl.listarCaixaeventoId);
 
 routes.post('/produto', ProdutoCtrl.gravarProduto);
 routes.get('/produto', ProdutoCtrl.listarProdutos);
