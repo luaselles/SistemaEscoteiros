@@ -8,12 +8,11 @@ module.exports = new
 
         async conecta() {
             const config = {
-                host: "sql10.freesqldatabase.com",
-                user: "sql10499712",
-                password: "ZE7jQhtzYk",
-                database: "sql10499712",
+                host: "sql3.freesqldatabase.com",
+                user: "sql3644430",
+                password: "I8ge9MfVHp",
+                database: "sql3644430",
                 port: 3306
-
             }
             try {
                 this.connection = await new mysql.createConnection(config);
