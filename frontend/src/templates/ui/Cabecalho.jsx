@@ -5,6 +5,8 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { PaginaHome, PaginaProduto, PaginaEvento, PaginaEscoteiro, PaginaRealizarInscricao, PaginaInscritos, PaginaReceberMensalidades, PaginaCaixa, Pagina404 } from '../../ui/Paginas'
+
 
 export function Cabecalho(props) {
 
@@ -19,11 +21,10 @@ export function Cabecalho(props) {
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <Nav.Link href="#action1">Home</Nav.Link>
-                        {/* <Nav.Link href="#action2">Link</Nav.Link> */}
+                        <Nav.Link href="/" element={<PaginaHome />}>Home</Nav.Link>
                         <NavDropdown title="Funcionalidades" id="navbarScrollingDropdown">
-                            <NavDropdown.Item href="#action3">Produtos</NavDropdown.Item>
-                            <NavDropdown.Item href="#action4">Eventos</NavDropdown.Item>
+                            <NavDropdown.Item href="/produtos" element={<PaginaProduto />}>Produtos</NavDropdown.Item>
+                            <NavDropdown.Item href="/eventos">Eventos</NavDropdown.Item>
                             <NavDropdown.Divider />
                             <NavDropdown.Item href="#action5">Escoteiros</NavDropdown.Item>
                             <NavDropdown.Item href="#action5">Inscritos</NavDropdown.Item>
@@ -42,16 +43,5 @@ export function Cabecalho(props) {
                 </Navbar.Collapse>
             </Container>
         </Navbar>
-
-
-
-
-        // <div className="cabecalho">
-        //     <div className="titulo">
-        //         <i className=''></i>
-        //         <h1>{props.titulo}</h1>
-        //     </div>
-
-        // </div>
     );
 }

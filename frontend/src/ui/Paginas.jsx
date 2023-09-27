@@ -13,133 +13,134 @@ import TabelaCadastroMensalidades from "./formularios/TabelaCadastroMensalidades
 import TabelaMensalidades from "./formularios/TabelaMensalidades";
 
 import { Button, Spinner, Modal, Form } from "react-bootstrap";
- 
-export function PaginaHome(props){
-    
-    return(
+
+export function PaginaHome(props) {
+
+    return (
         <Pagina>
-           <Home/>
+            <Home />
         </Pagina>
-                   
+
     );
 }
 
-export function PaginaProduto(props){
+export function PaginaProduto(props) {
 
-    function manipulaSubmissaoDados(e){
+
+    function manipulaSubmissaoDados(e) {
         e.preventDefault();
     }
 
-    return(
+    return (
         <Pagina>
-            <ControladoraCadastroProdutos/>
+            <ControladoraCadastroProdutos />
         </Pagina>
     );
 }
 
-export function PaginaEvento(props){
+export function PaginaEvento(props) {
 
-    function manipulaSubmissaoDados(e){
+    function manipulaSubmissaoDados(e) {
         e.preventDefault();
     }
 
-    return(
+    return (
         <Pagina>
-            <ControladoraCadastroEventos/>
+            <ControladoraCadastroEventos />
         </Pagina>
     );
 }
 
-export function PaginaEscoteiro(props){
+export function PaginaEscoteiro(props) {
 
-    function manipulaSubmissaoDados(e){
+    function manipulaSubmissaoDados(e) {
         e.preventDefault();
     }
 
-    return(
+    return (
         <Pagina>
-            <ControladoraCadastroEscoteiros/>
+            <ControladoraCadastroEscoteiros />
         </Pagina>
     );
 }
-export function PaginaInscritos(props){
+export function PaginaInscritos(props) {
 
-    function manipulaSubmissaoDados(e){
+    function manipulaSubmissaoDados(e) {
         e.preventDefault();
     }
 
-    return(
+    return (
         <Pagina>
-            <ControladoraInscritos/>
+            <ControladoraInscritos />
         </Pagina>
     );
 }
-export function PaginaGerarMensalidade(props){
+export function PaginaGerarMensalidade(props) {
 
-    function manipulaSubmissaoDados(e){
+    function manipulaSubmissaoDados(e) {
         e.preventDefault();
     }
 
-    return(
+    return (
         <Pagina>
-            <GerarMensalidade/>
+            <GerarMensalidade />
         </Pagina>
     );
 }
 
 
-export function PaginaRealizarInscricao(props){
+export function PaginaRealizarInscricao(props) {
 
-    function manipulaSubmissaoDados(e){
+    function manipulaSubmissaoDados(e) {
         e.preventDefault();
     }
 
-    return(
+    return (
         <Pagina>
-            <RealizarInscricao/>
+            <RealizarInscricao />
         </Pagina>
     );
 }
 
 
-export function PaginaReceberMensalidades(props){
+export function PaginaReceberMensalidades(props) {
 
-    return(
-        
+    return (
+
         <Pagina>
-            <ControladoraMensalidades/>
+            <ControladoraMensalidades />
         </Pagina>
     );
 }
 
 
-export function PaginaCaixa(props){
+export function PaginaCaixa(props) {
 
-    function manipulaSubmissaoDados(e){
+    function manipulaSubmissaoDados(e) {
         e.preventDefault();
     }
 
     async function fetchAbrirCaixa() {
         //const localRecursos = 'http://localhost:4000/caixa';
-        if (window.confirm("Deseja abrir o caixa?")){
-        await fetch('http://localhost:4000/abrirCaixa',{method:"POST"})
-        .then(resposta=>resposta.json())
-        .catch(error =>{
-            alert(error)
-        });
-        alert("Caixa aberto")
+        if (window.confirm("Deseja abrir o caixa?")) {
+            await fetch('http://localhost:4000/abrirCaixa', { method: "POST" })
+                .then(resposta => resposta.json())
+                .catch(error => {
+                    alert(error)
+                });
+            alert("Caixa aberto")
         }
     }
 
-    return(
+    return (
         <Button onClick={() => fetchAbrirCaixa()}>
-           Abrir caixa
+            Abrir caixa
         </Button>
     );
 }
 
-export function Pagina404(props){
-    return(
+export function Pagina404(props) {
+    return (
         <Pagina>
             <h1>Opss!! Página não existe!</h1>
         </Pagina>

@@ -20,10 +20,10 @@ export function Pagina(props) {
                 <div className="conteudo">
                     <UncontrolledExample></UncontrolledExample>
 
-                    {/* {props.children} */}
+                    {props.children}
                 </div>
             </div>
-            <Rodape />
+            {/* <Rodape /> */}
         </div>
     );
 }

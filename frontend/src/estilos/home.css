@@ -1,8 +1,11 @@
-.div{
+.div {
     width: 500px;
     height: 300px;
 }
 
+.col {
+    border: 2px solid #DEB887;
+}
 
 .aa1 {
     background-color: white;
@@ -13,8 +16,8 @@
     text-decoration: none;
     display: inline-block;
     width: 500px;
-    margin-left:300px;
-    margin-top:100px;
+    margin-left: 300px;
+    margin-top: 100px;
 }
 
 .aa {
@@ -26,7 +29,6 @@
     text-decoration: none;
     display: inline-block;
     width: 500px;
-    margin-left:300px;
-    margin-top:30px;
+    margin-left: 300px;
+    margin-top: 30px;
 }
-  
