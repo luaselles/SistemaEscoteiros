@@ -13,7 +13,7 @@ export function Cabecalho(props) {
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
             <Container fluid>
-                <Navbar.Brand href="#">System</Navbar.Brand>
+                <Navbar.Brand href="#" className='titulonav'>Escoteiros</Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav

@@ -37,3 +37,7 @@
     width: 1.5em;
     height: 1.5em;
 }
+
+.titulonav {
+    --bs-navbar-brand-color: #78866b;
+}
