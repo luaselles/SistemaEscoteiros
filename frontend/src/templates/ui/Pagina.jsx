@@ -7,16 +7,7 @@ export function Pagina(props) {
         <div>
             <Cabecalho titulo="G.E. Guayporé" />
             <div className="corpo">
-                {/* <aside>
-                    <Menu itens={[{ rotulo: "Home", url: "/" },
-                    { rotulo: "Produtos", url: "/produtos" },
-                    { rotulo: "Eventos", url: "/eventos" },
-                    { rotulo: "Escoteiros", url: "/escoteiros" },
-                    { rotulo: "Inscritos", url: "/inscritos" },
-                    { rotulo: "Receber Mensalidade", url: "/recebermensalidade" }]} />
-                </aside> */}
                 <div className="conteudo">
-
                     {props.children}
                 </div>
             </div>

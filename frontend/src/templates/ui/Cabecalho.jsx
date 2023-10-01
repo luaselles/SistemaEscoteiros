@@ -24,12 +24,12 @@ export function Cabecalho(props) {
                         <Nav.Link href="/" element={<PaginaHome />}>Home</Nav.Link>
                         <NavDropdown title="Funcionalidades" id="navbarScrollingDropdown">
                             <NavDropdown.Item href="/produtos" element={<PaginaProduto />}>Produtos</NavDropdown.Item>
-                            <NavDropdown.Item href="/eventos">Eventos</NavDropdown.Item>
+                            <NavDropdown.Item href="/eventos" element={<PaginaEvento />}>Eventos</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action5">Escoteiros</NavDropdown.Item>
-                            <NavDropdown.Item href="#action5">Inscritos</NavDropdown.Item>
+                            <NavDropdown.Item href="/escoteiros" element={<PaginaEscoteiro />}>Escoteiros</NavDropdown.Item>
+                            <NavDropdown.Item href="/inscritos" element={<PaginaInscritos />}>Inscritos</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action5">Receber Mensalidades</NavDropdown.Item>
+                            <NavDropdown.Item href="/recebermensalidade" element={<PaginaReceberMensalidades />}>Receber Mensalidades</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
                     <Form className="d-flex">

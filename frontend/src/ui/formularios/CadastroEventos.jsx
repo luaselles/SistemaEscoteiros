@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Form } from "react-bootstrap";
 import evento1 from '../../imagens/evento1.png';
 
-
 const localRecursos = 'http://localhost:4000/evento'
 
 export default function CadastroEventos(props) {

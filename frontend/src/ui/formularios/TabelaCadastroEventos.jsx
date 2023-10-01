@@ -6,7 +6,7 @@ import evento1 from '../../imagens/evento1.png';
 
 export default function TabelaCadastroEventos(props) {
     const [show, setShow] = useState(false);
-    const [data, setData] = useState({ descricao: '', nome: '' });
+    const [data, setData] = useState({ responsavel: '', rua: '', bairro: '', cidade: '', numero: '', data: '' });
 
     function formatData(data) {
         const novaData = new Date(data);
