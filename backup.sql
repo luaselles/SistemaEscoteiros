@@ -2,7 +2,7 @@
 -- version 4.7.7
 -- https://www.phpmyadmin.net/
 --
--- Host: sql10.freesqldatabase.com
+-- Host: sql9.freesqldatabase.com	
 -- Generation Time: 30-Maio-2022 às 11:00
 -- Versão do servidor: 5.5.62-0ubuntu0.14.04.1
 -- PHP Version: 5.6.40-0+deb8u12
@@ -19,10 +19,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `sql3650186`
+-- Database: `sql9650188`
 --
-CREATE DATABASE IF NOT EXISTS `sql3650186` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `sql3650186`;
+CREATE DATABASE IF NOT EXISTS `sql9650188` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `sql9650188`;
 
 -- --------------------------------------------------------
 
