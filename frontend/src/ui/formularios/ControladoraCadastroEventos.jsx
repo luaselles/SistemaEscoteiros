@@ -243,9 +243,9 @@ export default function ControladoraCadastroEventos(props) {
                     {mostrarTabela ? <TabelaCadastroEventos eventos={eventos} atualizarEvento={atualizarEvento} deletarEvento={deletarEvento} atualizarValor={atualizarValor} mostrarExtrato={mostrarExtrato} /> :
                         <CadastroEventos onGravar={gravarEvento} evento={atualizandoEvento} />}
 
-                    <Button onClick={() => setMostrarTabela(!mostrarTabela)}>
+                    {/* <Button onClick={() => setMostrarTabela(!mostrarTabela)}>
                         Cadastrar
-                    </Button>
+                    </Button> */}
                 </div>
 
             );

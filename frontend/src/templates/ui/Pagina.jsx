@@ -1,4 +1,5 @@
 import { Cabecalho } from './Cabecalho'
+import { Rodape } from './Rodape'
 import '../../estilos/principal.css'
 
 export function Pagina(props) {
@@ -19,7 +20,7 @@ export function Pagina(props) {
                     {props.children}
                 </div>
             </div>
-            {/* <Rodape /> */}
+            <Rodape />
         </div>
     );
 }

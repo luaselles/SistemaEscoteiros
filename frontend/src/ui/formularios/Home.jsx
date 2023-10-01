@@ -66,7 +66,7 @@ export default function Home(props) {
 
     return (
 
-        <div class="container">
+        <div class="container mb-2">
             <UncontrolledExample></UncontrolledExample>
 
             <div class="row mt-5">

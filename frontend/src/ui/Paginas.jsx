@@ -8,11 +8,8 @@ import ControladoraInscritos from "./formularios/ControladoraInscritos";
 import Home from "./formularios/Home";
 import RealizarInscricao from "./formularios/RealizarInscricao";
 import GerarMensalidade from "./formularios/GerarMensalidade";
-import ReceberMensalidades from "./formularios/ReceberMensalidadades"
-import TabelaCadastroMensalidades from "./formularios/TabelaCadastroMensalidades";
-import TabelaMensalidades from "./formularios/TabelaMensalidades";
 
-import { Button, Spinner, Modal, Form } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
 export function PaginaHome(props) {
 
