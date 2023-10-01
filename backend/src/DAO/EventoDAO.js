@@ -1,4 +1,4 @@
-module.exports = class EventoDAO{
+module.exports = class EventoDAO {
 
     async gravar(evento, db) {
         let sql = "INSERT INTO evento (nomeevento, descricao, rua, bairro, cidade, num, data, resevento) " +
@@ -19,20 +19,19 @@ module.exports = class EventoDAO{
         let sql = "DELETE FROM evento WHERE id = ?"
         const valor = [evento.getid()]
         const result = await db.manipula(sql, valor)
-        console.log(result)
         return result
     }
 
     async listar(db) {
         const sql = "SELECT * FROM evento"
-        const result = await db.consulta(sql, null);   
+        const result = await db.consulta(sql, null);
         return result;
     }
 
-    async listarId(id,db){
+    async listarId(id, db) {
         const sql = "SELECT * from evento where id = ?"
         const valores = [id]
-        const result = await db.consulta(sql,valores);
+        const result = await db.consulta(sql, valores);
         return result;
     }
 

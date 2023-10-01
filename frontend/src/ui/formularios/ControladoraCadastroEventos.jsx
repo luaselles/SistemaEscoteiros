@@ -13,7 +13,6 @@ export default function ControladoraCadastroEventos(props) {
     const [eventos, setEventos] = useState([]);
 
     const [foiCarregado, setFoiCarregado] = useState(false);
-    console.log();
     const [erro, setErro] = useState(null);
     const [estaAtualizando, setEstaAtualizando] = useState(false);
     const [atualizandoEvento, setAtualizandoEvento] = useState({
@@ -151,7 +150,7 @@ export default function ControladoraCadastroEventos(props) {
                     </thead>
                     <tbody>
                         {caixaeventos.map((caixa) => {
-                            if(caixa.operacao == 'C')
+                            if (caixa.operacao == 'C')
                                 credito = credito + parseFloat(caixa.valor)
                             else
                                 debito = debito + parseFloat(caixa.valor)

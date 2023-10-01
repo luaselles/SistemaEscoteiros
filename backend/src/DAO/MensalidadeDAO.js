@@ -1,4 +1,4 @@
-module.exports = class MensalidadeDAO{
+module.exports = class MensalidadeDAO {
 
     //constructor(id,valor,dataPag,dataVen,idEscoteiro)
 
@@ -21,27 +21,26 @@ module.exports = class MensalidadeDAO{
         let sql = "DELETE FROM mensalidade WHERE id = ?"
         const valor = [mensalidade.getid()]
         const result = await db.manipula(sql, valor)
-        console.log(result)
         return result
     }
 
     async listar(db) {
         const sql = "SELECT * FROM mensalidade"
-        const result = await db.consulta(sql, null);   
+        const result = await db.consulta(sql, null);
         return result;
     }
 
-    async listarId(id,db){
+    async listarId(id, db) {
         const sql = "SELECT * from mensalidade where id = ?"
         const valores = [id]
-        const result = await db.consulta(sql,valores);
+        const result = await db.consulta(sql, valores);
         return result;
     }
 
-    async listarContasEscoteiro(idEscoteiro,db){
+    async listarContasEscoteiro(idEscoteiro, db) {
         const sql = "SELECT * from mensalidade where idEscoteiro = ?"
         const valores = [idEscoteiro]
-        const result = await db.consulta(sql,valores);
+        const result = await db.consulta(sql, valores);
         return result;
     }
 }

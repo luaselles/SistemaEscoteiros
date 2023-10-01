@@ -1,4 +1,4 @@
-module.exports = class ProdutoDAO{
+module.exports = class ProdutoDAO {
 
     async gravar(produto, db) {
         let sql = "INSERT INTO produto (nomeProd, descricao, precoCusto, precoVenda, qtdEstoque) " +
@@ -19,20 +19,19 @@ module.exports = class ProdutoDAO{
         let sql = "DELETE FROM produto WHERE id = ?"
         const valor = [produto.getid()]
         const result = await db.manipula(sql, valor)
-        console.log(result)
         return result
     }
 
     async listar(db) {
         const sql = "SELECT * FROM produto"
-        const result = await db.consulta(sql, null);   
+        const result = await db.consulta(sql, null);
         return result;
     }
 
-    async listarId(id,db){
+    async listarId(id, db) {
         const sql = "SELECT * from produto where id = ?"
         const valores = [id]
-        const result = await db.consulta(sql,valores);
+        const result = await db.consulta(sql, valores);
         return result;
     }
 

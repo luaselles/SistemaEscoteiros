@@ -3,46 +3,44 @@ const db = require('../Database.js')
 
 module.exports = {
 
-    async listarId(request, response){
-        const evento = {...request.body}
+    async listarId(request, response) {
+        const evento = { ...request.body }
         const con = await db.conecta()
-        let novo = new Evento(evento.id,null,null,null,null,null,null,null,null)
-        await novo.listarId(novo.getid(),db)
+        let novo = new Evento(evento.id, null, null, null, null, null, null, null, null)
+        await novo.listarId(novo.getid(), db)
         return response.json(novo)
     },
 
     async listarEventos(request, response) {
         const con = await db.conecta()
         let lista = []
-        let novo = new Evento(null,null,null,null,null,null,null,null,null)
+        let novo = new Evento(null, null, null, null, null, null, null, null, null)
         lista = await novo.listar(db)
-        
+
         return response.json(lista)
     },
 
     async gravarEvento(request, response) {
-        const evento =  {...request.body}
+        const evento = { ...request.body }
         const con = await db.conecta()
-        let novo = new Evento(null,evento.nomeEvent,evento.descricao,evento.rua,evento.bairro,evento.cidade,evento.num,evento.data,evento.respevento)   
-        await novo.gravar(db)    
-        console.log("deu certo esse caralho")  
-        console.log(response.json(novo))    
+        let novo = new Evento(null, evento.nomeEvent, evento.descricao, evento.rua, evento.bairro, evento.cidade, evento.num, evento.data, evento.respevento)
+        await novo.gravar(db)
         return response.json(novo)
     },
 
     async alterarEvento(request, response) {
-        const evento =  {...request.body}
+        const evento = { ...request.body }
         const con = await db.conecta()
-        let novo = new Evento(evento.id,evento.nomeEvent,evento.descricao,evento.rua,evento.bairro,evento.cidade,evento.num,evento.data,evento.respevento)
-        await novo.alterar(db)        
+        let novo = new Evento(evento.id, evento.nomeEvent, evento.descricao, evento.rua, evento.bairro, evento.cidade, evento.num, evento.data, evento.respevento)
+        await novo.alterar(db)
         return response.json(novo)
     },
 
     async excluirEvento(request, response) {
-        const evento =  {...request.params}
+        const evento = { ...request.params }
         const con = await db.conecta()
-        let novo = new Evento(evento.id,null,null,null,null,null,null,null,null)
-        await novo.excluir(db)   
+        let novo = new Evento(evento.id, null, null, null, null, null, null, null, null)
+        await novo.excluir(db)
         return response.json(novo)
     },
 

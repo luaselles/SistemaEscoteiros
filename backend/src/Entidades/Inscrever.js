@@ -2,7 +2,7 @@ const InscreverDAO = require('../DAO/InscreverDAO')
 const EscoteiroDAO = require('../DAO/EscoteiroDAO')
 class Inscrever {
 
-    constructor(idinscricao, Escoteiro, qtdeirmaos, dataatual,status) {
+    constructor(idinscricao, Escoteiro, qtdeirmaos, dataatual, status) {
         this.idinscricao = idinscricao;
         this.Escoteiro = Escoteiro;
         this.qtdeirmaos = qtdeirmaos;
@@ -51,7 +51,6 @@ class Inscrever {
     }
 
     async buscarIdinscricao(idinscricao, db) {
-        console.log(idinscricao)
         const result = await new InscreverDAO().buscarId(idinscricao, db)
         let obj = new Inscrever(result.data[0].idinscricao, result.data[0].Escoteiro, result.data[0].qtdeirmaos, result.data[0].dataatual, result.data[0].status)
         return obj
@@ -63,42 +62,38 @@ class Inscrever {
         return obj
     }
 
-    async listarnaoinscritos(status,db) {
-        const result = await new InscreverDAO().listarNaoInscritas(status,db) 
+    async listarnaoinscritos(status, db) {
+        const result = await new InscreverDAO().listarNaoInscritas(status, db)
         let lista = []
         for (let i = 0; i < result.data.length; i++) {
-            lista.push(new Inscrever(result.data[i].idinscricao, await new EscoteiroDAO().listarId(result.data[i].idescoteiro,db) , result.data[i].qtdeirmaos, result.data[i].dataatual, result.data[i].status))
+            lista.push(new Inscrever(result.data[i].idinscricao, await new EscoteiroDAO().listarId(result.data[i].idescoteiro, db), result.data[i].qtdeirmaos, result.data[i].dataatual, result.data[i].status))
         }
         return lista
     }
 
-    async listarn(db){
+    async listarn(db) {
         const result = await new InscreverDAO().listarn(db)
         let lista = []
-        console.log(result)
         for (let i = 0; i < result.data.length; i++) {
-            lista.push(new Inscrever(result.data[i].idinscricao, await new EscoteiroDAO().listarId(result.data[i].idescoteiro,db) , result.data[i].qtdeirmaos, result.data[i].dataatual, result.data[i].status))
+            lista.push(new Inscrever(result.data[i].idinscricao, await new EscoteiroDAO().listarId(result.data[i].idescoteiro, db), result.data[i].qtdeirmaos, result.data[i].dataatual, result.data[i].status))
         }
         return lista
     }
 
-    async alterar(db){
+    async alterar(db) {
         await new InscreverDAO().alterar(this, db)
     }
 
-    async excluir(db){
-        await new InscreverDAO().excluir(this,db)
+    async excluir(db) {
+        await new InscreverDAO().excluir(this, db)
     }
 
-    async listarIdEscoteiro(id,db){
-        console.log("Entro aqui \n\n\n")
+    async listarIdEscoteiro(id, db) {
         const result = await new InscreverDAO().listarIdEscoteiro(id, db)
         let obj
-        if(result.data.length >=1)
-        {
-            obj = new Inscrever(result.data[0].idinscricao,await new EscoteiroDAO().listarId(result.data[0].idescoteiro,db), result.data[0].qtdeirmaos, result.data[0].dataatual, result.data[0].status)
+        if (result.data.length >= 1) {
+            obj = new Inscrever(result.data[0].idinscricao, await new EscoteiroDAO().listarId(result.data[0].idescoteiro, db), result.data[0].qtdeirmaos, result.data[0].dataatual, result.data[0].status)
         }
-        console.log(obj)
         return obj
     }
 }

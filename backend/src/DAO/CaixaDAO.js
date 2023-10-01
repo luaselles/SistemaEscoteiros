@@ -1,8 +1,8 @@
-module.exports = class CaixaDAO{
+module.exports = class CaixaDAO {
 
     async gravar(caixa, db) {
         let sql = "INSERT INTO caixa (valor, data, status) " +
-                  "VALUES (?, ?, ?)"
+            "VALUES (?, ?, ?)"
         const valores = [caixa.getvalor(), caixa.getdata(), caixa.getstatus()]
         const result = await db.manipula(sql, valores)
         return result
@@ -19,20 +19,19 @@ module.exports = class CaixaDAO{
         let sql = "DELETE FROM caixa WHERE data = ?"
         const valor = [caixa.getdata()]
         const result = await db.manipula(sql, valor)
-        console.log(result)
         return result
     }
 
     async listar(db) {
         const sql = "SELECT * FROM caixa"
-        const result = await db.consulta(sql, null);   
+        const result = await db.consulta(sql, null);
         return result;
     }
 
-    async listarId(id,db){
+    async listarId(id, db) {
         const sql = "SELECT * from caixa where data = ?"
         const valores = [id]
-        const result = await db.consulta(sql,valores);
+        const result = await db.consulta(sql, valores);
         return result;
     }
 

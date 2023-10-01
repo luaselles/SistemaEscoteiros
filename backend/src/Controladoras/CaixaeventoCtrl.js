@@ -16,7 +16,6 @@ module.exports = {
         const con = await db.conecta()
         let novo = new Caixaevento(caixaevento.id, caixaevento.idevento, caixaevento.valor, caixaevento.descricao, caixaevento.data, caixaevento.operacao)
         await novo.gravar(db)
-        console.log(response.json(novo))
         return response.json(novo)
     },
 

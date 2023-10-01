@@ -1,6 +1,6 @@
 import '../../estilos/home.css'
-import Badge from 'react-bootstrap/Badge';
-import Button from 'react-bootstrap/Button';
+import { UncontrolledExample } from '../../components/carousel'
+
 
 export default function Home(props) {
 
@@ -62,15 +62,17 @@ export default function Home(props) {
             alert("Mensalidades Geradas (" + data + ")")
             document.getElementById("botao1").disabled = true;
         }*/
-        console.log(data)
     }
 
     return (
 
         <div class="container">
+            <UncontrolledExample></UncontrolledExample>
+
             <div class="row mt-5">
                 <div class="col-3">
                     <div class="card">
+
                         {/* <img src="..." class="card-img-top" alt="..."> */}
                         <div class="card-body">
                             <div className="row">

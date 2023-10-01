@@ -1,4 +1,4 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Button, Col, Container, form, Row } from "react-bootstrap";
 
 import SelectCadastrados from "../formularios/SelectCadastrados";
@@ -7,8 +7,8 @@ import '../../estilos/tabelacadastrados.css'
 
 
 const localRecursos = 'http://localhost:4000/inscrever'
- 
-export default function InscreverEscoteiros(props){
+
+export default function InscreverEscoteiros(props) {
     const [inscricao, setInscricao] = useState('');
     const [lista, setlista] = useState([])
     const [listasec, setlistasec] = useState([])
@@ -19,71 +19,70 @@ export default function InscreverEscoteiros(props){
     }, [])
 
     async function fetchInscreverescoteiros() {
-        
-        await fetch('http://localhost:4000/inscrever/status/0',{method:"GET"})
-        .then(resposta=>resposta.json())
-        .then(dados=>{
-            setlista(dados);
-        }, 
-        error =>{
-            
-        });
-        console.log(lista)
+
+        await fetch('http://localhost:4000/inscrever/status/0', { method: "GET" })
+            .then(resposta => resposta.json())
+            .then(dados => {
+                setlista(dados);
+            },
+                error => {
+
+                });
     }
 
     async function fetchlistaInscricao() {
-        
-        await fetch('http://localhost:4000/inscrever/status/1',{method:"GET"})
-        .then(resposta=>resposta.json())
-        .then(dados=>{
-            setlistasec(dados);
-        }, 
-        error =>{
-            
-        });
-        console.log(listasec)
+
+        await fetch('http://localhost:4000/inscrever/status/1', { method: "GET" })
+            .then(resposta => resposta.json())
+            .then(dados => {
+                setlistasec(dados);
+            },
+                error => {
+
+                });
     }
 
     function Inscrever() {
-        setInscricao({idescoteiro: document.getElementById('escoteiro').value}); 
-}
+        setInscricao({ idescoteiro: document.getElementById('escoteiro').value });
+    }
 
     async function InscreverSubmit(e) {
         e.preventDefault();
-        if(inscricao.idescoteiro != "Selecione o Inscrever"){
-            await fetch(localRecursos,{method:"PUT",
-                                headers:{'Content-Type':'application/json'},
-                                body:JSON.stringify(inscricao)
+        if (inscricao.idescoteiro != "Selecione o Inscrever") {
+            await fetch(localRecursos, {
+                method: "PUT",
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(inscricao)
             })
-            .then(resposta=>resposta.json())
-        
-            .catch(e=>alert(e))    
-            
+                .then(resposta => resposta.json())
+
+                .catch(e => alert(e))
+
 
         }
-    else{
+        else {
+        }
+        setInscricao('');
     }
-    setInscricao('');
-}
-    
 
-    return(
+
+    return (
         <Container>
-        <div class="flex-container">
-            <form onSubmit={InscreverSubmit}>
-            <div>
-                <form>
-                <SelectCadastrados inscricoes ={lista} />
-                
-                </form> 
-               
+            <div class="flex-container">
+                <form onSubmit={InscreverSubmit}>
+                    <div>
+                        <form>
+                            <SelectCadastrados inscricoes={lista} />
+
+                        </form>
+
+                    </div>
+
+                    <Button onClick={Inscrever}>Inscrever</Button>
+                </form>
             </div>
 
-            <Button onClick={Inscrever}>Inscrever</Button>
-            </form>
-            </div>
-
-            <div><TabelaInscritos inscricoes = {listasec}/></div>
-            </Container>
-        );
+            <div><TabelaInscritos inscricoes={listasec} /></div>
+        </Container>
+    );
 }

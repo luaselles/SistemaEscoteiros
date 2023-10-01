@@ -1,7 +1,4 @@
 import { Cabecalho } from './Cabecalho'
-import { Menu } from './Menu'
-import { Rodape } from './Rodape'
-import { UncontrolledExample } from '../../components/carousel'
 import '../../estilos/principal.css'
 
 export function Pagina(props) {
@@ -18,7 +15,6 @@ export function Pagina(props) {
                     { rotulo: "Receber Mensalidade", url: "/recebermensalidade" }]} />
                 </aside> */}
                 <div className="conteudo">
-                    <UncontrolledExample></UncontrolledExample>
 
                     {props.children}
                 </div>

@@ -66,12 +66,11 @@ class Escoteiro {
     }
 
     async buscarIdescoteiro(idescoteiro, db) {
-        console.log(idescoteiro)
         const result = await new EscoteiroDAO().listarId(idescoteiro, db)
         let obj = new Escoteiro(result.data[0].idescoteiro, result.data[0].nome, result.data[0].cpf, result.data[0].registro, result.data[0].telefone, result.data[0].secao)
         return obj
     }
- 
+
     async listar(db) {
         const result = await new EscoteiroDAO().listar(db)
         let lista = []

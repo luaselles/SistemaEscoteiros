@@ -5,7 +5,6 @@ module.exports = {
 
     async listarId(request, response) {
         const escoteiro = { ...request.params }
-        console.log(escoteiro)
         const con = await db.conecta()
         let novo = new Escoteiro(escoteiro.idescoteiro, null, null, null, null, null)
         await novo.listarId(novo.getIdescoteiro(), db)
@@ -25,7 +24,6 @@ module.exports = {
         const con = await db.conecta()
         let novo = new Escoteiro(null, escoteiro.nome, escoteiro.cpf, escoteiro.registro, escoteiro.telefone, escoteiro.secao)
         await novo.gravar(db)
-        console.log(response.json(novo))
         return response.json(novo)
     },
 
@@ -45,6 +43,6 @@ module.exports = {
         return response.json(novo)
     },
 
-   
+
 
 }

@@ -18,7 +18,6 @@ module.exports = class EscoteiroDAO {
         let sql = "DELETE FROM escoteiro WHERE idescoteiro = ?"
         const valor = [escoteiro.getIdescoteiro()]
         const result = await db.manipula(sql, valor)
-        console.log(result)
         return result
     }
 
