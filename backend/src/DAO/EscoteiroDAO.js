@@ -1,7 +1,7 @@
 module.exports = class EscoteiroDAO {
 
     async gravar(escoteiro, db) {
-        let sql = "INSERT INTO escoteiro (nome, cpf, registro, telefone, secao) VALUES (?, ?, ?, ?, ?, ?, ?)"
+        let sql = "INSERT INTO escoteiro (nome, cpf, registro, telefone, secao) VALUES (?, ?, ?, ?, ?)"
         const valores = [escoteiro.getNome(), escoteiro.getCpf(), escoteiro.getRegistro(), escoteiro.getTelefone(), escoteiro.getSecao()]
         const result = await db.manipula(sql, valores)
         return result
