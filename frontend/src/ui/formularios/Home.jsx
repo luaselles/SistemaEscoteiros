@@ -148,33 +148,12 @@ export default function Home(props) {
                                     </svg>
                                 </div>
                             </div>
-                            <p class="card-text">Confira tudo sobre as <b>mensalidades</b>.</p>
+                            <p class="card-text">Confira tudo sobre as <b>mensalidades</b> cadastradas.</p>
                             <a href="/recebermensalidade" class="btn btn-primary">Receber mensalidades</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        // <div className="cabecalho">
-        //     <div className="div">
-        //         <a className="aa" href="/Produtos">Tabela de Produtos</a>
-        //         <a className="aa" href="/escoteiros">Tabela de Escoteiros</a>
-        //         <a className="aa" href="/recebermensalidade">Receber mensalidades</a>
-        //         <button id="botao" className="aa" onClick={() => fetchAbrirCaixa()}>
-        //             Abrir caixa
-        //         </button>
-        //         <button id="botao1" className="aa" onClick={() => gerenciarMensalidades()}>
-        //             Gerar Mensalidades
-        //         </button>
-        //     </div>
-        //     <div>
-        //         <h1>
-        //             Example heading
-        //             <Badge bg="secondary" as={Button}>
-        //                 New
-        //             </Badge>
-        //         </h1>
-        //     </div>
-        // </div>
     );
 }
